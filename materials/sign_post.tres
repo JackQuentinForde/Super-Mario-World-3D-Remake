@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://db01xn6ddm28"]
+
+[ext_resource type="Texture2D" uid="uid://b13gvdavw6tdi" path="res://assets/textures/Yoshi's Island 1/SignPost_Texture.png" id="1_q83wf"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_q83wf")
+texture_filter = 0

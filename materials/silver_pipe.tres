@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqppgw8saj4yd"]
+
+[ext_resource type="Texture2D" uid="uid://dlp1jg7iwncxm" path="res://assets/textures/Yoshi's Island 1/LightSilverPipe_Texture.png" id="1_s0wn3"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_s0wn3")
+texture_filter = 0

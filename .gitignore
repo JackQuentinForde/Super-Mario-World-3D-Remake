@@ -1,0 +1,30 @@
+# Godot 4+ specific ignores
+.godot/
+
+/assets/models/Mario.glb
+/assets/models/Yoshi's Island 1.glb
+/assets/models/Yoshi's Island 1.glb.import
+/assets/textures/Yoshi's Island 1/Grass_Texture.png
+/assets/textures/Yoshi's Island 1/Grass_Texture.png.import
+/assets/textures/Yoshi's Island 1/Grass2_Texture.png
+/assets/textures/Yoshi's Island 1/Grass2_Texture.png.import
+/assets/textures/Yoshi's Island 1/Ground_Texture.png
+/assets/textures/Yoshi's Island 1/Ground_Texture.png.import
+/assets/textures/Yoshi's Island 1/LargeBush_Texture.png
+/assets/textures/Yoshi's Island 1/LargeBush_Texture.png.import
+/assets/textures/Yoshi's Island 1/LightSilverPipe_Texture.png
+/assets/textures/Yoshi's Island 1/LightSilverPipe_Texture.png.import
+/assets/textures/Yoshi's Island 1/Pipe_Texture.png
+/assets/textures/Yoshi's Island 1/Pipe_Texture.png.import
+/assets/textures/Yoshi's Island 1/Sign_Texture.png
+/assets/textures/Yoshi's Island 1/Sign_Texture.png.import
+/assets/textures/Yoshi's Island 1/SignPost_Texture.png
+/assets/textures/Yoshi's Island 1/SignPost_Texture.png.import
+/assets/textures/Yoshi's Island 1/SilverPipe_Texture.png
+/assets/textures/Yoshi's Island 1/SilverPipe_Texture.png.import
+/assets/textures/Yoshi's Island 1/SmallBush_Texture.png
+/assets/textures/Yoshi's Island 1/SmallBush_Texture.png.import
+/assets/textures/Yoshi's Island 1/StoneBlock_Texture.png
+/assets/textures/Yoshi's Island 1/StoneBlock_Texture.png.import
+/assets/textures/Yoshi's Island 1/YoshiCloud_Texture.png
+/assets/textures/Yoshi's Island 1/YoshiCloud_Texture.png.import

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://l6jaqbibqevw"]
+
+[ext_resource type="Texture2D" uid="uid://ine7kl00bdjn" path="res://assets/textures/Yoshi's Island 1/SmallBush_Texture.png" id="1_pgkf0"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_pgkf0")
+texture_filter = 0

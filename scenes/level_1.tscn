@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bds01f02b41qb"]
+
+[ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
+
+[node name="Level 1" type="Node3D"]
+
+[node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]

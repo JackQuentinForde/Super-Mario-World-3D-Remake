@@ -1,0 +1,605 @@
+[gd_scene load_steps=16 format=3 uid="uid://fsyt7n6ty72y"]
+
+[ext_resource type="PackedScene" uid="uid://dpmf34jou4y5b" path="res://assets/models/Yoshi's Island 1.glb" id="1_pslsb"]
+[ext_resource type="Material" uid="uid://bomclc27alibl" path="res://materials/ground.tres" id="2_1ms13"]
+[ext_resource type="Material" uid="uid://7ffdc3ri7ppj" path="res://materials/large_bush.tres" id="2_ayako"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_jy3o4"]
+[ext_resource type="Texture2D" uid="uid://wilovlp342aw" path="res://assets/textures/Yoshi's Island 1/Grass_Texture.png" id="4_24f8x"]
+[ext_resource type="Material" uid="uid://dpm0dhevhtryw" path="res://materials/green_pipe.tres" id="4_82swg"]
+[ext_resource type="Material" uid="uid://c0e7p4r30c54j" path="res://materials/sign.tres" id="4_aayna"]
+[ext_resource type="Material" uid="uid://baqy4wx8cg5fg" path="res://materials/grass_2.tres" id="5_6d0jx"]
+[ext_resource type="Material" uid="uid://l6jaqbibqevw" path="res://materials/small_bush.tres" id="6_jaa0g"]
+[ext_resource type="Material" uid="uid://mk0f5b0vpi5a" path="res://materials/blue_pipe.tres" id="6_opis8"]
+[ext_resource type="Material" uid="uid://db01xn6ddm28" path="res://materials/sign_post.tres" id="7_0q3bb"]
+[ext_resource type="Material" uid="uid://dqppgw8saj4yd" path="res://materials/silver_pipe.tres" id="7_auygq"]
+[ext_resource type="Material" uid="uid://c6y412jyye8h4" path="res://materials/stone_block.tres" id="8_cnutg"]
+[ext_resource type="Material" uid="uid://cvvwms616pvyl" path="res://materials/yoshi_cloud.tres" id="10_filf5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxo5a"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_24f8x")
+texture_filter = 0
+
+[node name="Yoshi\'s Island 1" instance=ExtResource("1_pslsb")]
+
+[node name="StoneBlock004" parent="." index="0"]
+visible = false
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock005" parent="." index="1"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock010" parent="." index="2"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock015" parent="." index="3"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock016" parent="." index="4"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock021" parent="." index="5"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock026" parent="." index="6"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock027" parent="." index="7"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock032" parent="." index="8"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock037" parent="." index="9"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock038" parent="." index="10"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock043" parent="." index="11"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock044" parent="." index="12"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock045" parent="." index="13"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock046" parent="." index="14"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock047" parent="." index="15"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock048" parent="." index="16"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock049" parent="." index="17"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock050" parent="." index="18"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock051" parent="." index="19"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Grass" parent="." index="20"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wxo5a")
+
+[node name="Grass001" parent="." index="21"]
+surface_material_override/0 = ExtResource("5_6d0jx")
+
+[node name="Sign" parent="." index="22"]
+surface_material_override/0 = ExtResource("4_aayna")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="SignPole" parent="." index="23"]
+surface_material_override/0 = ExtResource("7_0q3bb")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="BigBush" parent="." index="24"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush001" parent="." index="25"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush002" parent="." index="26"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush003" parent="." index="27"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush004" parent="." index="28"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush005" parent="." index="29"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush006" parent="." index="30"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush007" parent="." index="31"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="BigBush008" parent="." index="32"]
+surface_material_override/0 = ExtResource("2_ayako")
+
+[node name="Ground" parent="." index="33"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar" parent="." index="34"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar001" parent="." index="35"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar002" parent="." index="36"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar003" parent="." index="37"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar004" parent="." index="38"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar005" parent="." index="39"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar006" parent="." index="40"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pillar007" parent="." index="41"]
+surface_material_override/0 = ExtResource("2_1ms13")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe" parent="." index="42"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe002" parent="." index="43"]
+surface_material_override/0 = ExtResource("6_opis8")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe003" parent="." index="44"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe004" parent="." index="45"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe005" parent="." index="46"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe006" parent="." index="47"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe007" parent="." index="48"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe008" parent="." index="49"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe009" parent="." index="50"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe010" parent="." index="51"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe011" parent="." index="52"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe012" parent="." index="53"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe013" parent="." index="54"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe014" parent="." index="55"]
+surface_material_override/0 = ExtResource("7_auygq")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe015" parent="." index="56"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="Pipe016" parent="." index="57"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="SmallBush" parent="." index="58"]
+surface_material_override/0 = ExtResource("6_jaa0g")
+
+[node name="SmallBush001" parent="." index="59"]
+surface_material_override/0 = ExtResource("6_jaa0g")
+
+[node name="SmallBush002" parent="." index="60"]
+surface_material_override/0 = ExtResource("6_jaa0g")
+
+[node name="SmallBush003" parent="." index="61"]
+surface_material_override/0 = ExtResource("6_jaa0g")
+
+[node name="ThinPipe" parent="." index="62"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe001" parent="." index="63"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe002" parent="." index="64"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe003" parent="." index="65"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe004" parent="." index="66"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe005" parent="." index="67"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe006" parent="." index="68"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe007" parent="." index="69"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe008" parent="." index="70"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe009" parent="." index="71"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe010" parent="." index="72"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe011" parent="." index="73"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe012" parent="." index="74"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe013" parent="." index="75"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe014" parent="." index="76"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe015" parent="." index="77"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe016" parent="." index="78"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe017" parent="." index="79"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe018" parent="." index="80"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe019" parent="." index="81"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe020" parent="." index="82"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe021" parent="." index="83"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe022" parent="." index="84"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe023" parent="." index="85"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe024" parent="." index="86"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe025" parent="." index="87"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe026" parent="." index="88"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe027" parent="." index="89"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe028" parent="." index="90"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe029" parent="." index="91"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe030" parent="." index="92"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe031" parent="." index="93"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe032" parent="." index="94"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="ThinPipe033" parent="." index="95"]
+surface_material_override/0 = ExtResource("4_82swg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock" parent="." index="96"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock001" parent="." index="97"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock002" parent="." index="98"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock003" parent="." index="99"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock006" parent="." index="100"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock007" parent="." index="101"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock008" parent="." index="102"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock009" parent="." index="103"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock011" parent="." index="104"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock012" parent="." index="105"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock013" parent="." index="106"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock014" parent="." index="107"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock017" parent="." index="108"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock018" parent="." index="109"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock019" parent="." index="110"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock020" parent="." index="111"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock022" parent="." index="112"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock023" parent="." index="113"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock024" parent="." index="114"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock025" parent="." index="115"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock028" parent="." index="116"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock029" parent="." index="117"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock030" parent="." index="118"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock031" parent="." index="119"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock033" parent="." index="120"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock034" parent="." index="121"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock035" parent="." index="122"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock036" parent="." index="123"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock039" parent="." index="124"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock040" parent="." index="125"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock041" parent="." index="126"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="StoneBlock042" parent="." index="127"]
+surface_material_override/0 = ExtResource("8_cnutg")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud016" parent="." index="128"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud017" parent="." index="129"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud018" parent="." index="130"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud019" parent="." index="131"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud020" parent="." index="132"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud" parent="." index="133"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud001" parent="." index="134"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud002" parent="." index="135"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud003" parent="." index="136"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud004" parent="." index="137"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud005" parent="." index="138"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud006" parent="." index="139"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud007" parent="." index="140"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud008" parent="." index="141"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud009" parent="." index="142"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud010" parent="." index="143"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud011" parent="." index="144"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud012" parent="." index="145"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud013" parent="." index="146"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")
+
+[node name="YoshiCloud015" parent="." index="147"]
+surface_material_override/0 = ExtResource("10_filf5")
+surface_material_override/1 = ExtResource("3_jy3o4")

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cvvwms616pvyl"]
+
+[ext_resource type="Texture2D" uid="uid://bfyyypycs5o70" path="res://assets/textures/Yoshi's Island 1/YoshiCloud_Texture.png" id="1_1lr1l"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_1lr1l")
+texture_filter = 0
