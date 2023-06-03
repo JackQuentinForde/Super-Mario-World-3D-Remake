@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://d237ljdpc6hwn"]
+
+[ext_resource type="PackedScene" uid="uid://cow82i1a3tmc6" path="res://assets/models/Mario.glb" id="1_llfb4"]
+[ext_resource type="Texture2D" uid="uid://biaxh4lxrq0p2" path="res://assets/textures/Mario/Body_Texture_2.png" id="2_qpst5"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_b6uk6"]
+[ext_resource type="Texture2D" uid="uid://b4p7kuem7a06b" path="res://assets/textures/Mario/Hat_Texture_2.png" id="4_j6tbr"]
+[ext_resource type="Texture2D" uid="uid://bps544xrksswi" path="res://assets/textures/Mario/MarioHead_Texture_2.png" id="5_ht2n2"]
+[ext_resource type="Material" uid="uid://yg5bv35i4bce" path="res://materials/mario_arms.tres" id="6_nmxrv"]
+[ext_resource type="Material" uid="uid://du4krqbow4k7w" path="res://materials/mario_skin.tres" id="7_8u4n8"]
+[ext_resource type="Material" uid="uid://buy1m4inkdv2y" path="res://materials/mario_feet.tres" id="8_1o65c"]
+[ext_resource type="Material" uid="uid://bpjbnllpuyinx" path="res://materials/mario_gloves.tres" id="8_3q8ks"]
+[ext_resource type="Material" uid="uid://dwimdi5smkp45" path="res://materials/mario_legs.tres" id="9_e7vti"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ekbx"]
+shading_mode = 0
+albedo_texture = ExtResource("2_qpst5")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glckm"]
+shading_mode = 0
+albedo_texture = ExtResource("4_j6tbr")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skt6s"]
+shading_mode = 0
+albedo_texture = ExtResource("5_ht2n2")
+texture_filter = 0
+
+[node name="Mario" instance=ExtResource("1_llfb4")]
+
+[node name="Body" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1ekbx")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="Hat" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_glckm")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="Head" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_skt6s")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="LeftArm" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("6_nmxrv")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="LeftEar" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("7_8u4n8")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="LeftFoot" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("8_1o65c")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="LeftHand" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("8_3q8ks")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="LeftLeg" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("9_e7vti")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="Nose" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("7_8u4n8")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="RightArm" parent="Armature/Skeleton3D" index="9"]
+surface_material_override/0 = ExtResource("6_nmxrv")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="RightEar" parent="Armature/Skeleton3D" index="10"]
+surface_material_override/0 = ExtResource("7_8u4n8")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="RightFoot" parent="Armature/Skeleton3D" index="11"]
+surface_material_override/0 = ExtResource("8_1o65c")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="RightHand" parent="Armature/Skeleton3D" index="12"]
+surface_material_override/0 = ExtResource("8_3q8ks")
+surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="RightLeg" parent="Armature/Skeleton3D" index="13"]
+surface_material_override/0 = ExtResource("9_e7vti")
+surface_material_override/1 = ExtResource("3_b6uk6")

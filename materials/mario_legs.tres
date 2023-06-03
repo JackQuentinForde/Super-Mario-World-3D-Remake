@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwimdi5smkp45"]
+
+[ext_resource type="Texture2D" uid="uid://bj2hvae3i2oxp" path="res://assets/textures/Mario/Legs_Texture.png" id="1_fi3ce"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_fi3ce")
+texture_filter = 0
