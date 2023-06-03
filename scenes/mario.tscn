@@ -28,6 +28,12 @@ texture_filter = 0
 
 [node name="Mario" instance=ExtResource("1_llfb4")]
 
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(-0.274046, 0.0130604, 0.0425879, 0.960685)
+bones/2/rotation = Quaternion(-0.248112, -0.100482, -0.171175, 0.948179)
+bones/13/rotation = Quaternion(-0.274046, -0.0130604, -0.0425879, 0.960685)
+bones/14/rotation = Quaternion(-0.248112, 0.100482, 0.171175, 0.948179)
+
 [node name="Body" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_1ekbx")
 surface_material_override/1 = ExtResource("3_b6uk6")
@@ -83,3 +89,6 @@ surface_material_override/1 = ExtResource("3_b6uk6")
 [node name="RightLeg" parent="Armature/Skeleton3D" index="13"]
 surface_material_override/0 = ExtResource("9_e7vti")
 surface_material_override/1 = ExtResource("3_b6uk6")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Idle"
