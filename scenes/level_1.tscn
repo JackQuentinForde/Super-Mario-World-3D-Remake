@@ -1,23 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=6 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
 [ext_resource type="PackedScene" uid="uid://d237ljdpc6hwn" path="res://scenes/mario.tscn" id="2_uewko"]
+[ext_resource type="Script" path="res://scripts/SpringArm3D.gd" id="4_1janr"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_nj5ox"]
-height = 1.84018
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
+height = 1.96005
 
 [node name="Level 1" type="Node3D"]
 
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 
 [node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("2_2osan")
 
 [node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.77088, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.92028, 0)
-shape = SubResource("CylinderShape3D_nj5ox")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98114, 0)
+shape = SubResource("CapsuleShape3D_dke0w")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 9, 0)
+[node name="SpringArm3D" type="SpringArm3D" parent="Player"]
+spring_length = 7.0
+margin = 0.2
+script = ExtResource("4_1janr")
+
+[node name="Camera3D" type="Camera3D" parent="Player/SpringArm3D"]
