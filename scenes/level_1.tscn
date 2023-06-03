@@ -13,6 +13,8 @@ height = 1.96005
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 
 [node name="Player" type="CharacterBody3D" parent="."]
+floor_stop_on_slope = false
+floor_max_angle = 1.3247
 script = ExtResource("2_2osan")
 
 [node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
@@ -23,7 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98114, 0)
 shape = SubResource("CapsuleShape3D_dke0w")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Player"]
-spring_length = 7.0
+spring_length = 20.0
 margin = 0.2
 script = ExtResource("4_1janr")
 

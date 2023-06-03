@@ -10,6 +10,6 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotation_degrees.x -= event.relative.y * mousSensitivity
-		rotation_degrees.x = clamp(rotation_degrees.x, -90.0, 30.0)
+		rotation_degrees.x = clamp(rotation_degrees.x, -25.0, 0.0)
 		rotation_degrees.y -= event.relative.x * mousSensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
