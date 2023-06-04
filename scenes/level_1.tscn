@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
 [ext_resource type="PackedScene" uid="uid://d237ljdpc6hwn" path="res://scenes/mario.tscn" id="2_uewko"]
-[ext_resource type="Script" path="res://scripts/SpringArm3D.gd" id="4_1janr"]
+[ext_resource type="Script" path="res://scripts/CameraBasis.gd" id="4_ew7dw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
@@ -24,9 +24,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.77088, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98114, 0)
 shape = SubResource("CapsuleShape3D_dke0w")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Player"]
-spring_length = 20.0
-margin = 0.2
-script = ExtResource("4_1janr")
+[node name="CameraBasis" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+script = ExtResource("4_ew7dw")
 
-[node name="Camera3D" type="Camera3D" parent="Player/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="Player/CameraBasis"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1, 12)
+fov = 60.0
