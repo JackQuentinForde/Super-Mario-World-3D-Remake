@@ -34,6 +34,10 @@ CameraLeft={
 ]
 }
 
+[physics]
+
+3d/default_gravity=10.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

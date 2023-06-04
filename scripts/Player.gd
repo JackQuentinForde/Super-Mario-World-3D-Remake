@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 7.5
+const SPEED = 8
+const TURN_SPEED = 1
 const JUMP_VELOCITY = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -29,11 +30,25 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		direction = direction.rotated(Vector3.UP, cameraBasis.rotation.y).normalized()
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		if velocity.x < direction.x * SPEED:
+			velocity.x += TURN_SPEED
+			if velocity.x > direction.x * SPEED:
+				velocity.x = direction.x * SPEED
+		elif velocity.x > direction.x * SPEED:
+			velocity.x -= TURN_SPEED
+			if velocity.x < direction.x * SPEED:
+				velocity.x = direction.x * SPEED
+		if velocity.z < direction.z * SPEED:
+			velocity.z += TURN_SPEED
+			if velocity.z > direction.z * SPEED:
+				velocity.z = direction.z * SPEED
+		elif velocity.z > direction.z * SPEED:
+			velocity.z -= TURN_SPEED
+			if velocity.z < direction.z * SPEED:
+				velocity.z = direction.z * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, TURN_SPEED)
+		velocity.z = move_toward(velocity.z, 0, TURN_SPEED)
 
 	move_and_slide()
 	

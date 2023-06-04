@@ -29,10 +29,15 @@ texture_filter = 0
 [node name="Mario" instance=ExtResource("1_llfb4")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(-0.274046, 0.0130604, 0.0425879, 0.960685)
-bones/2/rotation = Quaternion(-0.248112, -0.100482, -0.171175, 0.948179)
-bones/13/rotation = Quaternion(-0.274046, -0.0130604, -0.0425879, 0.960685)
-bones/14/rotation = Quaternion(-0.248112, 0.100482, 0.171175, 0.948179)
+bones/1/rotation = Quaternion(-0.273703, 0.0130448, 0.0425934, 0.960782)
+bones/2/rotation = Quaternion(-0.248798, -0.100542, -0.17109, 0.948008)
+bones/5/rotation = Quaternion(0.0166186, 0.0585087, -0.858479, 0.509228)
+bones/6/rotation = Quaternion(0.0839449, -2.8848e-05, 0.000570066, 0.99647)
+bones/9/rotation = Quaternion(0.0166186, -0.0585087, 0.858479, 0.509228)
+bones/10/rotation = Quaternion(0.0839449, 2.88482e-05, -0.000570066, 0.99647)
+bones/13/rotation = Quaternion(-0.273704, -0.0130449, -0.0425934, 0.960782)
+bones/14/rotation = Quaternion(-0.248798, 0.100542, 0.17109, 0.948008)
+bones/15/rotation = Quaternion(0.000112542, 0, 0, 1)
 
 [node name="Body" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_1ekbx")
