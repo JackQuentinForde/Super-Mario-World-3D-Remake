@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d237ljdpc6hwn"]
 
-[ext_resource type="PackedScene" uid="uid://cow82i1a3tmc6" path="res://assets/models/Mario.glb" id="1_llfb4"]
+[ext_resource type="PackedScene" uid="uid://8gppn0yehlql" path="res://assets/models/Mario.glb" id="1_llfb4"]
 [ext_resource type="Texture2D" uid="uid://biaxh4lxrq0p2" path="res://assets/textures/Mario/Body_Texture_2.png" id="2_qpst5"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_b6uk6"]
 [ext_resource type="Texture2D" uid="uid://b4p7kuem7a06b" path="res://assets/textures/Mario/Hat_Texture_2.png" id="4_j6tbr"]
@@ -31,9 +31,9 @@ texture_filter = 0
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/1/rotation = Quaternion(-0.273703, 0.0130448, 0.0425934, 0.960782)
 bones/2/rotation = Quaternion(-0.248798, -0.100542, -0.17109, 0.948008)
-bones/5/rotation = Quaternion(0.0166186, 0.0585087, -0.858479, 0.509228)
+bones/5/rotation = Quaternion(0.0166186, 0.0585087, -0.85848, 0.509228)
 bones/6/rotation = Quaternion(0.0839449, -2.8848e-05, 0.000570066, 0.99647)
-bones/9/rotation = Quaternion(0.0166186, -0.0585087, 0.858479, 0.509228)
+bones/9/rotation = Quaternion(0.0166186, -0.0585087, 0.85848, 0.509228)
 bones/10/rotation = Quaternion(0.0839449, 2.88482e-05, -0.000570066, 0.99647)
 bones/13/rotation = Quaternion(-0.273704, -0.0130449, -0.0425934, 0.960782)
 bones/14/rotation = Quaternion(-0.248798, 0.100542, 0.17109, 0.948008)
