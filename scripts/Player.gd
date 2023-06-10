@@ -6,6 +6,7 @@ const TURN_SPEED = 1
 const JUMP_ACCEL = 1
 const JUMP_MIN_VELOCITY = 5
 const JUMP_MAX_VELOCITY = 10
+const ANIMATION_RUN_SPEED = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,8 +37,10 @@ func _physics_process(delta):
 	else:
 		if Input.is_action_pressed("player_sprint"):
 			speed = RUN_SPEED
+			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
 		else:
 			speed = WALK_SPEED
+			animationPlayer.speed_scale = 1
 			
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
