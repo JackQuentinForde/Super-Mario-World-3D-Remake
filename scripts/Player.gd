@@ -45,6 +45,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
 		velocity.y = JUMP_MIN_VELOCITY
+		$AudioStreamPlayer.play()
 		jumpReleased = false
 
 	# Get the input direction and handle the movement/deceleration.
