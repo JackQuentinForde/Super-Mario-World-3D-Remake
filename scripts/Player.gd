@@ -4,6 +4,7 @@ const WALK_SPEED = 8
 const RUN_SPEED = 12
 const TURN_SPEED = 1
 const JUMP_ACCEL = 1
+const JUMP_MIN_VELOCITY = 5
 const JUMP_MAX_VELOCITY = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -39,7 +40,7 @@ func _physics_process(delta):
 			
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
-		velocity.y = JUMP_MAX_VELOCITY / 2
+		velocity.y = JUMP_MIN_VELOCITY
 		jumpReleased = false
 
 	# Get the input direction and handle the movement/deceleration.
@@ -64,6 +65,9 @@ func _physics_process(delta):
 			velocity.z -= TURN_SPEED
 			if velocity.z < direction.z * speed:
 				velocity.z = direction.z * speed
+		
+		var lookDirection = Vector2(direction.z, direction.x)
+		mario.rotation.y = lookDirection.angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, TURN_SPEED)
 		velocity.z = move_toward(velocity.z, 0, TURN_SPEED)
@@ -80,10 +84,6 @@ func _physics_process(delta):
 		if !jumping:
 			animationPlayer.play("Jump")
 		jumping = true
-	
-	if velocity.length() > 0.2:
-		var lookDirection = Vector2(velocity.z, velocity.x)
-		mario.rotation.y = lookDirection.angle()
 		
 func JumpLogic():
 	if Input.is_action_pressed("player_jump") and !jumpReleased:
