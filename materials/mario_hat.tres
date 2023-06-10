@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bj04puhjdhlbe"]
+
+[ext_resource type="Texture2D" uid="uid://b4p7kuem7a06b" path="res://assets/textures/Mario/Hat_Texture_2.png" id="1_v6suo"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_v6suo")
+texture_filter = 0

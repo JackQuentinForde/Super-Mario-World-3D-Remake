@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=5 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
 [ext_resource type="PackedScene" uid="uid://d237ljdpc6hwn" path="res://scenes/mario.tscn" id="2_uewko"]
-[ext_resource type="Script" path="res://scripts/CameraBasis.gd" id="4_ew7dw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
@@ -17,17 +16,16 @@ floor_stop_on_slope = false
 floor_max_angle = 1.3247
 script = ExtResource("2_2osan")
 
-[node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.77088, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98114, 0)
 shape = SubResource("CapsuleShape3D_dke0w")
 
 [node name="CameraBasis" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
-script = ExtResource("4_ew7dw")
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraBasis"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 14)
 fov = 60.0
+
+[node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.79409, 0)

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://vkjlhss8ltqr"]
+
+[ext_resource type="Texture2D" uid="uid://biaxh4lxrq0p2" path="res://assets/textures/Mario/Body_Texture_2.png" id="1_ves45"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_ves45")
+texture_filter = 0

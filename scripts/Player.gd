@@ -2,18 +2,23 @@ extends CharacterBody3D
 
 const SPEED = 8
 const TURN_SPEED = 1
-const JUMP_VELOCITY = 5
+const JUMP_VELOCITY = 8
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var jumping = false
+
 # variables that are set in the ready function
 var cameraBasis
 var mario
+var animationPlayer
 
 func _ready():
 	cameraBasis = $CameraBasis
 	mario = $Mario
+	animationPlayer = $Mario/AnimationPlayer
+	cameraBasis.rotation_degrees.y = -90
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -53,13 +58,16 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if is_on_floor():
+		jumping = false
 		if velocity.x != 0 or velocity.z != 0:
-			mario.get_node("AnimationPlayer").play("Walk")
+			animationPlayer.play("Walk")
 		else:
-			mario.get_node("AnimationPlayer").play("Idle")
+			animationPlayer.play("Idle")
 	else:
-		mario.get_node("AnimationPlayer").play("Jump")
+		if !jumping:
+			animationPlayer.play("Jump")
+		jumping = true
 	
-	if velocity.length() > 0.2 and is_on_floor():
+	if velocity.length() > 0.2:
 		var lookDirection = Vector2(velocity.z, velocity.x)
 		mario.rotation.y = lookDirection.angle()
