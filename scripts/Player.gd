@@ -24,6 +24,7 @@ func _ready():
 	mario = $Mario
 	animationPlayer = $Mario/AnimationPlayer
 	cameraBasis.rotation_degrees.y = -90
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _physics_process(delta):
 	JumpLogic()
