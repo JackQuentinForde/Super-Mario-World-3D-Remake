@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=6 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
@@ -7,13 +7,15 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3ebs"]
+
 [node name="Level 1" type="Node3D"]
 
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 
 [node name="Player" type="CharacterBody3D" parent="."]
 floor_stop_on_slope = false
-floor_max_angle = 1.3247
+floor_max_angle = 1.309
 script = ExtResource("2_2osan")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
@@ -29,3 +31,7 @@ fov = 60.0
 
 [node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.79409, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, 5.5, 0)
+shape = SubResource("BoxShape3D_x3ebs")
