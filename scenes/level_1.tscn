@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=8 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
 [ext_resource type="PackedScene" uid="uid://d237ljdpc6hwn" path="res://scenes/mario.tscn" id="2_uewko"]
 [ext_resource type="AudioStream" uid="uid://x56yhie1h7uy" path="res://assets/sounds/Jump.wav" id="4_vkpjs"]
+[ext_resource type="AudioStream" uid="uid://cqve8k3iddok8" path="res://assets/music/Super Mario World Overworld Remastered.ogg" id="5_i8t4b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
@@ -39,3 +40,8 @@ shape = SubResource("BoxShape3D_x3ebs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("4_vkpjs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_i8t4b")
+volume_db = -26.0
+autoplay = true
