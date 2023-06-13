@@ -3,6 +3,7 @@ extends CharacterBody3D
 const WALK_SPEED = 8
 const RUN_SPEED = 12
 const TURN_SPEED = 1
+const AIR_TURN_SPEED = 0.25
 const JUMP_ACCEL = 1
 const JUMP_MIN_VELOCITY = 5
 const JUMP_MAX_VELOCITY = 10
@@ -14,6 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var jumping = false
 var jumpReleased = true
 var speed
+var turnSpeed
 
 # variables that are set in the ready function
 var cameraBasis
@@ -32,9 +34,11 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		speed = WALK_SPEED
+		turnSpeed = AIR_TURN_SPEED
 		# apply gravity
 		velocity.y -= gravity * delta
 	else:
+		turnSpeed = TURN_SPEED
 		if Input.is_action_pressed("player_sprint"):
 			speed = RUN_SPEED
 			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
@@ -55,27 +59,27 @@ func _physics_process(delta):
 	if direction:
 		direction = direction.rotated(Vector3.UP, cameraBasis.rotation.y).normalized()
 		if velocity.x < direction.x * speed:
-			velocity.x += TURN_SPEED
+			velocity.x += turnSpeed
 			if velocity.x > direction.x * speed:
 				velocity.x = direction.x * speed
 		elif velocity.x > direction.x * speed:
-			velocity.x -= TURN_SPEED
+			velocity.x -= turnSpeed
 			if velocity.x < direction.x * speed:
 				velocity.x = direction.x * speed
 		if velocity.z < direction.z * speed:
-			velocity.z += TURN_SPEED
+			velocity.z += turnSpeed
 			if velocity.z > direction.z * speed:
 				velocity.z = direction.z * speed
 		elif velocity.z > direction.z * speed:
-			velocity.z -= TURN_SPEED
+			velocity.z -= turnSpeed
 			if velocity.z < direction.z * speed:
 				velocity.z = direction.z * speed
 		
-		var lookDirection = Vector2(direction.z, direction.x)
+		var lookDirection = Vector2(velocity.z, velocity.x)
 		mario.rotation.y = lookDirection.angle()
 	else:
-		velocity.x = move_toward(velocity.x, 0, TURN_SPEED)
-		velocity.z = move_toward(velocity.z, 0, TURN_SPEED)
+		velocity.x = move_toward(velocity.x, 0, turnSpeed)
+		velocity.z = move_toward(velocity.z, 0, turnSpeed)
 
 	move_and_slide()
 	
