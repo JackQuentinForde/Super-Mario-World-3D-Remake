@@ -3,10 +3,11 @@ extends CharacterBody3D
 const WALK_SPEED = 8
 const RUN_SPEED = 12
 const TURN_SPEED = 1
-const AIR_TURN_SPEED = 0.25
+const AIR_TURN_SPEED = 0.2
+const ACCEL = 0.2
 const JUMP_ACCEL = 1
-const JUMP_MIN_VELOCITY = 5
-const JUMP_MAX_VELOCITY = 10
+const JUMP_MIN_VELOCITY = 3
+const JUMP_MAX_VELOCITY = 9
 const ANIMATION_RUN_SPEED = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,18 +33,29 @@ func _ready():
 func _physics_process(delta):
 	JumpLogic()
 	
+	# apply gravity
+	velocity.y -= gravity * delta
+	
 	if not is_on_floor():
 		speed = WALK_SPEED
 		turnSpeed = AIR_TURN_SPEED
-		# apply gravity
-		velocity.y -= gravity * delta
 	else:
 		turnSpeed = TURN_SPEED
 		if Input.is_action_pressed("player_sprint"):
-			speed = RUN_SPEED
+			if speed < RUN_SPEED:
+				speed += ACCEL
+				if speed > RUN_SPEED:
+					speed = RUN_SPEED
 			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
 		else:
-			speed = WALK_SPEED
+			if speed > WALK_SPEED:
+				speed -= ACCEL
+				if speed < WALK_SPEED:
+					speed = WALK_SPEED
+			elif speed < WALK_SPEED:
+				speed += ACCEL
+				if speed > WALK_SPEED:
+					speed = WALK_SPEED
 			animationPlayer.speed_scale = 1
 			
 	# Handle Jump.
