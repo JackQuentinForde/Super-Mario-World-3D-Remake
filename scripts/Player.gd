@@ -28,73 +28,66 @@ func _ready():
 	mario = $Mario
 	animationPlayer = $Mario/AnimationPlayer
 	cameraBasis.rotation_degrees.y = -90
+	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _physics_process(delta):
 	JumpLogic()
-	
-	# apply gravity
-	velocity.y -= gravity * delta
-	
+	ApplyGravity(delta)
+	SetMoveSpeed()
+	SetTurnSpeed()
+	MoveLogic()
+	move_and_slide()
+	AnimationLogic()
+		
+func SetMoveSpeed():
+	if Input.is_action_pressed("player_sprint") and is_on_floor():
+		speed = min(speed + ACCEL, RUN_SPEED)
+		animationPlayer.speed_scale = ANIMATION_RUN_SPEED
+	else:
+		if speed > WALK_SPEED:
+			speed = max(speed - ACCEL, WALK_SPEED)
+		elif speed < WALK_SPEED:
+			speed = min(speed + ACCEL, WALK_SPEED)
+		animationPlayer.speed_scale = 1
+		
+func SetTurnSpeed():
 	if not is_on_floor():
-		speed = WALK_SPEED
 		turnSpeed = AIR_TURN_SPEED
 	else:
 		turnSpeed = TURN_SPEED
-		if Input.is_action_pressed("player_sprint"):
-			if speed < RUN_SPEED:
-				speed += ACCEL
-				if speed > RUN_SPEED:
-					speed = RUN_SPEED
-			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
-		else:
-			if speed > WALK_SPEED:
-				speed -= ACCEL
-				if speed < WALK_SPEED:
-					speed = WALK_SPEED
-			elif speed < WALK_SPEED:
-				speed += ACCEL
-				if speed > WALK_SPEED:
-					speed = WALK_SPEED
-			animationPlayer.speed_scale = 1
-			
-	# Handle Jump.
-	if Input.is_action_just_pressed("player_jump") and is_on_floor():
-		velocity.y = JUMP_MIN_VELOCITY
-		$AudioStreamPlayer.play()
-		jumpReleased = false
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		
+func MoveLogic():
 	var input_dir = Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		direction = direction.rotated(Vector3.UP, cameraBasis.rotation.y).normalized()
-		if velocity.x < direction.x * speed:
-			velocity.x += turnSpeed
-			if velocity.x > direction.x * speed:
-				velocity.x = direction.x * speed
-		elif velocity.x > direction.x * speed:
-			velocity.x -= turnSpeed
-			if velocity.x < direction.x * speed:
-				velocity.x = direction.x * speed
-		if velocity.z < direction.z * speed:
-			velocity.z += turnSpeed
-			if velocity.z > direction.z * speed:
-				velocity.z = direction.z * speed
-		elif velocity.z > direction.z * speed:
-			velocity.z -= turnSpeed
-			if velocity.z < direction.z * speed:
-				velocity.z = direction.z * speed
-		
+		var target_velocity = direction * speed
+		velocity.x = move_toward(velocity.x, target_velocity.x, turnSpeed)
+		velocity.z = move_toward(velocity.z, target_velocity.z, turnSpeed)
 		var lookDirection = Vector2(velocity.z, velocity.x)
 		mario.rotation.y = lookDirection.angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, turnSpeed)
-		velocity.z = move_toward(velocity.z, 0, turnSpeed)
-
-	move_and_slide()
-	
+		velocity.z = move_toward(velocity.z, 0, turnSpeed)	
+		
+func JumpLogic():
+	if Input.is_action_just_pressed("player_jump"):
+		if is_on_floor():
+			velocity.y = JUMP_MIN_VELOCITY
+			$AudioStreamPlayer.play()
+			jumpReleased = false
+	elif Input.is_action_pressed("player_jump") and !jumpReleased:
+		velocity.y = min(velocity.y + JUMP_ACCEL, JUMP_MAX_VELOCITY)
+		jumpReleased = velocity.y >= JUMP_MAX_VELOCITY
+	else:
+		jumpReleased = true
+		
+func ApplyGravity(delta):
+	velocity.y -= gravity * delta
+		
+func AnimationLogic():
 	if is_on_floor():
 		jumping = false
 		if velocity.x != 0 or velocity.z != 0:
@@ -105,15 +98,3 @@ func _physics_process(delta):
 		if !jumping:
 			animationPlayer.play("Jump")
 		jumping = true
-		
-func JumpLogic():
-	if Input.is_action_pressed("player_jump") and !jumpReleased:
-		if velocity.y < JUMP_MAX_VELOCITY:
-			velocity.y += JUMP_ACCEL
-			if velocity.y >= JUMP_MAX_VELOCITY:
-				velocity.y = JUMP_MAX_VELOCITY
-				jumpReleased = true
-		else:
-			jumpReleased = true
-	else:
-		jumpReleased = true
