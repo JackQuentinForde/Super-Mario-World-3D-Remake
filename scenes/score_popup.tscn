@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Popup.gd" id="1_6hqth"]
 
-[node name="Node3D" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
