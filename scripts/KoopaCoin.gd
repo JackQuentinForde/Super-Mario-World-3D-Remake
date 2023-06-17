@@ -5,13 +5,13 @@ const VALUE = 1000
 var scoreLabel
 
 func _ready():
-	scoreLabel = $"../Score"
+	scoreLabel = $"../CanvasLayer/Score"
 	$Popup.visible = false
 
 func _on_body_entered(_body):
 	collision_mask = 0
 	$Popup.visible = true
-	scoreLabel.text = str(int(scoreLabel.text) + VALUE)
+	scoreLabel.text = "x " + str(int(scoreLabel.text) + VALUE)
 	$AudioStreamPlayer.play()
 	$AnimationPlayer.play("disappear")
 
