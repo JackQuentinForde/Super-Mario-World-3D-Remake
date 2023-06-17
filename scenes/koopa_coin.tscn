@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2rpith82qvhl"]
+[gd_scene load_steps=17 format=3 uid="uid://b2rpith82qvhl"]
 
 [ext_resource type="Texture2D" uid="uid://duwrc70pxppp7" path="res://assets/textures/KoopaCoin_Texture.png" id="2_wu0to"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_r7gdh"]
 [ext_resource type="AudioStream" uid="uid://bysfauvavuiju" path="res://assets/sounds/Koopa Coin.wav" id="4_576vj"]
 [ext_resource type="Script" path="res://scripts/KoopaCoin.gd" id="4_cfbjq"]
+[ext_resource type="Texture2D" uid="uid://6lkiioj346w4" path="res://assets/textures/KoopaCoinScore_Texture.png" id="5_74l2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxalm"]
 
@@ -142,6 +143,12 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_08p1j"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08nn4"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("5_74l2l")
+texture_filter = 0
+
 [node name="Koopa Coin" type="Area3D"]
 collision_layer = 2
 script = ExtResource("4_cfbjq")
@@ -166,5 +173,15 @@ shape = SubResource("CapsuleShape3D_08p1j")
 stream = ExtResource("4_576vj")
 volume_db = -5.0
 
+[node name="Popup" type="Sprite3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 2, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_08nn4")
+texture = ExtResource("5_74l2l")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
