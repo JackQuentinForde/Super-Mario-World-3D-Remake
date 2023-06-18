@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://d237ljdpc6hwn"]
 
-[ext_resource type="PackedScene" uid="uid://cq2ntxm5wgcns" path="res://assets/models/Mario.glb" id="1_llfb4"]
+[ext_resource type="PackedScene" uid="uid://bmjgabtkr775u" path="res://assets/models/Mario.glb" id="1_llfb4"]
 [ext_resource type="Material" uid="uid://vkjlhss8ltqr" path="res://materials/mario_body.tres" id="2_oc5vr"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_b6uk6"]
 [ext_resource type="Material" uid="uid://bj04puhjdhlbe" path="res://materials/mario_hat.tres" id="4_8byl0"]
@@ -12,6 +12,14 @@
 [ext_resource type="Material" uid="uid://dwimdi5smkp45" path="res://materials/mario_legs.tres" id="9_e7vti"]
 
 [node name="Mario" instance=ExtResource("1_llfb4")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(0.0166187, -0.0585087, 0.858479, 0.509228)
+bones/3/rotation = Quaternion(0.0839448, 2.88562e-05, -0.000570067, 0.99647)
+bones/4/rotation = Quaternion(-0.736232, 0.00299621, 0.00171876, 0.676721)
+bones/6/rotation = Quaternion(0.0166187, 0.0585087, -0.858479, 0.509228)
+bones/7/rotation = Quaternion(0.0839448, -2.88561e-05, 0.000570067, 0.99647)
+bones/8/rotation = Quaternion(-0.736232, -0.00299622, -0.00171877, 0.676721)
 
 [node name="Body" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_oc5vr")
