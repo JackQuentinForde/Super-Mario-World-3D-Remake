@@ -6,7 +6,7 @@ const TURN_SPEED = 1
 const AIR_TURN_SPEED = 0.2
 const ACCEL = 0.18
 const JUMP_ACCEL = 1
-const JUMP_MIN_VELOCITY = 3
+const JUMP_MIN_VELOCITY = 6
 const JUMP_MAX_VELOCITY = 9
 const ANIMATION_RUN_SPEED = 1.5
 const ANIMATION_SPRINT_SPEED = 3
@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jumping = false
 var jumpReleased = true
+var spinJump = false
 var speed
 var turnSpeed
 
@@ -34,6 +35,7 @@ func _ready():
 
 func _physics_process(delta):
 	JumpLogic()
+	SpinJumpLogic()
 	ApplyGravity(delta)
 	SetMoveSpeed()
 	SetTurnSpeed()
@@ -65,8 +67,9 @@ func MoveLogic():
 		var target_velocity = direction * speed
 		velocity.x = move_toward(velocity.x, target_velocity.x, turnSpeed)
 		velocity.z = move_toward(velocity.z, target_velocity.z, turnSpeed)
-		var lookDirection = Vector2(velocity.z, velocity.x)
-		mario.rotation.y = lookDirection.angle()
+		if not spinJump:
+			var lookDirection = Vector2(velocity.z, velocity.x)
+			mario.rotation.y = lookDirection.angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, turnSpeed)
 		velocity.z = move_toward(velocity.z, 0, turnSpeed)	
@@ -75,7 +78,7 @@ func JumpLogic():
 	if Input.is_action_just_pressed("player_jump"):
 		if is_on_floor():
 			velocity.y = JUMP_MIN_VELOCITY
-			$AudioStreamPlayer.play()
+			$JumpSound.play()
 			jumpReleased = false
 	elif Input.is_action_pressed("player_jump") and !jumpReleased:
 		velocity.y = min(velocity.y + JUMP_ACCEL, JUMP_MAX_VELOCITY)
@@ -83,12 +86,18 @@ func JumpLogic():
 	else:
 		jumpReleased = true
 		
+func SpinJumpLogic():
+	if Input.is_action_just_pressed("player_spin_jump") and is_on_floor():
+		velocity.y = JUMP_MIN_VELOCITY
+		spinJump = true
+		
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
 		
 func AnimationLogic():
 	if is_on_floor():
 		jumping = false
+		spinJump = false
 		if velocity.x != 0 or velocity.z != 0:
 			if speed == RUN_SPEED:
 				animationPlayer.play("Sprint")
@@ -102,6 +111,11 @@ func AnimationLogic():
 		else:
 			animationPlayer.play("Idle")
 	else:
-		if !jumping:
+		animationPlayer.speed_scale = 1
+		if spinJump:
+			animationPlayer.play("SpinJump")
+			jumping = true
+			spinJump = false
+		elif not jumping:
 			animationPlayer.play("Jump")
-		jumping = true
+			jumping = true
