@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bixo3w7gfw4gw"]
+
+[ext_resource type="PackedScene" uid="uid://v4mbygpwkq0d" path="res://assets/models/Small Mario.glb" id="1_l11qj"]
+[ext_resource type="Material" uid="uid://vkjlhss8ltqr" path="res://materials/mario_body.tres" id="2_rtiy3"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_xurkw"]
+[ext_resource type="Material" uid="uid://bj04puhjdhlbe" path="res://materials/mario_hat.tres" id="4_of3rn"]
+[ext_resource type="Material" uid="uid://cdb6lj58wc6ee" path="res://materials/small_mario_head.tres" id="5_2nfl4"]
+[ext_resource type="Material" uid="uid://yg5bv35i4bce" path="res://materials/mario_arms.tres" id="6_tufkf"]
+[ext_resource type="Material" uid="uid://du4krqbow4k7w" path="res://materials/mario_skin.tres" id="7_6f8o7"]
+[ext_resource type="Material" uid="uid://buy1m4inkdv2y" path="res://materials/mario_feet.tres" id="8_88vws"]
+[ext_resource type="Material" uid="uid://bpjbnllpuyinx" path="res://materials/mario_gloves.tres" id="9_jfhwm"]
+[ext_resource type="Material" uid="uid://dwimdi5smkp45" path="res://materials/mario_legs.tres" id="10_k0adk"]
+
+[node name="Small Mario" instance=ExtResource("1_l11qj")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(-0.274046, -0.0130604, -0.0425879, 0.960685)
+bones/3/rotation = Quaternion(-0.248112, 0.100482, 0.171175, 0.948179)
+bones/5/rotation = Quaternion(-0.274046, 0.0130604, 0.0425879, 0.960685)
+bones/6/rotation = Quaternion(-0.248112, -0.100482, -0.171175, 0.948179)
+
+[node name="Body" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_rtiy3")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="Hat" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("4_of3rn")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="Head" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("5_2nfl4")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="LeftArm" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("6_tufkf")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="LeftEar" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("7_6f8o7")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="LeftFoot" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("8_88vws")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="LeftHand" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("9_jfhwm")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="LeftLeg" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("10_k0adk")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="Nose" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("7_6f8o7")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="RightArm" parent="Armature/Skeleton3D" index="9"]
+surface_material_override/0 = ExtResource("6_tufkf")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="RightEar" parent="Armature/Skeleton3D" index="10"]
+surface_material_override/0 = ExtResource("7_6f8o7")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="RightFoot" parent="Armature/Skeleton3D" index="11"]
+surface_material_override/0 = ExtResource("8_88vws")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="RightHand" parent="Armature/Skeleton3D" index="12"]
+surface_material_override/0 = ExtResource("9_jfhwm")
+surface_material_override/1 = ExtResource("3_xurkw")
+
+[node name="RightLeg" parent="Armature/Skeleton3D" index="13"]
+surface_material_override/0 = ExtResource("10_k0adk")
+surface_material_override/1 = ExtResource("3_xurkw")
