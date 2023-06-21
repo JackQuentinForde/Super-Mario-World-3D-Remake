@@ -29,9 +29,32 @@ floor_max_angle = 1.309
 floor_snap_length = 0.2
 script = ExtResource("2_2osan")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.79409, 0)
+visible = false
+
+[node name="MarioBodyCollision" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.98114, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_dke0w")
+disabled = true
+
+[node name="MarioHeadCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 5.46846, -0.0256355)
+visible = false
+shape = SubResource("SphereShape3D_xk7yh")
+disabled = true
+
+[node name="SmallMario" parent="Player" instance=ExtResource("5_dmojx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.53385, -4.65661e-10)
+
+[node name="SmallMarioBodyCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.50289, 0)
+shape = SubResource("CapsuleShape3D_dke0w")
+
+[node name="SmallMarioHeadCollision" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, 0, 4.98487, -0.0256355)
+shape = SubResource("SphereShape3D_xk7yh")
 
 [node name="CameraBasis" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
@@ -40,25 +63,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 14)
 fov = 60.0
 
-[node name="Mario" parent="Player" instance=ExtResource("2_uewko")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.79409, 0)
-
 [node name="JumpSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("4_vkpjs")
 volume_db = 5.0
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 5.46846, -0.0256355)
-shape = SubResource("SphereShape3D_xk7yh")
-
-[node name="Small Mario" parent="Player" instance=ExtResource("5_dmojx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.53385, -4.65661e-10)
-visible = false
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")
 volume_db = -22.0
-autoplay = true
 
 [node name="Koopa Coin" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 14)

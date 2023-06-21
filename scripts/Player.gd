@@ -27,8 +27,8 @@ var animationPlayer
 
 func _ready():
 	cameraBasis = $CameraBasis
-	mario = $Mario
-	animationPlayer = $Mario/AnimationPlayer
+	mario = $SmallMario
+	animationPlayer = $SmallMario/AnimationPlayer
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
