@@ -19,6 +19,9 @@ var jumpReleased = true
 var spinJump = false
 var speed
 var turnSpeed
+var currentSize
+
+enum {SIZE_SMALL, SIZE_BIG}
 
 # variables that are set in the ready function
 var cameraBasis
@@ -26,6 +29,7 @@ var mario
 var animationPlayer
 
 func _ready():
+	currentSize = SIZE_SMALL
 	cameraBasis = $CameraBasis
 	mario = $SmallMario
 	animationPlayer = $SmallMario/AnimationPlayer
@@ -93,6 +97,29 @@ func SpinJumpLogic():
 		
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
+		
+func ChangeSize(size):
+	if currentSize == size:
+		pass
+	
+	if size == SIZE_BIG:
+		$MarioBodyCollision.disabled = false
+		$MarioHeadCollision.disabled = false
+		$SmallMarioBodyCollision.disabled = true
+		$SmallMarioHeadCollision.disabled = true
+		$SmallMario.visible = false
+		$Mario.visible = true
+		mario = $Mario
+		animationPlayer = $Mario/AnimationPlayer
+	else:
+		$SmallMarioBodyCollision.disabled = false
+		$SmallMarioHeadCollision.disabled = false
+		$MarioBodyCollision.disabled = true
+		$MarioHeadCollision.disabled = true
+		$Mario.visible = false
+		$SmallMario.visible = true
+		mario = $SmallMario
+		animationPlayer = $SmallMario/AnimationPlayer
 		
 func AnimationLogic():
 	if is_on_floor():
