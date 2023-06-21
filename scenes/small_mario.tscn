@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bixo3w7gfw4gw"]
+[gd_scene load_steps=14 format=3 uid="uid://bixo3w7gfw4gw"]
 
 [ext_resource type="PackedScene" uid="uid://v4mbygpwkq0d" path="res://assets/models/Small Mario.glb" id="1_l11qj"]
 [ext_resource type="Material" uid="uid://vkjlhss8ltqr" path="res://materials/mario_body.tres" id="2_rtiy3"]
-[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_xurkw"]
+[ext_resource type="Material" uid="uid://dg4r0una6iex8" path="res://materials/mario_outline.tres" id="3_plhlc"]
 [ext_resource type="Material" uid="uid://bj04puhjdhlbe" path="res://materials/mario_hat.tres" id="4_of3rn"]
 [ext_resource type="Material" uid="uid://cdb6lj58wc6ee" path="res://materials/small_mario_head.tres" id="5_2nfl4"]
 [ext_resource type="Material" uid="uid://yg5bv35i4bce" path="res://materials/mario_arms.tres" id="6_tufkf"]
@@ -11,66 +11,109 @@
 [ext_resource type="Material" uid="uid://bpjbnllpuyinx" path="res://materials/mario_gloves.tres" id="9_jfhwm"]
 [ext_resource type="Material" uid="uid://dwimdi5smkp45" path="res://materials/mario_legs.tres" id="10_k0adk"]
 
+[sub_resource type="Animation" id="Animation_tqvx0"]
+resource_name = "Flash"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Body:surface_material_override/1:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3mlf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Body:surface_material_override/1:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpqi2"]
+_data = {
+"Flash": SubResource("Animation_tqvx0"),
+"RESET": SubResource("Animation_3mlf3")
+}
+
 [node name="Small Mario" instance=ExtResource("1_l11qj")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/2/rotation = Quaternion(-0.274046, -0.0130604, -0.0425879, 0.960685)
-bones/3/rotation = Quaternion(-0.248112, 0.100482, 0.171175, 0.948179)
-bones/5/rotation = Quaternion(-0.274046, 0.0130604, 0.0425879, 0.960685)
-bones/6/rotation = Quaternion(-0.248112, -0.100482, -0.171175, 0.948179)
+bones/0/rotation = Quaternion(0.0111779, 0, 0, 0.999938)
+bones/2/rotation = Quaternion(-0.239874, -0.0115051, -0.0431074, 0.969778)
+bones/3/rotation = Quaternion(-0.315807, 0.106242, 0.162296, 0.928783)
+bones/5/rotation = Quaternion(-0.239874, 0.0115051, 0.0431074, 0.969778)
+bones/6/rotation = Quaternion(-0.315807, -0.106242, -0.162296, 0.928783)
 
 [node name="Body" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_rtiy3")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="Hat" parent="Armature/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("4_of3rn")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="Head" parent="Armature/Skeleton3D" index="2"]
 surface_material_override/0 = ExtResource("5_2nfl4")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="LeftArm" parent="Armature/Skeleton3D" index="3"]
 surface_material_override/0 = ExtResource("6_tufkf")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="LeftEar" parent="Armature/Skeleton3D" index="4"]
 surface_material_override/0 = ExtResource("7_6f8o7")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="LeftFoot" parent="Armature/Skeleton3D" index="5"]
 surface_material_override/0 = ExtResource("8_88vws")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="LeftHand" parent="Armature/Skeleton3D" index="6"]
 surface_material_override/0 = ExtResource("9_jfhwm")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="LeftLeg" parent="Armature/Skeleton3D" index="7"]
 surface_material_override/0 = ExtResource("10_k0adk")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="Nose" parent="Armature/Skeleton3D" index="8"]
 surface_material_override/0 = ExtResource("7_6f8o7")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="RightArm" parent="Armature/Skeleton3D" index="9"]
 surface_material_override/0 = ExtResource("6_tufkf")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="RightEar" parent="Armature/Skeleton3D" index="10"]
 surface_material_override/0 = ExtResource("7_6f8o7")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="RightFoot" parent="Armature/Skeleton3D" index="11"]
 surface_material_override/0 = ExtResource("8_88vws")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="RightHand" parent="Armature/Skeleton3D" index="12"]
 surface_material_override/0 = ExtResource("9_jfhwm")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
 
 [node name="RightLeg" parent="Armature/Skeleton3D" index="13"]
 surface_material_override/0 = ExtResource("10_k0adk")
-surface_material_override/1 = ExtResource("3_xurkw")
+surface_material_override/1 = ExtResource("3_plhlc")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_xpqi2")
+}

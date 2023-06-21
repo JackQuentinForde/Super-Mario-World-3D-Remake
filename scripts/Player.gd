@@ -17,6 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var jumping = false
 var jumpReleased = true
 var spinJump = false
+var invincible = false
 var speed
 var turnSpeed
 var currentSize
@@ -27,15 +28,18 @@ enum {SIZE_SMALL, SIZE_BIG}
 var cameraBasis
 var mario
 var animationPlayer
+var animationPlayer2
 
 func _ready():
 	currentSize = SIZE_SMALL
 	cameraBasis = $CameraBasis
 	mario = $SmallMario
 	animationPlayer = $SmallMario/AnimationPlayer
+	animationPlayer2 = $SmallMario/AnimationPlayer2
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	ChangeSize(SIZE_BIG)
 
 func _physics_process(delta):
 	JumpLogic()
@@ -46,6 +50,7 @@ func _physics_process(delta):
 	MoveLogic()
 	move_and_slide()
 	AnimationLogic()
+	CheckInvincible()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -111,6 +116,7 @@ func ChangeSize(size):
 		$Mario.visible = true
 		mario = $Mario
 		animationPlayer = $Mario/AnimationPlayer
+		animationPlayer2 = $Mario/AnimationPlayer2
 	else:
 		$SmallMarioBodyCollision.disabled = false
 		$SmallMarioHeadCollision.disabled = false
@@ -120,6 +126,10 @@ func ChangeSize(size):
 		$SmallMario.visible = true
 		mario = $SmallMario
 		animationPlayer = $SmallMario/AnimationPlayer
+		animationPlayer2 = $SmallMario/AnimationPlayer2
+	
+	animationPlayer.play("Jump", 1, 1, true)
+	animationPlayer2.play("Flash")
 		
 func AnimationLogic():
 	if is_on_floor():
@@ -146,3 +156,9 @@ func AnimationLogic():
 		elif not jumping:
 			animationPlayer.play("Jump")
 			jumping = true
+			
+func CheckInvincible():
+	if animationPlayer2.is_playing():
+		invincible = true
+	else:
+		invincible = false	
