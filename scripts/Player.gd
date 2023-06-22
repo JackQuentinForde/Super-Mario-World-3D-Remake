@@ -39,7 +39,6 @@ func _ready():
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	ChangeSize(SIZE_BIG)
 
 func _physics_process(delta):
 	JumpLogic()
