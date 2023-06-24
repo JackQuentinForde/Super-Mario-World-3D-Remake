@@ -6,7 +6,7 @@ const TURN_SPEED = 1
 const AIR_TURN_SPEED = 0.2
 const ACCEL = 0.18
 const JUMP_ACCEL = 1
-const JUMP_MIN_VELOCITY = 6
+const JUMP_MIN_VELOCITY = 5
 const JUMP_MAX_VELOCITY = 9
 const ANIMATION_RUN_SPEED = 1.5
 const ANIMATION_SPRINT_SPEED = 3
@@ -97,6 +97,7 @@ func JumpLogic():
 func SpinJumpLogic():
 	if Input.is_action_just_pressed("player_spin_jump") and is_on_floor():
 		velocity.y = JUMP_MIN_VELOCITY
+		$SpinSound.play()
 		spinJump = true
 		
 func ApplyGravity(delta):
