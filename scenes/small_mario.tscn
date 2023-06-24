@@ -50,6 +50,9 @@ _data = {
 
 [node name="Small Mario" instance=ExtResource("1_l11qj")]
 
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.000818551, -0.10794, -0.00382161)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(0.0111779, 0, 0, 0.999938)
 bones/2/rotation = Quaternion(-0.239874, -0.0115051, -0.0431074, 0.969778)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=14 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cqve8k3iddok8" path="res://assets/music/Super Mario World Overworld Remastered.ogg" id="5_i8t4b"]
 [ext_resource type="PackedScene" uid="uid://b2rpith82qvhl" path="res://scenes/koopa_coin.tscn" id="6_egfb1"]
 [ext_resource type="FontFile" uid="uid://brhia2wetofvs" path="res://assets/fonts/Super Mario World Text Box.ttf" id="7_e1umb"]
+[ext_resource type="Script" path="res://scripts/Trigger.gd" id="10_4vecc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
@@ -16,6 +17,8 @@ height = 1.96005
 
 [sub_resource type="Theme" id="Theme_x6sde"]
 default_font = ExtResource("7_e1umb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
@@ -49,11 +52,11 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.53385, -4.65661e-10)
 
 [node name="SmallMarioBodyCollision" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.50289, 0)
+transform = Transform3D(0.78, 0, 0, 0, 0.78, 0, 0, 0, 0.78, 0, 4.71564, 0)
 shape = SubResource("CapsuleShape3D_dke0w")
 
 [node name="SmallMarioHeadCollision" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, 0, 4.98487, -0.0256355)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 4.98487, -0.0256355)
 shape = SubResource("SphereShape3D_xk7yh")
 
 [node name="CameraBasis" type="Node3D" parent="Player"]
@@ -97,3 +100,14 @@ grow_horizontal = 0
 theme = SubResource("Theme_x6sde")
 text = "x 0"
 horizontal_alignment = 2
+
+[node name="Trigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39237, 4, 114.918)
+collision_layer = 4
+script = ExtResource("10_4vecc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -4, 2, 0)
+shape = SubResource("BoxShape3D_soyx5")
+
+[connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

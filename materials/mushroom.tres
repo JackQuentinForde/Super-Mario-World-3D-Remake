@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b5et0vusr18i0"]
+
+[ext_resource type="Texture2D" uid="uid://bjt8tkv1nohki" path="res://assets/textures/Mushroom_Texture.png" id="1_rqiw4"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_rqiw4")
+texture_filter = 0
