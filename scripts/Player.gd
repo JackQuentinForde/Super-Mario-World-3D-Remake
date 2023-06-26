@@ -148,12 +148,13 @@ func AnimationLogic():
 		else:
 			animationPlayer.play("Idle")
 	else:
-		animationPlayer.speed_scale = 1
 		if spinJump:
+			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
 			animationPlayer.play("SpinJump")
 			jumping = true
 			spinJump = false
 		elif not jumping:
+			animationPlayer.speed_scale = 1
 			animationPlayer.play("Jump")
 			jumping = true
 			
