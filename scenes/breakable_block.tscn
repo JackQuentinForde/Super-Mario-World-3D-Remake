@@ -145,13 +145,13 @@ script = ExtResource("1_6orpp")
 shape = SubResource("ConvexPolygonShape3D_o66f4")
 
 [node name="BreakableBlock" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("ArrayMesh_jopkg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_1j04n")
 surface_material_override/1 = ExtResource("2_4x4v8")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 4
 one_shot = true
 explosiveness = 1.0
@@ -171,4 +171,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146394, 0)
 shape = SubResource("ConvexPolygonShape3D_o66f4")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

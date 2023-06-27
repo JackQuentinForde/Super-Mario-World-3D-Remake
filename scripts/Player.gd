@@ -16,7 +16,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jumping = false
 var jumpReleased = true
-var spinJumping = false
 var spinJump = false
 var invincible = false
 var speed
@@ -99,6 +98,7 @@ func SpinJumpLogic():
 	if Input.is_action_just_pressed("player_spin_jump") and is_on_floor():
 		velocity.y = JUMP_MIN_VELOCITY
 		$SpinSound.play()
+		$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
 		spinJump = true
 		
 func ApplyGravity(delta):
@@ -135,8 +135,8 @@ func ChangeSize(size):
 func AnimationLogic():
 	if is_on_floor():
 		jumping = false
-		spinJumping = false
 		spinJump = false
+		$SpinArea/CollisionShape3D.call_deferred("set_disabled", true)
 		if velocity.x != 0 or velocity.z != 0:
 			if speed == RUN_SPEED:
 				animationPlayer.play("Sprint")
@@ -154,15 +154,11 @@ func AnimationLogic():
 			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
 			animationPlayer.play("SpinJump")
 			jumping = true
-			spinJumping = true
 			spinJump = false
 		elif not jumping:
 			animationPlayer.speed_scale = 1
 			animationPlayer.play("Jump")
 			jumping = true
-			
-func CheckSpinJump():
-	return spinJumping
 			
 func CheckInvincible():
 	if animationPlayer2.is_playing():

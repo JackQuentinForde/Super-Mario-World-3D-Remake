@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=17 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
@@ -16,6 +16,8 @@
 height = 1.96005
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xk7yh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n47m2"]
 
 [sub_resource type="Theme" id="Theme_x6sde"]
 default_font = ExtResource("7_e1umb")
@@ -75,6 +77,13 @@ volume_db = 5.0
 [node name="SpinSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("6_i6raw")
 volume_db = -16.0
+
+[node name="SpinArea" type="Area3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/SpinArea"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 4.15016, 0)
+shape = SubResource("BoxShape3D_n47m2")
+disabled = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")
