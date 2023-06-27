@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ca11jegrpdlqx"]
+
+[ext_resource type="Texture2D" uid="uid://xo6afu2uwy56" path="res://assets/textures/Blocks/BreakableBlock_Texture.png" id="1_31mx2"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_31mx2")
+texture_filter = 0

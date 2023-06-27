@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf6834206qfe5"]
+
+[ext_resource type="PackedScene" uid="uid://bhv10h0c4jpcx" path="res://assets/models/Flat Block.glb" id="1_i04yy"]
+[ext_resource type="Material" uid="uid://ca11jegrpdlqx" path="res://materials/breakable_block.tres" id="2_qtt3p"]
+
+[node name="Flat Block" instance=ExtResource("1_i04yy")]
+
+[node name="BreakableBlock006" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qtt3p")

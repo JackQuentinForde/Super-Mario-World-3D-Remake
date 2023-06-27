@@ -78,6 +78,18 @@ volume_db = 5.0
 stream = ExtResource("6_i6raw")
 volume_db = -16.0
 
+[node name="HeadArea" type="Area3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/HeadArea"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 5.19139, -0.032881)
+shape = SubResource("BoxShape3D_n47m2")
+disabled = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player/HeadArea"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 5.70401, -0.032881)
+shape = SubResource("BoxShape3D_n47m2")
+disabled = true
+
 [node name="SpinArea" type="Area3D" parent="Player"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/SpinArea"]

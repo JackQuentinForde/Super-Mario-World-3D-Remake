@@ -29,6 +29,7 @@ var cameraBasis
 var mario
 var animationPlayer
 var animationPlayer2
+var headBox
 
 func _ready():
 	currentSize = SIZE_SMALL
@@ -36,6 +37,7 @@ func _ready():
 	mario = $SmallMario
 	animationPlayer = $SmallMario/AnimationPlayer
 	animationPlayer2 = $SmallMario/AnimationPlayer2
+	headBox = $HeadArea/CollisionShape3D
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -62,8 +64,10 @@ func SetMoveSpeed():
 func SetTurnSpeed():
 	if not is_on_floor():
 		turnSpeed = AIR_TURN_SPEED
+		headBox.call_deferred("set_disabled", false)
 	else:
 		turnSpeed = TURN_SPEED
+		headBox.call_deferred("set_disabled", true)
 		
 func MoveLogic():
 	var input_dir = Input.get_vector("player_left", "player_right", "player_up", "player_down")
@@ -114,6 +118,7 @@ func ChangeSize(size):
 		$MarioHeadCollision.disabled = false
 		$SmallMarioBodyCollision.disabled = true
 		$SmallMarioHeadCollision.disabled = true
+		headBox = $HeadArea/CollisionShape3D2
 		$SmallMario.visible = false
 		$Mario.visible = true
 		mario = $Mario
@@ -124,6 +129,7 @@ func ChangeSize(size):
 		$SmallMarioHeadCollision.disabled = false
 		$MarioBodyCollision.disabled = true
 		$MarioHeadCollision.disabled = true
+		headBox = $HeadArea/CollisionShape3D
 		$Mario.visible = false
 		$SmallMario.visible = true
 		mario = $SmallMario
