@@ -42,7 +42,6 @@ func _ready():
 
 func _physics_process(delta):
 	JumpLogic()
-	SpinJumpLogic()
 	ApplyGravity(delta)
 	SetMoveSpeed()
 	SetTurnSpeed()
@@ -94,12 +93,14 @@ func JumpLogic():
 	else:
 		jumpReleased = true
 		
-func SpinJumpLogic():
 	if Input.is_action_just_pressed("player_spin_jump") and is_on_floor():
-		velocity.y = JUMP_MIN_VELOCITY
+		SpinJump()
 		$SpinSound.play()
-		$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
-		spinJump = true
+		
+func SpinJump():
+	velocity.y = JUMP_MIN_VELOCITY
+	$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
+	spinJump = true
 		
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
@@ -165,3 +166,7 @@ func CheckInvincible():
 		invincible = true
 	else:
 		invincible = false	
+
+func _on_spin_area_area_entered(area):
+	if area.get_parent().is_in_group("BreakableBlocks"):
+		SpinJump()
