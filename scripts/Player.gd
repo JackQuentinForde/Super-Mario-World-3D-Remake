@@ -174,7 +174,11 @@ func CheckInvincible():
 	if animationPlayer2.is_playing():
 		invincible = true
 	else:
-		invincible = false	
+		invincible = false
+		
+func SetSpawn():
+	respawnPoint.x = position.x
+	respawnPoint.z = position.z - 2
 		
 func CheckFallen():
 	if position.y < respawnPoint.y - 30:
