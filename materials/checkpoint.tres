@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dsqmjlo2scayw"]
+
+[ext_resource type="Texture2D" uid="uid://cw8c1o7dxn1wq" path="res://assets/textures/CheckpointPole_Texture.png" id="1_853gw"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_853gw")
+texture_filter = 0
