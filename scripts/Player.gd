@@ -21,6 +21,7 @@ var invincible = false
 var speed
 var turnSpeed
 var currentSize
+var respawnPoint
 
 enum {SIZE_SMALL, SIZE_BIG}
 
@@ -41,6 +42,7 @@ func _ready():
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	respawnPoint = position
 
 func _physics_process(delta):
 	JumpLogic()
@@ -51,6 +53,7 @@ func _physics_process(delta):
 	move_and_slide()
 	AnimationLogic()
 	CheckInvincible()
+	CheckFallen()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -172,6 +175,13 @@ func CheckInvincible():
 		invincible = true
 	else:
 		invincible = false	
+		
+func CheckFallen():
+	if position.y < respawnPoint.y - 30:
+		Respawn()
+
+func Respawn():
+	position = respawnPoint
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks"):
