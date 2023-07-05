@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkett2qxf0mif"]
+[gd_scene load_steps=18 format=3 uid="uid://cwufsg627f0ip"]
 
-[ext_resource type="Script" path="res://scripts/breakable_block.gd" id="1_6orpp"]
-[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="2_4x4v8"]
-[ext_resource type="Material" uid="uid://ca11jegrpdlqx" path="res://materials/breakable_block.tres" id="3_mtd73"]
+[ext_resource type="Script" path="res://scripts/spinnable_block.gd" id="1_1l7jm"]
+[ext_resource type="PackedScene" uid="uid://bf6834206qfe5" path="res://scenes/flat_block.tscn" id="2_fcql2"]
+[ext_resource type="Material" uid="uid://ca11jegrpdlqx" path="res://materials/breakable_block.tres" id="3_bopx2"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="4_vdep7"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o66f4"]
 points = PackedVector3Array(0.511547, 0.511547, 0.511547, 0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547, 0.511547, -0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547)
@@ -99,6 +100,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flat Block:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flat Block:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_7l05v"]
 resource_name = "break"
@@ -126,15 +151,73 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flat Block:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_18bpk"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BreakableBlock:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flat Block:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flat Block:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(3.14159, -1.5708, 0), Vector3(6.28319, -1.5708, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d87mj"]
 _data = {
 "RESET": SubResource("Animation_jgety"),
-"break": SubResource("Animation_7l05v")
+"break": SubResource("Animation_7l05v"),
+"spin": SubResource("Animation_18bpk")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxhqv"]
+
 [node name="StaticBody3D" type="StaticBody3D"]
-script = ExtResource("1_6orpp")
+script = ExtResource("1_1l7jm")
+
+[node name="Flat Block" parent="." instance=ExtResource("2_fcql2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0049963)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_o66f4")
@@ -143,11 +226,10 @@ shape = SubResource("ConvexPolygonShape3D_o66f4")
 visible = false
 mesh = SubResource("ArrayMesh_jopkg")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_mtd73")
-surface_material_override/1 = ExtResource("2_4x4v8")
+surface_material_override/0 = ExtResource("3_bopx2")
+surface_material_override/1 = ExtResource("4_vdep7")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 4
 one_shot = true
 explosiveness = 1.0
@@ -166,5 +248,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133948, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146394, 0)
 shape = SubResource("ConvexPolygonShape3D_o66f4")
 
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00469545, 0)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_xxhqv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

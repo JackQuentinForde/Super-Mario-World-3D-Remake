@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b2lsuear8paw6"]
+[gd_scene load_steps=19 format=3 uid="uid://b2lsuear8paw6"]
 
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_aleu2"]
 [ext_resource type="Material" uid="uid://dsqmjlo2scayw" path="res://materials/checkpoint.tres" id="2_1v4b2"]
@@ -175,45 +175,6 @@ shadow_mesh = SubResource("ArrayMesh_65nbd")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pxt46"]
 points = PackedVector3Array(-1.15607, -2.55555e-05, -0.131763, -1.15607, -0.0257171, -0.129235, -1.15607, 0.0256918, -0.129235, 1.15585, 2.38419e-07, -0.131763, 1.15585, -0.0257171, -0.129235, -1.15607, -0.0504285, -0.121728, -1.15607, 0.0504032, -0.121728, 1.15585, 0.0256918, -0.129235, 1.15607, 0.0504032, -0.121728, 1.15607, -0.0504285, -0.121728, -1.15607, -0.0732052, -0.109579, -1.15607, 0.0731799, -0.109579, 1.15585, 0.0731799, -0.109579, 1.15585, 0.0931451, -0.0931729, 1.15585, 0.109551, -0.0732073, 1.15585, 0.121726, -0.05043, 1.15585, 0.129206, -0.025718, 1.15585, 0.13176, 0, 1.15607, 0.0504032, 0.121703, 1.15607, -0.0504285, 0.121703, 1.15585, -0.131759, 0, 1.15585, -0.129231, -0.025718, 1.15585, -0.121751, -0.05043, 1.15585, -0.109576, -0.0732073, 1.15585, -0.0931962, -0.0931729, 1.15585, -0.0732052, -0.109579, -1.15607, -0.0931962, -0.0931729, -1.15607, 0.0931451, -0.0931729, -1.15607, 0.109551, -0.0732073, -1.15607, 0.121726, -0.05043, -1.15607, 0.129206, -0.025718, 1.15585, 0.129206, 0.0256922, -1.15607, 0.131734, 0, -1.15607, 0.129206, 0.0256922, 1.15585, 0.0256918, 0.129209, 1.15585, 2.38419e-07, 0.131763, 1.15585, 0.121726, 0.0504042, 1.15585, 0.109551, 0.0731815, 1.15585, 0.0931451, 0.0931471, 1.15585, 0.0731799, 0.109553, -1.15607, 0.0504032, 0.121703, 1.15585, -0.0732052, 0.109553, 1.15585, -0.0931962, 0.0931471, 1.15585, -0.109576, 0.0731815, 1.15585, -0.121751, 0.0504042, 1.15585, -0.129231, 0.0256922, 1.15585, -0.0257171, 0.129209, -1.15607, -0.0504285, 0.121703, -1.15607, -0.131759, 0, -1.15607, -0.129231, -0.025718, -1.15607, -0.121751, -0.05043, -1.15607, -0.109576, -0.0732073, -1.15607, 0.121726, 0.0504042, -1.15607, 0.0256918, 0.129209, -1.15607, -2.55555e-05, 0.131763, -1.15607, 0.109551, 0.0731815, -1.15607, 0.0931451, 0.0931471, -1.15607, 0.0731799, 0.109553, -1.15607, -0.0732052, 0.109553, -1.15607, -0.0931962, 0.0931471, -1.15607, -0.109576, 0.0731815, -1.15607, -0.121751, 0.0504042, -1.15607, -0.129231, 0.0256922, -1.15607, -0.0257171, 0.129209)
 
-[sub_resource type="Animation" id="Animation_8q317"]
-resource_name = "move"
-length = 2.0
-loop_mode = 1
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.82398, 0), Vector3(0, 0, 0), Vector3(0, 1.82398, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4tvtc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6a8v"]
-_data = {
-"RESET": SubResource("Animation_4tvtc"),
-"move": SubResource("Animation_8q317")
-}
-
 [node name="Checkpoint" type="Node3D"]
 script = ExtResource("1_aleu2")
 
@@ -254,11 +215,5 @@ surface_material_override/1 = ExtResource("3_egrd4")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156498, 0.27881, -0.00334167)
 shape = SubResource("ConvexPolygonShape3D_pxt46")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "move"
-libraries = {
-"": SubResource("AnimationLibrary_t6a8v")
-}
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

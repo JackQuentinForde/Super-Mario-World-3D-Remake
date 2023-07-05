@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7ae3xmmbmjx0"]
+
+[ext_resource type="PackedScene" uid="uid://r204n5lvb4kj" path="res://assets/models/Grey Pipe.glb" id="1_tnhh2"]
+[ext_resource type="Material" uid="uid://mk0f5b0vpi5a" path="res://materials/blue_pipe.tres" id="2_u34rb"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_4tmy1"]
+
+[node name="Grey Pipe" instance=ExtResource("1_tnhh2")]
+
+[node name="Pipe001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_u34rb")
+surface_material_override/1 = ExtResource("3_4tmy1")
