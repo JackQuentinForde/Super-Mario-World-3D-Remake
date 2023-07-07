@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkett2qxf0mif"]
+[gd_scene load_steps=12 format=3 uid="uid://fnlflju2okcl"]
 
-[ext_resource type="Script" path="res://scripts/breakable_block.gd" id="1_6orpp"]
-[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="2_4x4v8"]
-[ext_resource type="Material" uid="uid://ca11jegrpdlqx" path="res://materials/breakable_block.tres" id="3_mtd73"]
+[ext_resource type="Script" path="res://scripts/breakable_block.gd" id="1_tfny3"]
+[ext_resource type="Texture2D" uid="uid://diugm2lxljmcq" path="res://assets/textures/Blocks/ExclamationBlock_Texture.png" id="2_dodpq"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_2oeb1"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o66f4"]
 points = PackedVector3Array(0.511547, 0.511547, 0.511547, 0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547, 0.511547, -0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547)
@@ -57,21 +57,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kfx6s")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g8pjj"]
-direction = Vector3(1, 1, 1)
-spread = 180.0
-gravity = Vector3(0, -20, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fha6e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx4mq"]
 shading_mode = 0
-albedo_color = Color(0.972549, 0.847059, 0.12549, 1)
+diffuse_mode = 3
+albedo_texture = ExtResource("2_dodpq")
 texture_filter = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_x6l81"]
-material = SubResource("StandardMaterial3D_fha6e")
-size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="Animation" id="Animation_jgety"]
 length = 0.001
@@ -81,26 +71,17 @@ _data = {
 "RESET": SubResource("Animation_jgety")
 }
 
-[node name="BreakableBlock" type="StaticBody3D"]
-script = ExtResource("1_6orpp")
+[node name="ExclamationBlock" type="StaticBody3D"]
+script = ExtResource("1_tfny3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_o66f4")
 
-[node name="BreakableBlock" type="MeshInstance3D" parent="."]
-visible = false
+[node name="Block" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_jopkg")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_mtd73")
-surface_material_override/1 = ExtResource("2_4x4v8")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
-amount = 4
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_g8pjj")
-draw_pass_1 = SubResource("BoxMesh_x6l81")
+surface_material_override/0 = SubResource("StandardMaterial3D_kx4mq")
+surface_material_override/1 = ExtResource("3_2oeb1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -108,7 +89,7 @@ libraries = {
 }
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133948, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.160904, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146394, 0)

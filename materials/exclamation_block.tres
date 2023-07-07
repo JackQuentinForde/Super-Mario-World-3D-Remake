@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://blvo4hv25dw3j"]
+
+[ext_resource type="Texture2D" uid="uid://diugm2lxljmcq" path="res://assets/textures/Blocks/ExclamationBlock_Texture.png" id="1_4frrp"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_4frrp")
+texture_filter = 0
