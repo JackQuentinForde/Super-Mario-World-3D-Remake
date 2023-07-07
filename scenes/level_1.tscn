@@ -185,5 +185,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 128.501)
 [node name="SpinnableBlock" parent="." instance=ExtResource("14_gnsyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13765, 14.3328, 222.13)
 
+[node name="SpinnableBlock2" parent="." instance=ExtResource("14_gnsyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13765, 7.33278, 262.13)
+
+[node name="SpinnableBlock3" parent="." instance=ExtResource("14_gnsyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86235, 8.33278, 257.13)
+
+[node name="SpinnableBlock4" parent="." instance=ExtResource("14_gnsyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13765, 8.33278, 257.13)
+
+[node name="SpinnableBlock5" parent="." instance=ExtResource("14_gnsyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86235, 8.33278, 267.13)
+
+[node name="SpinnableBlock6" parent="." instance=ExtResource("14_gnsyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13765, 8.33278, 267.13)
+
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
