@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=20 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bkett2qxf0mif" path="res://scenes/breakable_block.tscn" id="11_f43on"]
 [ext_resource type="PackedScene" uid="uid://b2lsuear8paw6" path="res://scenes/checkpoint.tscn" id="12_giawj"]
 [ext_resource type="PackedScene" uid="uid://c7ae3xmmbmjx0" path="res://scenes/grey_pipe.tscn" id="13_ymi8r"]
+[ext_resource type="PackedScene" uid="uid://cwufsg627f0ip" path="res://scenes/spinnable_block.tscn" id="14_gnsyn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
@@ -180,6 +181,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 166)
 
 [node name="Grey Pipe" parent="." instance=ExtResource("13_ymi8r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 128.501)
+
+[node name="SpinnableBlock" parent="." instance=ExtResource("14_gnsyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13765, 14.3328, 222.13)
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
