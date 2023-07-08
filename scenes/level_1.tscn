@@ -204,5 +204,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13765, 8.33278, 267.13)
 [node name="ExclamationBlock" parent="." instance=ExtResource("15_ymamm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59584, 8, 171.509)
 
+[node name="ExclamationBlock2" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59584, 3.41503, 227.509)
+
+[node name="ExclamationBlock3" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59584, 3.41503, 228.509)
+
+[node name="ExclamationBlock8" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59584, 3.41503, 227.509)
+
+[node name="ExclamationBlock9" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59584, 3.41503, 228.509)
+
+[node name="ExclamationBlock10" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59584, 3.41503, 227.509)
+
+[node name="ExclamationBlock11" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59584, 3.41503, 228.509)
+
+[node name="ExclamationBlock6" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59584, 3.41503, 227.509)
+
+[node name="ExclamationBlock7" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59584, 3.41503, 228.509)
+
+[node name="ExclamationBlock4" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40416, 3.41503, 243.509)
+
+[node name="ExclamationBlock5" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40416, 3.41503, 244.509)
+
+[node name="ExclamationBlock12" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40416, 3.41503, 243.509)
+
+[node name="ExclamationBlock13" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40416, 3.41503, 244.509)
+
+[node name="ExclamationBlock14" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40416, 3.41503, 243.509)
+
+[node name="ExclamationBlock15" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40416, 3.41503, 244.509)
+
+[node name="ExclamationBlock16" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40416, 3.41503, 243.509)
+
+[node name="ExclamationBlock17" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40416, 3.41503, 244.509)
+
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
