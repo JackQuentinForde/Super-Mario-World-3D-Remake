@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://fnlflju2okcl"]
+[gd_scene load_steps=11 format=3 uid="uid://fnlflju2okcl"]
 
-[ext_resource type="Script" path="res://scripts/breakable_block.gd" id="1_tfny3"]
 [ext_resource type="Texture2D" uid="uid://diugm2lxljmcq" path="res://assets/textures/Blocks/ExclamationBlock_Texture.png" id="2_dodpq"]
-[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_2oeb1"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="2_eb7np"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o66f4"]
 points = PackedVector3Array(0.511547, 0.511547, 0.511547, 0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547, 0.511547, -0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547)
@@ -72,7 +71,6 @@ _data = {
 }
 
 [node name="ExclamationBlock" type="StaticBody3D"]
-script = ExtResource("1_tfny3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_o66f4")
@@ -81,7 +79,7 @@ shape = SubResource("ConvexPolygonShape3D_o66f4")
 mesh = SubResource("ArrayMesh_jopkg")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_kx4mq")
-surface_material_override/1 = ExtResource("3_2oeb1")
+surface_material_override/1 = ExtResource("2_eb7np")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
