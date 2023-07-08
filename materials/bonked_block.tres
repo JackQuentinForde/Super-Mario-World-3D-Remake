@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dq0cf1pkhxh5a"]
+
+[ext_resource type="Texture2D" uid="uid://7jl2qxufv38s" path="res://assets/textures/Blocks/BonkedBlock_Texture.png" id="1_05c0v"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_05c0v")
+texture_filter = 0
