@@ -47,6 +47,7 @@ func _ready():
 
 func _physics_process(delta):
 	JumpLogic()
+	SpinJumpLogic()
 	ApplyGravity(delta)
 	SetMoveSpeed()
 	SetTurnSpeed()
@@ -101,6 +102,7 @@ func JumpLogic():
 	else:
 		jumpReleased = true
 		
+func SpinJumpLogic():
 	if Input.is_action_just_pressed("player_spin_jump"):
 		if is_on_floor():
 			SpinJump()
@@ -193,6 +195,7 @@ func CheckFallen():
 		Respawn()
 
 func Respawn():
+	animationPlayer2.play("Flash")
 	position = respawnPoint
 
 func _on_spin_area_area_entered(area):
