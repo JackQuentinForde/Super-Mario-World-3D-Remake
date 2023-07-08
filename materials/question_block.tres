@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://f7c6hp00t3bc"]
+
+[ext_resource type="Texture2D" uid="uid://dmofoh1tmgo0r" path="res://assets/textures/Blocks/QuestionBlock_Texture.png" id="1_jxo4t"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_jxo4t")
+texture_filter = 0
