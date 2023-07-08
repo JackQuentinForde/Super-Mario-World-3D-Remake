@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var jumping = false
 var jumpReleased = true
+var spinJumpReleased = true
 var spinJump = false
 var invincible = false
 var speed
@@ -100,9 +101,16 @@ func JumpLogic():
 	else:
 		jumpReleased = true
 		
-	if Input.is_action_just_pressed("player_spin_jump") and is_on_floor():
-		SpinJump()
-		$SpinSound.play()
+	if Input.is_action_just_pressed("player_spin_jump"):
+		if is_on_floor():
+			SpinJump()
+			$SpinSound.play()
+			spinJumpReleased = false
+	elif Input.is_action_pressed("player_spin_jump") and !spinJumpReleased:
+		velocity.y = min(velocity.y + JUMP_ACCEL, JUMP_MAX_VELOCITY)
+		spinJumpReleased = velocity.y >= JUMP_MAX_VELOCITY
+	else:
+		spinJumpReleased = true
 		
 func SpinJump():
 	velocity.y = JUMP_MIN_VELOCITY
