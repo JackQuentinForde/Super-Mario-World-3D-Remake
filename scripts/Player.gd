@@ -34,6 +34,7 @@ var animationPlayer
 var animationPlayer2
 var headBox
 var canvasAnimationPlayer
+var music
 
 func _ready():
 	currentSize = SIZE_SMALL
@@ -43,23 +44,23 @@ func _ready():
 	animationPlayer2 = $SmallMario/AnimationPlayer2
 	headBox = $HeadArea/CollisionShape3D
 	canvasAnimationPlayer = $"../CanvasLayer/AnimationPlayer"
+	music = $"../Music"
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 
 func _physics_process(delta):
+	JumpLogic()
+	SpinJumpLogic()
 	ApplyGravity(delta)
+	SetMoveSpeed()
+	SetTurnSpeed()
+	MoveLogic()
+	move_and_slide()
+	AnimationLogic()
+	CheckInvincible()
 	CheckFallen()
-	if not fallen:
-		JumpLogic()
-		SpinJumpLogic()
-		SetMoveSpeed()
-		SetTurnSpeed()
-		MoveLogic()
-		move_and_slide()
-		AnimationLogic()
-		CheckInvincible()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -195,17 +196,22 @@ func SetSpawn():
 	respawnPoint.z = position.z - 2
 		
 func CheckFallen():
-	if position.y < respawnPoint.y - 30 and not fallen:
+	if position.y < respawnPoint.y - 15 and not fallen:
+		#music.stop()
 		fallen = true
+		cameraBasis.call_deferred("set_as_top_level", true)
 		canvasAnimationPlayer.call_deferred("play", "fadeout")
 	elif fallen:
 		if not canvasAnimationPlayer.is_playing():
 			Respawn()
 
 func Respawn():
+	#music.play()
+	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
 	animationPlayer2.play("Flash")
 	position = respawnPoint
+	cameraBasis.global_position = Vector3(position.x, position.y + 9, position.z)
 	fallen = false
 
 func _on_spin_area_area_entered(area):
