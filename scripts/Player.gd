@@ -20,6 +20,7 @@ var spinJumpReleased = true
 var spinJump = false
 var invincible = false
 var fallen = false
+var win = false
 var speed
 var turnSpeed
 var currentSize
@@ -49,18 +50,21 @@ func _ready():
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
+	canvasAnimationPlayer.call_deferred("play", "fadein")
 
 func _physics_process(delta):
-	JumpLogic()
-	SpinJumpLogic()
 	ApplyGravity(delta)
-	SetMoveSpeed()
-	SetTurnSpeed()
-	MoveLogic()
 	move_and_slide()
 	AnimationLogic()
-	CheckInvincible()
-	CheckFallen()
+	CheckWin()
+	if not win:
+		JumpLogic()
+		SpinJumpLogic()
+		SetMoveSpeed()
+		SetTurnSpeed()
+		MoveLogic()
+		CheckInvincible()
+		CheckFallen()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -213,6 +217,15 @@ func Respawn():
 	position = respawnPoint
 	cameraBasis.global_position = Vector3(position.x, position.y + 9, position.z)
 	fallen = false
+	
+func Win():
+	#music.stop()
+	canvasAnimationPlayer.call_deferred("play", "fadeout")
+	win = true
+	
+func CheckWin():
+	if win and not canvasAnimationPlayer.is_playing():
+		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks"):
