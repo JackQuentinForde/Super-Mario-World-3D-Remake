@@ -122,10 +122,14 @@ func SpinJumpLogic():
 		spinJumpReleased = velocity.y >= JUMP_MAX_VELOCITY
 	else:
 		spinJumpReleased = true
+	
+	if (animationPlayer.is_playing() and 
+	animationPlayer.current_animation == "SpinJump" and 
+	velocity.y <= 0):
+		$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
 		
 func SpinJump():
 	velocity.y = JUMP_MIN_VELOCITY
-	$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
 	spinJump = true
 		
 func ApplyGravity(delta):
