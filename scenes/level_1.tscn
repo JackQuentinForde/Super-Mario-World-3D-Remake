@@ -20,21 +20,6 @@
 [sub_resource type="Theme" id="Theme_x6sde"]
 default_font = ExtResource("7_e1umb")
 
-[sub_resource type="Animation" id="Animation_41sy1"]
-resource_name = "fadeout"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_anide"]
 length = 0.001
 tracks/0/type = "value"
@@ -52,6 +37,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yngkc"]
 resource_name = "fadein"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,10 +45,26 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_41sy1"]
+resource_name = "fadeout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pc6s2"]
@@ -344,7 +346,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40416, 3.41503, 247.509)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40416, 3.41503, 248.509)
 
 [node name="QuestionBlock" parent="." instance=ExtResource("16_6nnq4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 13, 266.175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 12.4343, 266.175)
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
