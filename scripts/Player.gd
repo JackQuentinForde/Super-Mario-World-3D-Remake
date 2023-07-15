@@ -201,7 +201,7 @@ func SetSpawn():
 		
 func CheckFallen():
 	if position.y < respawnPoint.y - 15 and not fallen:
-		#music.stop()
+		music.stop()
 		fallen = true
 		cameraBasis.call_deferred("set_as_top_level", true)
 		canvasAnimationPlayer.call_deferred("play", "fadeout")
@@ -210,7 +210,7 @@ func CheckFallen():
 			Respawn()
 
 func Respawn():
-	#music.play()
+	music.play()
 	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
 	animationPlayer2.play("Flash")
@@ -219,7 +219,7 @@ func Respawn():
 	fallen = false
 	
 func Win():
-	#music.stop()
+	music.stop()
 	canvasAnimationPlayer.call_deferred("play", "fadeout")
 	win = true
 	
