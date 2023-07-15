@@ -350,7 +350,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40416, 3.41503, 248.509)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 12.4343, 266.175)
 
 [node name="Goal" parent="." instance=ExtResource("17_1fpch")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 330)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 334)
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
