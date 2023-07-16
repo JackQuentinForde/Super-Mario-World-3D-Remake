@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://r3ucim6h30jy"]
+
+[ext_resource type="PackedScene" uid="uid://1px242ky22y" path="res://assets/models/Rex.glb" id="1_1yeub"]
+[ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_wxycg"]
+[ext_resource type="Material" uid="uid://byq1wyoat5omt" path="res://materials/rex_horn.tres" id="4_dxjj0"]
+[ext_resource type="Material" uid="uid://cfgerwv4rt15a" path="res://materials/rex_wings.tres" id="5_0lm4t"]
+
+[node name="Rex" instance=ExtResource("1_1yeub")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(-0.125612, -0.108568, -0.0404275, 0.985292)
+bones/2/rotation = Quaternion(-0.311114, -0.109571, -0.113678, 0.937166)
+bones/4/rotation = Quaternion(-0.125612, 0.108568, 0.0404275, 0.985292)
+bones/5/rotation = Quaternion(-0.311114, 0.109571, 0.113678, 0.937166)
+bones/8/rotation = Quaternion(0.00518345, -0.057867, -0.820956, 0.568028)
+bones/9/rotation = Quaternion(-0.0942039, 9.62771e-09, 3.31762e-08, 0.995553)
+bones/12/rotation = Quaternion(0.331844, 1.24282e-13, 7.91177e-08, 0.943334)
+bones/14/rotation = Quaternion(0.00518344, 0.057867, 0.820956, 0.568028)
+bones/15/rotation = Quaternion(-0.0942039, -9.64884e-09, -3.32916e-08, 0.995553)
+
+[node name="ArmLeft" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="ArmRight" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="FootLeft" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="FootRight" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="Horn" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("4_dxjj0")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="LegLeft" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="LegRight" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="RexBody" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="RexHead" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="Tail" parent="Armature/Skeleton3D" index="9"]
+surface_material_override/0 = ExtResource("2_ast2y")
+surface_material_override/1 = ExtResource("3_wxycg")
+
+[node name="WingLeft" parent="Armature/Skeleton3D" index="10"]
+surface_material_override/0 = ExtResource("5_0lm4t")
+
+[node name="WingRight" parent="Armature/Skeleton3D" index="11"]
+surface_material_override/0 = ExtResource("5_0lm4t")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "walk"

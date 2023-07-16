@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dnnrtm7a7xt81"]
+
+[ext_resource type="Texture2D" uid="uid://os5u8knqsug0" path="res://assets/textures/Rex_Texture.png" id="1_xsecs"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_xsecs")
+texture_filter = 0
