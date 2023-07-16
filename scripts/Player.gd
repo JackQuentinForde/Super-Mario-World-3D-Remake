@@ -215,9 +215,9 @@ func CheckFallen():
 
 func Respawn():
 	music.play()
+	ChangeSize(SIZE_SMALL)
 	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
-	animationPlayer2.play("Flash")
 	position = respawnPoint
 	cameraBasis.global_position = Vector3(position.x, position.y + 9, position.z)
 	fallen = false
