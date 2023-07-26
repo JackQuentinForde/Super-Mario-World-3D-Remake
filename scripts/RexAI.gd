@@ -1,13 +1,23 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+var state
+var state_factory
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+func _ready():
+	state_factory = StateFactory.new()
+	change_state("patrol")
 
-func _physics_process(delta):
-	ApplyGravity(delta)
+func _physics_process(_delta):
+	move()
 	move_and_slide()
-
-func ApplyGravity(delta):
-	velocity.y -= gravity * delta
+	
+func move():
+	state.move()
+	
+func change_state(new_state_name):
+	if state != null:
+		state.queue_free()
+	state = state_factory.get_state(new_state_name).new()
+	state.setup(Callable(self, "change_state"), $"../AnimationPlayer", self)
+	state.name = "current_state"
+	add_child(state)
