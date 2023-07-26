@@ -8,5 +8,5 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
 
-func Move():
+func Move(_delta):
 	pass

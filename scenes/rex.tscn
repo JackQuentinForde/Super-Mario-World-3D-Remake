@@ -18,6 +18,12 @@ script = ExtResource("2_kybsa")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.137056, 0)
 shape = SubResource("CapsuleShape3D_umpsg")
 
+[node name="EndPoint" type="Node3D" parent="CharacterBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="StartPoint" type="Node3D" parent="CharacterBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/1/rotation = Quaternion(-0.125612, -0.108568, -0.0404275, 0.985292)
 bones/2/rotation = Quaternion(-0.311114, -0.109571, -0.113678, 0.937166)
