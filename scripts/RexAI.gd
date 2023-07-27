@@ -1,25 +1,50 @@
 extends CharacterBody3D
 
-var state
-var state_factory
+const SPEED = 4
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+enum {TOWARDS_END, TOWARDS_START}
+var heading
+var vector
+var point
 
 func _ready():
-	state_factory = StateFactory.new()
-	change_state("patrol")
+	heading = TOWARDS_END
 
 func _physics_process(delta):
-	action(delta)
-	velocity = state.velocity
-	print(velocity)
+	$AnimationPlayer.play("walk")
+	ApplyGravity(delta)
+	Move()
 	move_and_slide()
 	
-func action(delta):
-	state.Move(delta)
+func ApplyGravity(delta):
+	velocity.y -= gravity * delta
+
+func Move():	
+	if heading == TOWARDS_END:
+		point = $EndPoint.global_position
+	else:
+		point = $StartPoint.global_position
+		
+	vector = (point - global_position).normalized()
+	var target_velocity = (vector * SPEED)
+	velocity.x = move_toward(velocity.x, target_velocity.x, SPEED)
+	velocity.z = move_toward(velocity.z, target_velocity.z, SPEED)
+	var lookDirection = -Vector2(velocity.z, velocity.x)
+	rotation.y = lookDirection.angle()
 	
-func change_state(new_state_name):
-	if state != null:
-		state.queue_free()
-	state = state_factory.get_state(new_state_name).new()
-	state.Setup(Callable(self, "change_state"), $"../AnimationPlayer", $StartPoint, $EndPoint, self)
-	state.name = "current_state"
-	add_child(state)
+func ChangeDirection():
+	if heading == TOWARDS_END:
+		heading = TOWARDS_START
+	else:
+		heading = TOWARDS_END
+
+func _on_start_point_body_entered(body):
+	if body.name == self.name and heading == TOWARDS_START:
+		ChangeDirection()
+
+func _on_end_point_body_entered(body):
+	if body.name == self.name and heading == TOWARDS_END:
+		ChangeDirection()
