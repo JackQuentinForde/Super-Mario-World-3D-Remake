@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=47 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
@@ -531,7 +531,11 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tbfw"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wdv4"]
+
 [node name="Rex" type="CharacterBody3D"]
+floor_max_angle = 1.309
+floor_snap_length = 0.2
 script = ExtResource("2_kybsa")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -758,5 +762,13 @@ top_level = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StartPoint"]
 shape = SubResource("BoxShape3D_1tbfw")
 
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("SphereShape3D_3wdv4")
+
 [connection signal="body_entered" from="EndPoint" to="." method="_on_end_point_body_entered"]
 [connection signal="body_entered" from="StartPoint" to="." method="_on_start_point_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
