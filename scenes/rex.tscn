@@ -745,14 +745,14 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.137056, 0)
 shape = SubResource("CapsuleShape3D_umpsg")
 
 [node name="EndPoint" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 top_level = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndPoint"]
 shape = SubResource("BoxShape3D_gsl0t")
 
 [node name="StartPoint" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 top_level = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StartPoint"]
