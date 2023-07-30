@@ -765,7 +765,7 @@ shape = SubResource("BoxShape3D_1tbfw")
 [node name="DetectionArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
 shape = SubResource("SphereShape3D_3wdv4")
 
 [connection signal="body_entered" from="EndPoint" to="." method="_on_end_point_body_entered"]

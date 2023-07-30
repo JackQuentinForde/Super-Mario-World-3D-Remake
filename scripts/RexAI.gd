@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const PATROL_SPEED = 4
-const CHASE_SPEED = 8
+const PATROL_SPEED = 3
+const CHASE_SPEED = 5
 const ROT_SPEED = 0.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -72,7 +72,7 @@ func _on_end_point_body_entered(body):
 
 func _on_detection_area_body_entered(body):
 	if body.name == "Player":
-		player = body
+		player = body.get_node("Mario")
 		state = CHASE_STATE
 
 func _on_detection_area_body_exited(body):
