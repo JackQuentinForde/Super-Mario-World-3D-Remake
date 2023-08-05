@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const PATROL_SPEED = 3
-const CHASE_SPEED = 5
+const CHASE_SPEED = 4
 const ROT_SPEED = 6
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
