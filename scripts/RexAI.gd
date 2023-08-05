@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const PATROL_SPEED = 3
 const CHASE_SPEED = 5
-const ROT_SPEED = 0.2
+const ROT_SPEED = 6
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -22,19 +22,19 @@ func _ready():
 func _physics_process(delta):
 	$AnimationPlayer.play("walk")
 	ApplyGravity(delta)
-	Move()
+	Move(delta)
 	move_and_slide()
 	
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
 
-func Move():	
+func Move(delta):	
 	if state == PATROL_STATE:
-		Patrol()
+		Patrol(delta)
 	else:
-		Chase()
+		Chase(delta)
 	
-func Patrol():
+func Patrol(delta):
 	if heading == TOWARDS_END:
 		point = $EndPoint.global_position
 	else:
@@ -44,17 +44,15 @@ func Patrol():
 	var target_velocity = vector * PATROL_SPEED
 	velocity.x = move_toward(velocity.x, target_velocity.x, PATROL_SPEED)
 	velocity.z = move_toward(velocity.z, target_velocity.z, PATROL_SPEED)
-	var lookDirection = Vector2(velocity.z, velocity.x)
-	rotation.y = move_toward(rotation.y, lookDirection.angle_to_point(Vector2(rotation.x, rotation.z)), ROT_SPEED)
+	rotation.y = lerp_angle(rotation.y, atan2(-vector.x, -vector.z), delta * ROT_SPEED)
 	
-func Chase():
+func Chase(delta):
 	point = player.global_position
 	vector = (point - global_position).normalized()
 	var target_velocity = vector * CHASE_SPEED
 	velocity.x = move_toward(velocity.x, target_velocity.x, CHASE_SPEED)
-	velocity.z = move_toward(velocity.z, target_velocity.z, CHASE_SPEED)
-	var lookDirection = Vector2(velocity.z, velocity.x)
-	rotation.y = lookDirection.angle_to_point(Vector2(rotation.x, rotation.z))
+	velocity.z = move_toward(velocity.z, target_velocity.z, CHASE_SPEED)		
+	rotation.y = lerp_angle(rotation.y, atan2(-vector.x, -vector.z), delta * ROT_SPEED)
 	
 func ChangeDirection():
 	if heading == TOWARDS_END:
