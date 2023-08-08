@@ -76,3 +76,7 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body.name == "Player":
 		state = PATROL_STATE
+
+func _on_hit_area_body_entered(body):
+	if body.name == "Player":
+		body.call_deferred("TakeHit")

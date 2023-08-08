@@ -20,7 +20,7 @@ var spinJumpReleased = true
 var spinJump = false
 var invincible = false
 var fallen = false
-var win = false
+var fadeout = false
 var speed
 var turnSpeed
 var currentSize
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	move_and_slide()
 	AnimationLogic()
 	CheckWin()
-	if not win:
+	if not fadeout:
 		JumpLogic()
 		SpinJumpLogic()
 		SetMoveSpeed()
@@ -162,6 +162,7 @@ func ChangeSize(size):
 		animationPlayer = $SmallMario/AnimationPlayer
 		animationPlayer2 = $SmallMario/AnimationPlayer2
 	
+	currentSize = size
 	animationPlayer.play("Jump", 1, 1, true)
 	animationPlayer2.play("Flash")
 		
@@ -214,7 +215,7 @@ func CheckFallen():
 			Respawn()
 
 func Respawn():
-	music.play()
+	#music.play()
 	ChangeSize(SIZE_SMALL)
 	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
@@ -222,13 +223,32 @@ func Respawn():
 	cameraBasis.global_position = Vector3(position.x, position.y + 9, position.z)
 	fallen = false
 	
+func TakeHit():
+	if not invincible:
+		if currentSize == SIZE_BIG:
+			ChangeSize(SIZE_SMALL)
+		else:
+			Die()
+	
+func Die():
+	mario.visible = false
+	cameraBasis.call_deferred("set_as_top_level", true)
+	$MarioBodyCollision.disabled = true
+	$MarioHeadCollision.disabled = true
+	$SmallMarioBodyCollision.disabled = true
+	$SmallMarioHeadCollision.disabled = true
+	headBox.disabled = true
+	music.stop()
+	canvasAnimationPlayer.call_deferred("play", "fadeout")
+	fadeout = true
+	
 func Win():
 	music.stop()
 	canvasAnimationPlayer.call_deferred("play", "fadeout")
-	win = true
+	fadeout = true
 	
 func CheckWin():
-	if win and not canvasAnimationPlayer.is_playing():
+	if fadeout and not canvasAnimationPlayer.is_playing():
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 
 func _on_spin_area_area_entered(area):
