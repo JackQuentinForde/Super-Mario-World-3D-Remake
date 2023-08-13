@@ -86,3 +86,7 @@ func _on_point_2_body_entered(body):
 	body.name == self.name and 
 	state == PATROL_STATE):
 		pointReached($Point1.global_position)
+
+func _on_jump_area_area_entered(area):
+	if area.name == "JumpArea":
+		queue_free()

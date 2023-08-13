@@ -187,6 +187,13 @@ transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0, 4.17624, 0)
 shape = SubResource("BoxShape3D_n47m2")
 disabled = true
 
+[node name="JumpArea" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0541584, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/JumpArea"]
+transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0, 4.17624, 0)
+shape = SubResource("BoxShape3D_n47m2")
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")
 volume_db = -22.0
@@ -375,4 +382,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 219)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
+[connection signal="area_entered" from="Player/JumpArea" to="Player" method="_on_jump_area_area_entered"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

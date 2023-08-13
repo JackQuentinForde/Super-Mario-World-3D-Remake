@@ -254,3 +254,8 @@ func CheckWin():
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks"):
 		SpinJump()
+
+
+func _on_jump_area_area_entered(area):
+	if area.name == "JumpArea":
+		velocity.y = JUMP_MIN_VELOCITY

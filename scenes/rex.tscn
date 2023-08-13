@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=47 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
@@ -527,6 +527,8 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_umpsg"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wu4r"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsl0t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t6il"]
@@ -752,6 +754,13 @@ shape = SubResource("CapsuleShape3D_umpsg")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.137056, 0)
 shape = SubResource("CapsuleShape3D_umpsg")
 
+[node name="JumpArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858626, 0.0471147)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.0801735, 0)
+shape = SubResource("SphereShape3D_3wu4r")
+
 [node name="Point1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.97746)
 top_level = true
@@ -776,6 +785,7 @@ shape = SubResource("BoxShape3D_7t6il")
 one_shot = true
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="area_entered" from="JumpArea" to="." method="_on_jump_area_area_entered"]
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
 [connection signal="body_entered" from="Point2" to="." method="_on_point_2_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
