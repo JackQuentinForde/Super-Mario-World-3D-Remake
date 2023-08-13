@@ -758,7 +758,7 @@ shape = SubResource("CapsuleShape3D_umpsg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858626, 0.0471147)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.0801735, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.131666, -0.0277264)
 shape = SubResource("SphereShape3D_3wu4r")
 
 [node name="Point1" type="Area3D" parent="."]
