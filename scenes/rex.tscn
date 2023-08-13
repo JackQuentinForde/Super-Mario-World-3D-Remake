@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=46 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
@@ -529,9 +529,7 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsl0t"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1tbfw"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_3wdv4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t6il"]
 
 [node name="Rex" type="CharacterBody3D"]
 floor_max_angle = 1.309
@@ -754,28 +752,32 @@ shape = SubResource("CapsuleShape3D_umpsg")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.137056, 0)
 shape = SubResource("CapsuleShape3D_umpsg")
 
-[node name="EndPoint" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+[node name="Point1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.97746)
 top_level = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndPoint"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point1"]
 shape = SubResource("BoxShape3D_gsl0t")
 
-[node name="StartPoint" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+[node name="Point2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 top_level = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StartPoint"]
-shape = SubResource("BoxShape3D_1tbfw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point2"]
+shape = SubResource("BoxShape3D_gsl0t")
 
 [node name="DetectionArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-shape = SubResource("SphereShape3D_3wdv4")
+transform = Transform3D(16, 0, 0, 0, -6.99382e-07, -16, 0, 16, -6.99382e-07, 0, 0, -8.09818)
+shape = SubResource("BoxShape3D_7t6il")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
-[connection signal="body_entered" from="EndPoint" to="." method="_on_end_point_body_entered"]
-[connection signal="body_entered" from="StartPoint" to="." method="_on_start_point_body_entered"]
+[connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
+[connection signal="body_entered" from="Point2" to="." method="_on_point_2_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
