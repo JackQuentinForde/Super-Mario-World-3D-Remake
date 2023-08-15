@@ -748,18 +748,36 @@ libraries = {
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.0808779, 0)
 shape = SubResource("CapsuleShape3D_umpsg")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0857192, 0)
+visible = false
+shape = SubResource("CapsuleShape3D_umpsg")
+disabled = true
+
 [node name="HitArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.137056, 0)
 shape = SubResource("CapsuleShape3D_umpsg")
 
-[node name="JumpArea" type="Area3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HitArea"]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0.137056, 0)
+visible = false
+shape = SubResource("CapsuleShape3D_umpsg")
+disabled = true
+
+[node name="SquishArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.858626, 0.0471147)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SquishArea"]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.131666, -0.0277264)
 shape = SubResource("SphereShape3D_3wu4r")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SquishArea"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.524275, -0.0277264)
+visible = false
+shape = SubResource("SphereShape3D_3wu4r")
+disabled = true
 
 [node name="Point1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.97746)
@@ -785,7 +803,7 @@ shape = SubResource("BoxShape3D_7t6il")
 one_shot = true
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
-[connection signal="area_entered" from="JumpArea" to="." method="_on_jump_area_area_entered"]
+[connection signal="area_entered" from="SquishArea" to="." method="_on_jump_area_area_entered"]
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
 [connection signal="body_entered" from="Point2" to="." method="_on_point_2_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

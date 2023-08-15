@@ -12,9 +12,11 @@ var vector
 var point
 var state
 var player
+var health
 
 func _ready():
 	point = $Point1.global_position
+	health = 2
 	state = PATROL_STATE
 
 func _physics_process(delta):
@@ -53,10 +55,25 @@ func Wait():
 	velocity.x = 0
 	velocity.z = 0
 
-func pointReached(nextPoint):
+func PointReached(nextPoint):
 	state = WAIT_STATE
 	point = nextPoint
 	$Timer.start()
+	
+func TakeHit():
+	health -= 1
+	
+	if health > 0:
+		$Armature.scale = Vector3(1.0, 0.6, 1.0)
+		$CollisionShape3D.call_deferred("set_disabled", true)
+		$HitArea/CollisionShape3D.call_deferred("set_disabled", true)
+		$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
+		
+		$CollisionShape3D2.call_deferred("set_disabled", false)
+		$HitArea/CollisionShape3D2.call_deferred("set_disabled", false)
+		$SquishArea/CollisionShape3D2.call_deferred("set_disabled", false)
+	else:
+		queue_free()
 
 func _on_detection_area_body_entered(body):
 	if body.name == "Player":
@@ -79,14 +96,16 @@ func _on_point_1_body_entered(body):
 	if (point == $Point1.global_position and 
 	body.name == self.name and 
 	state == PATROL_STATE):
-		pointReached($Point2.global_position)
+		PointReached($Point2.global_position)
 		
 func _on_point_2_body_entered(body):
 	if (point == $Point2.global_position and 
 	body.name == self.name and 
 	state == PATROL_STATE):
-		pointReached($Point1.global_position)
+		PointReached($Point1.global_position)
 
 func _on_jump_area_area_entered(area):
-	if area.name == "JumpArea":
+	if area.name == "SpinArea":
 		queue_free()
+	elif area.name == "JumpArea":
+		TakeHit()

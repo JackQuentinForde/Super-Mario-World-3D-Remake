@@ -252,10 +252,9 @@ func CheckWin():
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 
 func _on_spin_area_area_entered(area):
-	if area.get_parent().is_in_group("BreakableBlocks"):
+	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":
 		SpinJump()
 
-
 func _on_jump_area_area_entered(area):
-	if area.name == "JumpArea":
+	if area.name == "SquishArea":
 		velocity.y = JUMP_MIN_VELOCITY
