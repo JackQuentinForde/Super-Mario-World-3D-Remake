@@ -20,7 +20,6 @@ func _ready():
 	state = PATROL_STATE
 
 func _physics_process(delta):
-	$AnimationPlayer.play("walk")
 	ApplyGravity(delta)
 	Move(delta)
 	move_and_slide()
@@ -37,6 +36,7 @@ func Move(delta):
 		Wait()
 	
 func Patrol(delta):
+	$AnimationPlayer.play("Walk")
 	vector = (point - global_position).normalized()
 	var target_velocity = vector * PATROL_SPEED
 	velocity.x = move_toward(velocity.x, target_velocity.x, PATROL_SPEED)
@@ -44,6 +44,7 @@ func Patrol(delta):
 	rotation.y = lerp_angle(rotation.y, atan2(-vector.x, -vector.z), delta * ROT_SPEED)
 	
 func Chase(delta):
+	$AnimationPlayer.play("Walk")
 	var playerLoc = player.global_position
 	vector = (playerLoc - global_position).normalized()
 	var target_velocity = vector * CHASE_SPEED
@@ -52,6 +53,7 @@ func Chase(delta):
 	rotation.y = lerp_angle(rotation.y, atan2(-vector.x, -vector.z), delta * ROT_SPEED)
 	
 func Wait():
+	$AnimationPlayer.play("Idle")
 	velocity.x = 0
 	velocity.z = 0
 
@@ -104,7 +106,7 @@ func _on_point_2_body_entered(body):
 	state == PATROL_STATE):
 		PointReached($Point1.global_position)
 
-func _on_jump_area_area_entered(area):
+func _on_squish_area_area_entered(area):
 	if area.name == "SpinArea":
 		queue_free()
 	elif area.name == "JumpArea":
