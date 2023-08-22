@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=54 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
@@ -586,6 +586,27 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rm75"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_op325"]
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, -20, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a46ul"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.901961, 0.901961, 0.901961, 1)
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_iy650"]
+material = SubResource("StandardMaterial3D_a46ul")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
 [node name="Rex" type="CharacterBody3D"]
 script = ExtResource("2_kybsa")
 
@@ -848,6 +869,26 @@ shape = SubResource("BoxShape3D_f15ye")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 transform = Transform3D(16, 0, 0, 0, -6.99382e-07, -16, 0, 16, -6.99382e-07, 0, 0, -8.09818)
 shape = SubResource("BoxShape3D_0rm75")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+emitting = false
+amount = 4
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_op325")
+draw_pass_1 = SubResource("SphereMesh_iy650")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.511508, 0)
+emitting = false
+amount = 4
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_op325")
+draw_pass_1 = SubResource("SphereMesh_iy650")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

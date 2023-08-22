@@ -64,13 +64,13 @@ gravity = Vector3(0, -20, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fha6e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qs22"]
 shading_mode = 0
 albedo_color = Color(0.972549, 0.847059, 0.12549, 1)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_x6l81"]
-material = SubResource("StandardMaterial3D_fha6e")
+material = SubResource("StandardMaterial3D_7qs22")
 size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="Animation" id="Animation_jgety"]

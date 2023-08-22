@@ -7,7 +7,7 @@ const ROT_SPEED = 6
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-enum {PATROL_STATE, CHASE_STATE, WAIT_STATE}
+enum {PATROL_STATE, CHASE_STATE, WAIT_STATE, DYING_STATE}
 var vector
 var point
 var state
@@ -32,6 +32,9 @@ func Move(delta):
 		Patrol(delta)
 	elif state == CHASE_STATE:
 		Chase(delta)
+	elif state == DYING_STATE:
+		if $GPUParticles3D2.emitting == false:
+			queue_free()
 	else:
 		Wait()
 	
@@ -62,10 +65,11 @@ func PointReached(nextPoint):
 	point = nextPoint
 	$Timer.start()
 	
-func TakeHit():
-	health -= 1
+func TakeHit(dmg):
+	health -= dmg
 	
 	if health > 0:
+		$GPUParticles3D.emitting = true
 		$Armature.scale = Vector3(1.0, 0.6, 1.0)
 		$CollisionShape3D.call_deferred("set_disabled", true)
 		$HitArea/CollisionShape3D.call_deferred("set_disabled", true)
@@ -75,7 +79,15 @@ func TakeHit():
 		$HitArea/CollisionShape3D2.call_deferred("set_disabled", false)
 		$SquishArea/CollisionShape3D2.call_deferred("set_disabled", false)
 	else:
-		queue_free()
+		$GPUParticles3D2.emitting = true
+		$Armature.visible = false
+		$CollisionShape3D.call_deferred("set_disabled", true)
+		$HitArea/CollisionShape3D.call_deferred("set_disabled", true)
+		$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
+		$CollisionShape3D2.call_deferred("set_disabled", true)
+		$HitArea/CollisionShape3D2.call_deferred("set_disabled", true)
+		$SquishArea/CollisionShape3D2.call_deferred("set_disabled", true)
+		state = DYING_STATE
 
 func _on_detection_area_body_entered(body):
 	if body.name == "Player":
@@ -108,6 +120,6 @@ func _on_point_2_body_entered(body):
 
 func _on_squish_area_area_entered(area):
 	if area.name == "SpinArea":
-		queue_free()
+		TakeHit(2)
 	elif area.name == "JumpArea":
-		TakeHit()
+		TakeHit(1)
