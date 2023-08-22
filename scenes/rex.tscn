@@ -857,4 +857,5 @@ one_shot = true
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
 [connection signal="body_entered" from="Point2" to="." method="_on_point_2_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
