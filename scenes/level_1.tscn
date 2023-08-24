@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=32 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cwps5iovnmsaa" path="res://scenes/question_block.tscn" id="16_6nnq4"]
 [ext_resource type="PackedScene" uid="uid://bw1ysubeyoh3b" path="res://scenes/goal.tscn" id="17_1fpch"]
 [ext_resource type="PackedScene" uid="uid://r3ucim6h30jy" path="res://scenes/rex.tscn" id="18_1rsu5"]
+[ext_resource type="Texture2D" uid="uid://b4yhnl4o1iuuc" path="res://assets/textures/Background 1.png" id="19_r3sqj"]
 
 [sub_resource type="Theme" id="Theme_x6sde"]
 default_font = ExtResource("7_e1umb")
@@ -84,6 +85,18 @@ height = 1.96005
 [sub_resource type="BoxShape3D" id="BoxShape3D_n47m2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i123e"]
+panorama = ExtResource("19_r3sqj")
+filter = false
+
+[sub_resource type="Sky" id="Sky_hubji"]
+sky_material = SubResource("PanoramaSkyMaterial_i123e")
+
+[sub_resource type="Environment" id="Environment_4543v"]
+background_mode = 2
+sky = SubResource("Sky_hubji")
+sky_custom_fov = 60.0
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
@@ -380,6 +393,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 219)
 
 [node name="Rex8" parent="." instance=ExtResource("18_1rsu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4543v")
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="area_entered" from="Player/JumpArea" to="Player" method="_on_jump_area_area_entered"]
