@@ -10,6 +10,7 @@ const JUMP_MIN_VELOCITY = 5
 const JUMP_MAX_VELOCITY = 9
 const ANIMATION_RUN_SPEED = 1.5
 const ANIMATION_SPRINT_SPEED = 3
+const CAMERA_SPEED = 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -62,6 +63,7 @@ func _physics_process(delta):
 		SpinJumpLogic()
 		SetMoveSpeed()
 		SetTurnSpeed()
+		CameraLogic(delta)
 		MoveLogic()
 		CheckInvincible()
 		CheckFallen()
@@ -82,6 +84,15 @@ func SetTurnSpeed():
 	else:
 		turnSpeed = TURN_SPEED
 		headBox.call_deferred("set_disabled", true)
+	
+func CameraLogic(delta):
+	if Input.is_action_pressed("camera_left"):
+		$CameraBasis.rotate_y(CAMERA_SPEED * delta)
+	elif Input.is_action_pressed("camera_right"):
+		$CameraBasis.rotate_y(-CAMERA_SPEED * delta)
+		
+	if Input.is_action_pressed("camera_center"):
+		$CameraBasis.rotation_degrees.y = -90
 		
 func MoveLogic():
 	var input_dir = Input.get_vector("player_left", "player_right", "player_up", "player_down")

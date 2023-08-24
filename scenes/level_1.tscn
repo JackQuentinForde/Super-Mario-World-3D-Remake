@@ -210,6 +210,7 @@ shape = SubResource("BoxShape3D_n47m2")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")
 volume_db = -22.0
+autoplay = true
 
 [node name="Koopa Coin" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 14)
