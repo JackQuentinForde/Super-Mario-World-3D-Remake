@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=33 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2_2osan"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bw1ysubeyoh3b" path="res://scenes/goal.tscn" id="17_1fpch"]
 [ext_resource type="PackedScene" uid="uid://r3ucim6h30jy" path="res://scenes/rex.tscn" id="18_1rsu5"]
 [ext_resource type="Texture2D" uid="uid://b4yhnl4o1iuuc" path="res://assets/textures/Background 1.png" id="19_r3sqj"]
+[ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
 
 [sub_resource type="Theme" id="Theme_x6sde"]
 default_font = ExtResource("7_e1umb")
@@ -170,7 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraBasis"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 14)
-fov = 60.0
+fov = 50.0
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("4_vkpjs")
@@ -396,6 +397,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4543v")
+
+[node name="Banzai Bill" parent="." instance=ExtResource("20_wauj7")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 51)
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="area_entered" from="Player/JumpArea" to="Player" method="_on_jump_area_area_entered"]

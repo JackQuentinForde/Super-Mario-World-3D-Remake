@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsf16g0pkss0"]
+[gd_scene load_steps=11 format=3 uid="uid://dsf16g0pkss0"]
 
+[ext_resource type="Script" path="res://scripts/BanzaiBillAI.gd" id="1_7uv1c"]
 [ext_resource type="Texture2D" uid="uid://5x0hyjhilg68" path="res://assets/textures/BanzaiBill_Texture.png" id="2_b2wry"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fy0v8"]
@@ -59,17 +60,51 @@ specular_mode = 1
 albedo_texture = ExtResource("2_b2wry")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma12y"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.972549, 0.972549, 0.972549, 1)
+texture_filter = 0
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jh666"]
 points = PackedVector3Array(-2.98023e-08, -0.215153, 0.255971, -0.127986, -0.215153, 0.221644, -0.104583, -0.2691, 0.181104, -2.98023e-08, -0.2691, 0.209116, 0.104533, -0.2691, 0.181104, 0.127935, -0.215153, 0.221644, 0.127585, 0.101289, 0.220993, -2.98023e-08, 0.101289, 0.255219, -0.127635, 0.101289, 0.220993, -0.221695, -0.215153, 0.127935, -0.181154, -0.2691, 0.104533, -0.065897, -0.313542, 0.114054, -2.98023e-08, -0.313542, 0.131744, 0.0658469, -0.313542, 0.114054, 0.181104, -0.2691, 0.104533, 0.221644, -0.215153, 0.127935, 0.220993, 0.101289, 0.127585, 0.126482, 0.291961, 0.219089, -2.98023e-08, 0.291961, 0.253014, -0.126532, 0.291961, 0.219089, -0.221043, 0.101289, 0.127585, -0.255971, -0.215153, -2.98023e-08, -0.209167, -0.2691, -2.98023e-08, -0.255269, 0.101289, -2.98023e-08, -0.131794, -0.313542, -2.98023e-08, -0.114105, -0.313542, 0.0658469, -2.98023e-08, -0.351122, -2.98023e-08, 0.114054, -0.313542, 0.0658469, 0.131744, -0.313542, -2.98023e-08, 0.209116, -0.2691, -2.98023e-08, 0.255971, -0.215153, -2.98023e-08, 0.255219, 0.101289, -2.98023e-08, 0.219089, 0.291961, 0.126482, -0.219139, 0.291961, 0.126482, -0.221695, -0.215153, -0.127986, -0.181154, -0.2691, -0.104583, -0.253065, 0.291961, -5.01573e-05, -0.221043, 0.101289, -0.127635, -0.114105, -0.313542, -0.065897, -0.065897, -0.313542, -0.114105, -2.98023e-08, -0.313542, -0.131794, 0.0658469, -0.313542, -0.114105, 0.114054, -0.313542, -0.065897, 0.181104, -0.2691, -0.104583, 0.221644, -0.215153, -0.127986, 0.220993, 0.101289, -0.127635, 0.253014, 0.291961, -5.01573e-05, -0.127986, -0.215153, -0.221695, -0.104583, -0.2691, -0.181154, -0.219139, 0.291961, -0.126532, -0.127635, 0.101289, -0.221043, -2.98023e-08, -0.2691, -0.209167, 0.104533, -0.2691, -0.181154, 0.127985, -0.215153, -0.221695, 0.127585, 0.101289, -0.221043, 0.219089, 0.291961, -0.126532, -2.98023e-08, -0.215153, -0.255971, -2.98023e-08, 0.101289, -0.255269, -0.126532, 0.291961, -0.219139, 0.126482, 0.291961, -0.219139, -2.98023e-08, 0.291961, -0.253065)
 
-[node name="Banzai Bill" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmgd0"]
 
-[node name="Banzai Bill2" type="MeshInstance3D" parent="."]
+[node name="Banzai Bill" type="CharacterBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+script = ExtResource("1_7uv1c")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 5.96046e-08, -1, 0, 1, 5.96046e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_sl443")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_5oc06")
+surface_material_override/1 = SubResource("StandardMaterial3D_ma12y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 5.96046e-08, -1, 0, 1, 5.96046e-08, 0, 0, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_jh666")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -1.33716)
+shape = SubResource("BoxShape3D_mmgd0")
+
+[node name="HitArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+transform = Transform3D(1.02, 0, 0, 0, -4.45856e-08, -1.02, 0, 1.02, -4.45856e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_jh666")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
