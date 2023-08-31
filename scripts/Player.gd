@@ -226,7 +226,7 @@ func CheckFallen():
 			Respawn()
 
 func Respawn():
-	#music.play()
+	music.play()
 	ChangeSize(SIZE_SMALL)
 	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")

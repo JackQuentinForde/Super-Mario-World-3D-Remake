@@ -211,6 +211,7 @@ shape = SubResource("BoxShape3D_n47m2")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")
 volume_db = -22.0
+autoplay = true
 
 [node name="Koopa Coin" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 14)
@@ -400,6 +401,12 @@ environment = SubResource("Environment_4543v")
 
 [node name="Banzai Bill" parent="." instance=ExtResource("20_wauj7")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 51)
+
+[node name="Banzai Bill2" parent="." instance=ExtResource("20_wauj7")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 227)
+
+[node name="Banzai Bill3" parent="." instance=ExtResource("20_wauj7")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 257)
 
 [connection signal="area_entered" from="Player/SpinArea" to="Player" method="_on_spin_area_area_entered"]
 [connection signal="area_entered" from="Player/JumpArea" to="Player" method="_on_jump_area_area_entered"]
