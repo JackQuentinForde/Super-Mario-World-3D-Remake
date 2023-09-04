@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://5gpiv8jjkv5a"]
+
+[ext_resource type="PackedScene" uid="uid://ceo28utuhqjcm" path="res://assets/models/Underground.glb" id="1_ip4f6"]
+[ext_resource type="Texture2D" uid="uid://ddbe6yke1it5q" path="res://assets/textures/Yoshi's Island 1/Underground_Texture.png" id="2_qb02e"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_8et5h"]
+[ext_resource type="Material" uid="uid://c6y412jyye8h4" path="res://materials/stone_block.tres" id="4_hl5fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8oyqw"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_qb02e")
+texture_filter = 0
+
+[node name="Underground" instance=ExtResource("1_ip4f6")]
+
+[node name="Underground2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8oyqw")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock052" parent="." index="1"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")

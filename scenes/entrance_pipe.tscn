@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dunwc32bmyip"]
+
+[ext_resource type="PackedScene" uid="uid://8uh7hntm111x" path="res://assets/models/Entrance Pipe - Underground.glb" id="1_ows0c"]
+[ext_resource type="Texture2D" uid="uid://djflsbiu62wc2" path="res://assets/textures/OrangePipe_Texture.png" id="2_bfvj4"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_88mrd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j65ic"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_bfvj4")
+texture_filter = 0
+
+[node name="Entrance Pipe" instance=ExtResource("1_ows0c")]
+
+[node name="Pipe017" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j65ic")
+surface_material_override/1 = ExtResource("3_88mrd")
