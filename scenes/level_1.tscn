@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=30 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
@@ -13,8 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://fnlflju2okcl" path="res://scenes/exclamation_block.tscn" id="15_ymamm"]
 [ext_resource type="PackedScene" uid="uid://cwps5iovnmsaa" path="res://scenes/question_block.tscn" id="16_6nnq4"]
 [ext_resource type="PackedScene" uid="uid://bw1ysubeyoh3b" path="res://scenes/goal.tscn" id="17_1fpch"]
+[ext_resource type="PackedScene" uid="uid://5gpiv8jjkv5a" path="res://scenes/underground.tscn" id="17_7exy6"]
 [ext_resource type="PackedScene" uid="uid://r3ucim6h30jy" path="res://scenes/rex.tscn" id="18_1rsu5"]
+[ext_resource type="PackedScene" uid="uid://dunwc32bmyip" path="res://scenes/entrance_pipe.tscn" id="18_2o3s8"]
+[ext_resource type="PackedScene" uid="uid://3kw3nn1f1m2" path="res://scenes/exit_pipe.tscn" id="19_aq0jd"]
 [ext_resource type="Texture2D" uid="uid://b4yhnl4o1iuuc" path="res://assets/textures/Background 1.png" id="19_r3sqj"]
+[ext_resource type="PackedScene" uid="uid://byp3vwx2o0jmt" path="res://scenes/coin.tscn" id="20_g6sk4"]
 [ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
 
 [sub_resource type="Theme" id="Theme_x6sde"]
@@ -322,5 +326,71 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 227)
 
 [node name="Banzai Bill3" parent="." instance=ExtResource("20_wauj7")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 257)
+
+[node name="Underground" parent="." instance=ExtResource("17_7exy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -304)
+
+[node name="Entrance Pipe" parent="." instance=ExtResource("18_2o3s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 18, -325)
+
+[node name="Exit Pipe" parent="." instance=ExtResource("19_aq0jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 10, -282)
+
+[node name="Coin3" parent="." instance=ExtResource("20_g6sk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27423, 12.8528, -307.32)
+
+[node name="Coin4" parent="." instance=ExtResource("20_g6sk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27423, 12.8528, -305.32)
+
+[node name="Coin5" parent="." instance=ExtResource("20_g6sk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27423, 12.8528, -303.32)
+
+[node name="Coin6" parent="." instance=ExtResource("20_g6sk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, 11.9317, -316.32)
+
+[node name="Coin7" parent="." instance=ExtResource("20_g6sk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, 11.9317, -314.32)
+
+[node name="Coin8" parent="." instance=ExtResource("20_g6sk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, 11.9317, -312.32)
+
+[node name="Koopa Coin5" parent="." instance=ExtResource("6_egfb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 9.43607, -296.48)
+
+[node name="BreakableBlock13" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, 11.5027, -297.471)
+
+[node name="BreakableBlock14" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49677, 11.5027, -297.471)
+
+[node name="BreakableBlock15" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, 11.5027, -297.471)
+
+[node name="BreakableBlock16" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, 11.5027, -296.471)
+
+[node name="BreakableBlock17" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49677, 11.5027, -296.471)
+
+[node name="BreakableBlock18" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, 11.5027, -296.471)
+
+[node name="BreakableBlock19" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, 11.5027, -296.471)
+
+[node name="BreakableBlock20" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, 11.5027, -295.471)
+
+[node name="BreakableBlock21" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, 11.5027, -295.471)
+
+[node name="BreakableBlock22" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49677, 11.5027, -295.471)
+
+[node name="BreakableBlock23" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, 11.5027, -295.471)
+
+[node name="BreakableBlock24" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, 11.5027, -297.471)
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

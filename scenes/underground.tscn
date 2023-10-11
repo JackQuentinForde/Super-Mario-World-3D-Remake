@@ -1,18 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://5gpiv8jjkv5a"]
+[gd_scene load_steps=6 format=3 uid="uid://5gpiv8jjkv5a"]
 
 [ext_resource type="PackedScene" uid="uid://ceo28utuhqjcm" path="res://assets/models/Underground.glb" id="1_ip4f6"]
 [ext_resource type="Texture2D" uid="uid://ddbe6yke1it5q" path="res://assets/textures/Yoshi's Island 1/Underground_Texture.png" id="2_qb02e"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_8et5h"]
 [ext_resource type="Material" uid="uid://c6y412jyye8h4" path="res://materials/stone_block.tres" id="4_hl5fn"]
-[ext_resource type="PackedScene" uid="uid://dunwc32bmyip" path="res://scenes/entrance_pipe.tscn" id="5_jtkwf"]
-[ext_resource type="PackedScene" uid="uid://3kw3nn1f1m2" path="res://scenes/exit_pipe.tscn" id="6_xea0p"]
-[ext_resource type="PackedScene" uid="uid://bkett2qxf0mif" path="res://scenes/breakable_block.tscn" id="7_yg27i"]
-[ext_resource type="FontFile" uid="uid://brhia2wetofvs" path="res://assets/fonts/Super Mario World Text Box.ttf" id="8_ntcvl"]
-[ext_resource type="PackedScene" uid="uid://byp3vwx2o0jmt" path="res://scenes/coin.tscn" id="9_jvk0m"]
-[ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="10_d4iaq"]
-[ext_resource type="AudioStream" uid="uid://cqve8k3iddok8" path="res://assets/music/Super Mario World Overworld Remastered.ogg" id="11_sxo0v"]
-[ext_resource type="Texture2D" uid="uid://bche5y84u6dew" path="res://assets/textures/Underground_Background_Texture.png" id="12_t066a"]
-[ext_resource type="PackedScene" uid="uid://b2rpith82qvhl" path="res://scenes/koopa_coin.tscn" id="13_67tua"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8oyqw"]
 shading_mode = 0
@@ -20,75 +11,6 @@ diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("2_qb02e")
 texture_filter = 0
-
-[sub_resource type="Theme" id="Theme_25tew"]
-default_font = ExtResource("8_ntcvl")
-
-[sub_resource type="Animation" id="Animation_anide"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_yngkc"]
-resource_name = "fadein"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_41sy1"]
-resource_name = "fadeout"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pc6s2"]
-_data = {
-"RESET": SubResource("Animation_anide"),
-"fadein": SubResource("Animation_yngkc"),
-"fadeout": SubResource("Animation_41sy1")
-}
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oyd7t"]
-panorama = ExtResource("12_t066a")
-filter = false
-
-[sub_resource type="Sky" id="Sky_hubji"]
-sky_material = SubResource("PanoramaSkyMaterial_oyd7t")
-
-[sub_resource type="Environment" id="Environment_vt0nf"]
-background_mode = 2
-sky = SubResource("Sky_hubji")
-sky_custom_fov = 60.0
 
 [node name="Underground" instance=ExtResource("1_ip4f6")]
 
@@ -223,105 +145,3 @@ surface_material_override/1 = ExtResource("3_8et5h")
 [node name="StoneBlock083" parent="." index="32"]
 surface_material_override/0 = ExtResource("4_hl5fn")
 surface_material_override/1 = ExtResource("3_8et5h")
-
-[node name="Entrance Pipe" parent="." index="36" instance=ExtResource("5_jtkwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -21)
-
-[node name="Exit Pipe" parent="." index="37" instance=ExtResource("6_xea0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, 22)
-
-[node name="BreakableBlock" parent="." index="38" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, -3.49726, 6.529)
-
-[node name="BreakableBlock3" parent="." index="39" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49677, -3.49726, 6.529)
-
-[node name="BreakableBlock4" parent="." index="40" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, -3.49726, 6.529)
-
-[node name="BreakableBlock5" parent="." index="41" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, -3.49726, 7.52901)
-
-[node name="BreakableBlock6" parent="." index="42" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49677, -3.49726, 7.52901)
-
-[node name="BreakableBlock7" parent="." index="43" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, -3.49726, 7.52901)
-
-[node name="BreakableBlock8" parent="." index="44" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, -3.49726, 7.52901)
-
-[node name="BreakableBlock9" parent="." index="45" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, -3.49726, 8.52901)
-
-[node name="BreakableBlock10" parent="." index="46" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, -3.49726, 8.52901)
-
-[node name="BreakableBlock11" parent="." index="47" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49677, -3.49726, 8.52901)
-
-[node name="BreakableBlock12" parent="." index="48" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, -3.49726, 8.52901)
-
-[node name="BreakableBlock2" parent="." index="49" groups=["BreakableBlocks"] instance=ExtResource("7_yg27i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, -3.49726, 6.529)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="50"]
-
-[node name="Score" type="Label" parent="CanvasLayer" index="0"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 27.0
-grow_horizontal = 0
-theme = SubResource("Theme_25tew")
-text = "x 0"
-horizontal_alignment = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="1"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-color = Color(0, 0, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" index="2"]
-libraries = {
-"": SubResource("AnimationLibrary_pc6s2")
-}
-
-[node name="Coin3" parent="." index="51" instance=ExtResource("9_jvk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27423, -2.1472, -3.32001)
-
-[node name="Coin4" parent="." index="52" instance=ExtResource("9_jvk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27423, -2.1472, -1.32001)
-
-[node name="Coin5" parent="." index="53" instance=ExtResource("9_jvk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27423, -2.1472, 0.67999)
-
-[node name="Coin6" parent="." index="54" instance=ExtResource("9_jvk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, -3.06834, -12.32)
-
-[node name="Coin7" parent="." index="55" instance=ExtResource("9_jvk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, -3.06834, -10.32)
-
-[node name="Coin8" parent="." index="56" instance=ExtResource("9_jvk0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, -3.06834, -8.32001)
-
-[node name="Player" parent="." index="57" instance=ExtResource("10_d4iaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -7.60754, -21)
-
-[node name="Music" type="AudioStreamPlayer" parent="." index="58"]
-stream = ExtResource("11_sxo0v")
-volume_db = -80.0
-autoplay = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="59"]
-environment = SubResource("Environment_vt0nf")
-
-[node name="Koopa Coin" parent="." index="60" instance=ExtResource("13_67tua")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.56393, 7.52032)
