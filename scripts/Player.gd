@@ -279,7 +279,10 @@ func EnteredPipeZone(pipeBody, inZone):
 	inPipeZone = inZone
 
 func TeleportToUnderground():
-	position = respawnPoint
+	var newPosition = get_parent().get_node("Entrance Pipe").global_position
+	position.x = newPosition.x
+	position.y = respawnPoint.y + 4
+	position.z = newPosition.z
 	enteringPipe = false
 
 func _on_spin_area_area_entered(area):
