@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi55vexrxwi5u"]
+
+[ext_resource type="PackedScene" uid="uid://r204n5lvb4kj" path="res://assets/models/Grey Pipe.glb" id="1_n2iww"]
+[ext_resource type="Material" uid="uid://mk0f5b0vpi5a" path="res://materials/blue_pipe.tres" id="2_8ex1x"]
+[ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_23eyy"]
+[ext_resource type="Script" path="res://scripts/UndergroundEntrancePipe.gd" id="4_pg2nk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f6qdh"]
+
+[node name="Grey Pipe" instance=ExtResource("1_n2iww")]
+script = ExtResource("4_pg2nk")
+
+[node name="Pipe001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_8ex1x")
+surface_material_override/1 = ExtResource("3_23eyy")
+
+[node name="Trigger" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("CylinderShape3D_f6qdh")
+
+[node name="Timer" type="Timer" parent="." index="3"]
+one_shot = true
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -22,10 +22,12 @@ var spinJump = false
 var invincible = false
 var fallen = false
 var fadeout = false
+var inPipeZone = false
 var speed
 var turnSpeed
 var currentSize
 var respawnPoint
+var lastPipe
 
 enum {SIZE_SMALL, SIZE_BIG}
 
@@ -261,6 +263,13 @@ func Win():
 func CheckWin():
 	if fadeout and not canvasAnimationPlayer.is_playing():
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+
+func EnteredPipeZone(pipeBody, inZone):
+	lastPipe = pipeBody
+	inPipeZone = inZone
+
+func TeleportToUnderground():
+	position = respawnPoint
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":

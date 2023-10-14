@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://scripts/Trigger.gd" id="10_4vecc"]
 [ext_resource type="PackedScene" uid="uid://bkett2qxf0mif" path="res://scenes/breakable_block.tscn" id="11_f43on"]
 [ext_resource type="PackedScene" uid="uid://b2lsuear8paw6" path="res://scenes/checkpoint.tscn" id="12_giawj"]
-[ext_resource type="PackedScene" uid="uid://c7ae3xmmbmjx0" path="res://scenes/grey_pipe.tscn" id="13_ymi8r"]
 [ext_resource type="PackedScene" uid="uid://cwufsg627f0ip" path="res://scenes/spinnable_block.tscn" id="14_gnsyn"]
 [ext_resource type="PackedScene" uid="uid://fnlflju2okcl" path="res://scenes/exclamation_block.tscn" id="15_ymamm"]
 [ext_resource type="PackedScene" uid="uid://cwps5iovnmsaa" path="res://scenes/question_block.tscn" id="16_6nnq4"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dunwc32bmyip" path="res://scenes/entrance_pipe.tscn" id="18_2o3s8"]
 [ext_resource type="PackedScene" uid="uid://3kw3nn1f1m2" path="res://scenes/exit_pipe.tscn" id="19_aq0jd"]
 [ext_resource type="Texture2D" uid="uid://b4yhnl4o1iuuc" path="res://assets/textures/Background 1.png" id="19_r3sqj"]
+[ext_resource type="PackedScene" uid="uid://bi55vexrxwi5u" path="res://scenes/grey_entrance_pipe.tscn" id="20_aeul1"]
 [ext_resource type="PackedScene" uid="uid://byp3vwx2o0jmt" path="res://scenes/coin.tscn" id="20_g6sk4"]
 [ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
 
@@ -191,9 +191,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49677, 7.50274, 127.529)
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_giawj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 166)
-
-[node name="Grey Pipe" parent="." instance=ExtResource("13_ymi8r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 128.501)
 
 [node name="SpinnableBlock" parent="." groups=["BreakableBlocks"] instance=ExtResource("14_gnsyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13765, 14.3328, 222.13)
@@ -392,5 +389,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49677, 11.5027, -295.471)
 
 [node name="BreakableBlock24" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49677, 11.5027, -297.471)
+
+[node name="Grey Pipe" parent="." instance=ExtResource("20_aeul1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 128.501)
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
