@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+var overworldEnvironment = preload("res://environments/overworld.tres")
+var undergroundEnvironment = preload("res://environments/underground.tres")
+
 const WALK_SPEED = 8
 const RUN_SPEED = 16
 const TURN_SPEED = 1
@@ -43,6 +46,7 @@ var canvasAnimationPlayer
 var music
 
 func _ready():
+	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	currentSize = SIZE_SMALL
 	cameraBasis = $CameraBasis
 	originalCameraPos = cameraBasis.global_position
@@ -239,6 +243,7 @@ func CheckFallen():
 			Respawn()
 
 func Respawn():
+	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	music.play()
 	ChangeSize(SIZE_SMALL)
 	cameraBasis.call_deferred("set_as_top_level", false)
@@ -284,6 +289,7 @@ func TeleportToUnderground():
 	position.x = newPosition.x
 	position.y = respawnPoint.y + 4
 	position.z = newPosition.z
+	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", undergroundEnvironment)
 	enteringPipe = false
 
 func _on_spin_area_area_entered(area):

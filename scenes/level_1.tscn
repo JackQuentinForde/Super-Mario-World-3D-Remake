@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=27 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkett2qxf0mif" path="res://scenes/breakable_block.tscn" id="11_f43on"]
 [ext_resource type="PackedScene" uid="uid://b2lsuear8paw6" path="res://scenes/checkpoint.tscn" id="12_giawj"]
 [ext_resource type="PackedScene" uid="uid://cwufsg627f0ip" path="res://scenes/spinnable_block.tscn" id="14_gnsyn"]
+[ext_resource type="Environment" uid="uid://bm3bo712m26r5" path="res://environments/overworld.tres" id="14_s007e"]
 [ext_resource type="PackedScene" uid="uid://fnlflju2okcl" path="res://scenes/exclamation_block.tscn" id="15_ymamm"]
 [ext_resource type="PackedScene" uid="uid://cwps5iovnmsaa" path="res://scenes/question_block.tscn" id="16_6nnq4"]
 [ext_resource type="PackedScene" uid="uid://bw1ysubeyoh3b" path="res://scenes/goal.tscn" id="17_1fpch"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://r3ucim6h30jy" path="res://scenes/rex.tscn" id="18_1rsu5"]
 [ext_resource type="PackedScene" uid="uid://dunwc32bmyip" path="res://scenes/entrance_pipe.tscn" id="18_2o3s8"]
 [ext_resource type="PackedScene" uid="uid://3kw3nn1f1m2" path="res://scenes/exit_pipe.tscn" id="19_aq0jd"]
-[ext_resource type="Texture2D" uid="uid://b4yhnl4o1iuuc" path="res://assets/textures/Background 1.png" id="19_r3sqj"]
 [ext_resource type="PackedScene" uid="uid://bi55vexrxwi5u" path="res://scenes/grey_entrance_pipe.tscn" id="20_aeul1"]
 [ext_resource type="PackedScene" uid="uid://byp3vwx2o0jmt" path="res://scenes/coin.tscn" id="20_g6sk4"]
 [ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
@@ -79,18 +79,6 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i123e"]
-panorama = ExtResource("19_r3sqj")
-filter = false
-
-[sub_resource type="Sky" id="Sky_jy5ph"]
-sky_material = SubResource("PanoramaSkyMaterial_i123e")
-
-[sub_resource type="Environment" id="Environment_4543v"]
-background_mode = 2
-sky = SubResource("Sky_jy5ph")
-sky_custom_fov = 60.0
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
@@ -313,7 +301,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 219)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4543v")
+environment = ExtResource("14_s007e")
 
 [node name="Banzai Bill" parent="." instance=ExtResource("20_wauj7")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 51)
