@@ -29,6 +29,7 @@ var turnSpeed
 var currentSize
 var respawnPoint
 var lastPipe
+var originalCameraPos
 
 enum {SIZE_SMALL, SIZE_BIG}
 
@@ -44,6 +45,7 @@ var music
 func _ready():
 	currentSize = SIZE_SMALL
 	cameraBasis = $CameraBasis
+	originalCameraPos = cameraBasis.global_position
 	mario = $SmallMario
 	animationPlayer = $SmallMario/AnimationPlayer
 	animationPlayer2 = $SmallMario/AnimationPlayer2
@@ -66,7 +68,6 @@ func _physics_process(delta):
 		SpinJumpLogic()
 		SetMoveSpeed()
 		SetTurnSpeed()
-		CameraLogic(delta)
 		MoveLogic()
 		CheckInvincible()
 		CheckFallen()
@@ -89,14 +90,14 @@ func SetTurnSpeed():
 		turnSpeed = TURN_SPEED
 		headBox.call_deferred("set_disabled", true)
 	
-func CameraLogic(delta):
-	if Input.is_action_pressed("camera_left"):
-		$CameraBasis.rotate_y(CAMERA_SPEED * delta)
-	elif Input.is_action_pressed("camera_right"):
-		$CameraBasis.rotate_y(-CAMERA_SPEED * delta)
-		
-	if Input.is_action_pressed("camera_center"):
-		$CameraBasis.rotation_degrees.y = -90
+#func CameraLogic(delta):
+#	if Input.is_action_pressed("camera_left"):
+#		$CameraBasis.rotate_y(CAMERA_SPEED * delta)
+#	elif Input.is_action_pressed("camera_right"):
+#		$CameraBasis.rotate_y(-CAMERA_SPEED * delta)
+#
+#	if Input.is_action_pressed("camera_center"):
+#		$CameraBasis.rotation_degrees.y = -90
 		
 func MoveLogic():
 	var input_dir = Input.get_vector("player_left", "player_right", "player_up", "player_down")
@@ -243,7 +244,7 @@ func Respawn():
 	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
 	position = respawnPoint
-	cameraBasis.global_position = Vector3(position.x, position.y + 9, position.z)
+	cameraBasis.global_position = originalCameraPos
 	fallen = false
 	
 func TakeHit():

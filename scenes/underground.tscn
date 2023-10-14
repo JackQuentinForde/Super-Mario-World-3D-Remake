@@ -145,3 +145,131 @@ surface_material_override/1 = ExtResource("3_8et5h")
 [node name="StoneBlock083" parent="." index="32"]
 surface_material_override/0 = ExtResource("4_hl5fn")
 surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock001" parent="." index="33"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock002" parent="." index="34"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock003" parent="." index="35"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock004" parent="." index="36"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock005" parent="." index="37"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock006" parent="." index="38"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock007" parent="." index="39"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock008" parent="." index="40"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock009" parent="." index="41"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock010" parent="." index="42"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock011" parent="." index="43"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock012" parent="." index="44"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock013" parent="." index="45"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock014" parent="." index="46"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock015" parent="." index="47"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock016" parent="." index="48"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock017" parent="." index="49"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock018" parent="." index="50"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock019" parent="." index="51"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock020" parent="." index="52"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock021" parent="." index="53"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock022" parent="." index="54"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock023" parent="." index="55"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock024" parent="." index="56"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock025" parent="." index="57"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock026" parent="." index="58"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock027" parent="." index="59"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock028" parent="." index="60"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock029" parent="." index="61"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock030" parent="." index="62"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock031" parent="." index="63"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="StoneBlock032" parent="." index="64"]
+surface_material_override/0 = ExtResource("4_hl5fn")
+surface_material_override/1 = ExtResource("3_8et5h")
