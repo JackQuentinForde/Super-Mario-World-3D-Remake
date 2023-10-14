@@ -22,6 +22,7 @@ var spinJump = false
 var invincible = false
 var fallen = false
 var fadeout = false
+var enteringPipe = false
 var inPipeZone = false
 var speed
 var turnSpeed
@@ -60,7 +61,7 @@ func _physics_process(delta):
 	move_and_slide()
 	AnimationLogic()
 	CheckWin()
-	if not fadeout:
+	if not fadeout and not enteringPipe:
 		JumpLogic()
 		SpinJumpLogic()
 		SetMoveSpeed()
@@ -69,6 +70,7 @@ func _physics_process(delta):
 		MoveLogic()
 		CheckInvincible()
 		CheckFallen()
+		EnterPipeLogic()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -140,6 +142,14 @@ func SpinJumpLogic():
 	animationPlayer.current_animation == "SpinJump" and 
 	velocity.y <= 0):
 		$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
+		
+func EnterPipeLogic():
+	if Input.is_action_just_pressed("player_enter_pipe") and is_on_floor() and inPipeZone:
+		enteringPipe = true
+		position.x = lastPipe.global_position.x
+		position.z = lastPipe.global_position.z
+		mario.rotation = Vector3(0,0,0)
+		lastPipe.call_deferred("DisableCollisions")
 		
 func SpinJump():
 	velocity.y = JUMP_MIN_VELOCITY
@@ -270,6 +280,7 @@ func EnteredPipeZone(pipeBody, inZone):
 
 func TeleportToUnderground():
 	position = respawnPoint
+	enteringPipe = false
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":

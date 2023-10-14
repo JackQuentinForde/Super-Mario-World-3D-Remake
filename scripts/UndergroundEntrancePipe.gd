@@ -2,7 +2,7 @@ extends Node3D
 
 var player
 
-func disableCollisions():
+func DisableCollisions():
 	$"@Pipe001@24189/CollisionShape3D".call_deferred("set_disabled", true)
 	$Timer.start()
 
