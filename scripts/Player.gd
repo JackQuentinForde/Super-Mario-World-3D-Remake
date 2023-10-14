@@ -210,9 +210,13 @@ func AnimationLogic():
 				else:
 					animationPlayer.speed_scale = 1
 		else:
+			animationPlayer.speed_scale = 1
 			animationPlayer.play("Idle")
 	else:
-		if spinJump:
+		if enteringPipe:
+			animationPlayer.speed_scale = 1
+			animationPlayer.play("Idle")
+		elif spinJump:
 			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
 			animationPlayer.play("SpinJump")
 			jumping = true
