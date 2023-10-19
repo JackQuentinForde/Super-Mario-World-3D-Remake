@@ -67,6 +67,7 @@ func _physics_process(delta):
 	move_and_slide()
 	AnimationLogic()
 	CheckWin()
+	CameraLogic(delta)
 	if not fadeout and not enteringPipe:
 		JumpLogic()
 		SpinJumpLogic()
@@ -92,17 +93,17 @@ func SetTurnSpeed():
 		headBox.call_deferred("set_disabled", false)
 	else:
 		turnSpeed = TURN_SPEED
-		headBox.call_deferred("set_disabled", true)
-	
-#func CameraLogic(delta):
-#	if Input.is_action_pressed("camera_left"):
-#		$CameraBasis.rotate_y(CAMERA_SPEED * delta)
-#	elif Input.is_action_pressed("camera_right"):
-#		$CameraBasis.rotate_y(-CAMERA_SPEED * delta)
-#
-#	if Input.is_action_pressed("camera_center"):
-#		$CameraBasis.rotation_degrees.y = -90
-		
+		headBox.call_deferred("set_disabled", true)	
+
+func CameraLogic(delta):
+	if Input.is_action_pressed("camera_left"):
+		$CameraBasis.rotate_y(CAMERA_SPEED * delta)
+	elif Input.is_action_pressed("camera_right"):
+		$CameraBasis.rotate_y(-CAMERA_SPEED * delta)
+
+	if Input.is_action_pressed("camera_center"):
+		$CameraBasis.rotation_degrees.y = -90	
+			
 func MoveLogic():
 	var input_dir = Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
