@@ -117,7 +117,7 @@ libraries = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")
-volume_db = -80.0
+volume_db = -22.0
 autoplay = true
 
 [node name="Koopa Coin" parent="." instance=ExtResource("6_egfb1")]
