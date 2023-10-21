@@ -77,7 +77,6 @@ func _physics_process(delta):
 		CheckInvincible()
 		CheckFallen()
 		EnterPipeLogic()
-	print(velocity)
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
