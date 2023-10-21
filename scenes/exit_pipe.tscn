@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://3kw3nn1f1m2"]
+[gd_scene load_steps=6 format=3 uid="uid://3kw3nn1f1m2"]
 
 [ext_resource type="PackedScene" uid="uid://c7fd582tsq7tx" path="res://assets/models/Exit Pipe - Underground.glb" id="1_g7hr6"]
+[ext_resource type="Script" path="res://scripts/UndergroundExitPipe.gd" id="2_hi12x"]
 [ext_resource type="Material" uid="uid://dpm0dhevhtryw" path="res://materials/green_pipe.tres" id="2_kjstp"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_sy7hp"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1irap"]
+
 [node name="Exit Pipe" instance=ExtResource("1_g7hr6")]
+script = ExtResource("2_hi12x")
 
 [node name="CollisionShape3D" parent="Pipe" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0232219, -0.0232219)
@@ -12,3 +16,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0232219, -0.0232219)
 [node name="Pipe018" parent="." index="1"]
 surface_material_override/0 = ExtResource("2_kjstp")
 surface_material_override/1 = ExtResource("3_sy7hp")
+
+[node name="Trigger" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("CylinderShape3D_1irap")
+
+[node name="Timer" type="Timer" parent="." index="3"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

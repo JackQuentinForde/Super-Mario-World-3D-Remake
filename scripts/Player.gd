@@ -77,6 +77,7 @@ func _physics_process(delta):
 		CheckInvincible()
 		CheckFallen()
 		EnterPipeLogic()
+	print(velocity)
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -290,11 +291,20 @@ func EnteredPipeZone(pipeBody, inZone):
 	inPipeZone = inZone
 
 func TeleportToUnderground():
-	var newPosition = get_parent().get_node("Entrance Pipe").global_position
+	var newPosition = get_parent().get_node("Underground Spawn").global_position
 	position.x = newPosition.x
-	position.y = respawnPoint.y + 4
+	position.y = newPosition.y - 4
 	position.z = newPosition.z
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", undergroundEnvironment)
+	enteringPipe = false
+	
+func TeleportToOverground():
+	var newPosition = get_parent().get_node("Overground Spawn").global_position
+	position.x = newPosition.x
+	position.y = newPosition.y - 4
+	position.z = newPosition.z
+	velocity = Vector3(0, 9, 16)
+	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
 
 func _on_spin_area_area_entered(area):
