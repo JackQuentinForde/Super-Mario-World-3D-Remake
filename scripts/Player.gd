@@ -153,8 +153,12 @@ func EnterPipeLogic():
 	if Input.is_action_just_pressed("player_enter_pipe") and is_on_floor() and inPipeZone:
 		enteringPipe = true
 		position.x = lastPipe.global_position.x
-		position.z = lastPipe.global_position.z
 		mario.rotation = Vector3(0,0,0)
+		if lastPipe.name == "Exit Pipe":
+			animationPlayer.play("Walk")
+			velocity = Vector3(0, 0, WALK_SPEED)
+		else:
+			position.z = lastPipe.global_position.z
 		lastPipe.call_deferred("DisableCollisions")
 		
 func SpinJump():
