@@ -1,5 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://dfivykbgd3iw2"]
+[gd_scene load_steps=33 format=3 uid="uid://dfivykbgd3iw2"]
 
+[ext_resource type="Script" path="res://scripts/piranha_plant.gd" id="1_33u4h"]
 [ext_resource type="Material" uid="uid://bvl8rpqvwqd2t" path="res://materials/piranha_plant.tres" id="2_h4qp1"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_l3xar"]
 [ext_resource type="Material" uid="uid://c4akyviw285l1" path="res://materials/piranha_plant_light_leaf.tres" id="4_gkx1q"]
@@ -283,6 +284,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_t1csd"]
 
 [node name="Piranha Plant" type="CharacterBody3D"]
+script = ExtResource("1_33u4h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.443, 0, 0, 0, 2.443, 0, 0, 0, 2.443, 0, -1.35646, 0)
@@ -354,7 +356,6 @@ surface_material_override/0 = ExtResource("2_h4qp1")
 surface_material_override/1 = ExtResource("3_l3xar")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Bite"
 libraries = {
 "": SubResource("AnimationLibrary_d77a4")
 }
@@ -385,3 +386,10 @@ shape = SubResource("CylinderShape3D_vxrft")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -2.80166, 0)
 shape = SubResource("CylinderShape3D_vxrft")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="NorthPoint" to="." method="_on_north_point_body_entered"]
+[connection signal="body_entered" from="SouthPoint" to="." method="_on_south_point_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
