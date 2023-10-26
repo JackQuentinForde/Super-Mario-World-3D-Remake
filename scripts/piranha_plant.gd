@@ -34,6 +34,8 @@ func Move():
 	velocity.y = move_toward(velocity.y, target_velocity.y, SPEED)
 	
 func Wait():
+	if point == $SouthPoint.global_position:
+		$AnimationPlayer.play("Bite", -1, 0.5, false)
 	velocity = Vector3(0, 0, 0)
 	
 func Hide():
@@ -62,7 +64,7 @@ func _on_hitbox_body_entered(body):
 
 func _on_timer_timeout():
 	if state == WAIT_STATE:
-		if playerNearby:
+		if playerNearby and point == $NorthPoint.global_position:
 			state = HIDE_STATE
 		else:
 			state = MOVE_STATE

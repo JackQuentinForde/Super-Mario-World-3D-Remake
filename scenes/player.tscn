@@ -14,6 +14,7 @@ height = 1.96005
 [sub_resource type="BoxShape3D" id="BoxShape3D_n47m2"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 5
 slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_max_angle = 1.309

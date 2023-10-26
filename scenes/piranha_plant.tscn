@@ -285,7 +285,15 @@ _data = {
 
 [node name="Piranha Plant" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 2
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+motion_mode = 1
+slide_on_ceiling = false
+wall_min_slide_angle = 3.14159
 script = ExtResource("1_33u4h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -366,6 +374,7 @@ one_shot = true
 
 [node name="NorthPoint" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7182, 0)
+top_level = true
 collision_layer = 2
 collision_mask = 6
 
@@ -374,6 +383,7 @@ shape = SubResource("BoxShape3D_t1csd")
 
 [node name="SouthPoint" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+top_level = true
 collision_layer = 2
 collision_mask = 6
 
@@ -382,7 +392,7 @@ shape = SubResource("BoxShape3D_t1csd")
 
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -1.35646, 0)
@@ -390,10 +400,10 @@ shape = SubResource("CylinderShape3D_vxrft")
 
 [node name="DetectionArea" type="Area3D" parent="."]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -2.80166, 0)
+transform = Transform3D(5.75, 0, 0, 0, 5.75, 0, 0, 0, 5.75, 0, -4.6352, 0)
 shape = SubResource("CylinderShape3D_vxrft")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
