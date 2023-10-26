@@ -2,9 +2,6 @@ extends CharacterBody3D
 
 const SPEED = 2
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 enum {MOVE_STATE, WAIT_STATE, HIDE_STATE, DYING_STATE}
 var point
 var vector
@@ -13,20 +10,16 @@ var playerNearby
 
 func _ready():
 	playerNearby = false
-	point = $SouthPoint.global_position
+	point = $NorthPoint.global_position
 	state = MOVE_STATE
 
-func _physics_process(delta):
-	ApplyGravity(delta)
-	Action(delta)
+func _physics_process(_delta):
+	Action()
 	move_and_slide()
-
-func ApplyGravity(delta):
-	velocity.y -= gravity * delta
 	
-func Action(delta):	
+func Action():	
 	if state == MOVE_STATE:
-		Move(delta)
+		Move()
 	elif state == WAIT_STATE:
 		Wait()
 	elif state == HIDE_STATE:
@@ -34,15 +27,14 @@ func Action(delta):
 	else:
 		Die()
 		
-func Move(delta):
-	$AnimationPlayer.play("Bite")
+func Move():
+	$AnimationPlayer.play("Bite", -1, 0.5, false)
 	vector = (point - global_position).normalized()
 	var target_velocity = vector * SPEED
 	velocity.y = move_toward(velocity.y, target_velocity.y, SPEED)
 	
 func Wait():
-	velocity.x = 0
-	velocity.z = 0
+	velocity = Vector3(0, 0, 0)
 	
 func Hide():
 	if !playerNearby:
