@@ -403,7 +403,7 @@ collision_layer = 2
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
-transform = Transform3D(5.75, 0, 0, 0, 5.75, 0, 0, 0, 5.75, 0, -4.6352, 0)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -3.07271, 0)
 shape = SubResource("CylinderShape3D_vxrft")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
