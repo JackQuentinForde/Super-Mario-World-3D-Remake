@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccqpjyii2762n"]
+[gd_scene load_steps=15 format=3 uid="uid://ccqpjyii2762n"]
 
 [ext_resource type="Script" path="res://scripts/mushroom.gd" id="1_ow4q1"]
 [ext_resource type="Material" uid="uid://b5et0vusr18i0" path="res://materials/mushroom.tres" id="2_3ho00"]
@@ -99,6 +99,8 @@ _data = {
 "Spin": SubResource("Animation_xynyn")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_k1l6e"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2krc"]
 transparency = 1
 shading_mode = 0
@@ -136,11 +138,17 @@ libraries = {
 [node name="Timer" type="Timer" parent="MushroomBody"]
 one_shot = true
 
+[node name="HitBox" type="Area3D" parent="MushroomBody"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MushroomBody/HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.266719, 0)
+shape = SubResource("SphereShape3D_k1l6e")
+
 [node name="Popup" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.21046, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_b2krc")
 texture = ExtResource("3_hgrt5")
 
-[connection signal="body_entered" from="MushroomBody" to="MushroomBody" method="_on_body_entered"]
 [connection signal="timeout" from="MushroomBody/Timer" to="MushroomBody" method="_on_timer_timeout"]
+[connection signal="body_entered" from="MushroomBody/HitBox" to="MushroomBody" method="_on_hit_box_body_entered"]
