@@ -391,4 +391,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.65722, 143)
 [node name="Piranha Plant" parent="." instance=ExtResource("21_20fyy")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 8.82161, 120.47)
 
+[node name="Piranha Plant2" parent="." instance=ExtResource("21_20fyy")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 9.80396, 156.47)
+
+[node name="Piranha Plant5" parent="." instance=ExtResource("21_20fyy")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.25206, 9.80396, 315.47)
+
+[node name="Piranha Plant6" parent="." instance=ExtResource("21_20fyy")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.74794, 9.80396, 315.47)
+
+[node name="Piranha Plant4" parent="." instance=ExtResource("21_20fyy")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5.51234, 9.80396, 156.47)
+
+[node name="Piranha Plant3" parent="." instance=ExtResource("21_20fyy")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.48073, 9.80396, 156.47)
+
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

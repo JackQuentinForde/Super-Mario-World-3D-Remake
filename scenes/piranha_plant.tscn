@@ -406,6 +406,9 @@ collision_mask = 6
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -3.07271, 0)
 shape = SubResource("CylinderShape3D_vxrft")
 
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="NorthPoint" to="." method="_on_north_point_body_entered"]
 [connection signal="body_entered" from="SouthPoint" to="." method="_on_south_point_body_entered"]

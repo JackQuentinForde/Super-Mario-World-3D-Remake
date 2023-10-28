@@ -7,15 +7,20 @@ var point
 var vector
 var state
 var playerNearby
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	playerNearby = false
 	point = $NorthPoint.global_position
 	state = MOVE_STATE
+	var waitTime = rng.randf_range(0, 4.0)
+	$Timer2.wait_time = waitTime
+	$Timer2.start()
 
 func _physics_process(_delta):
-	Action()
-	move_and_slide()
+	if ($Timer2.is_stopped()):
+		Action()
+		move_and_slide()
 	
 func Action():	
 	if state == MOVE_STATE:
