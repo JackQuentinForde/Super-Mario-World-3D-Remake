@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 const PATROL_SPEED = 2
 const CHASE_SPEED = 3
+const SLIDE_SPEED = 4
 const ROT_SPEED = 6
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -12,8 +13,10 @@ var vector
 var point
 var state
 var player
+var touchedGround
 
 func _ready():
+	touchedGround = false
 	position = $StartPos.global_position
 	point = $Point1.global_position
 	state = SLIDE_STATE
@@ -41,6 +44,11 @@ func Move(delta):
 		
 func Slide():
 	$AnimationPlayer.play("Slide")
+	if is_on_floor() && not touchedGround:
+		velocity.z = -SLIDE_SPEED
+	elif velocity.z != 0:
+		touchedGround = true
+		velocity.z = move_toward(velocity.z, 0, 0.04)
 		
 func Patrol(delta):
 	$AnimationPlayer.play("Walk")
@@ -86,7 +94,7 @@ func _on_detection_area_body_entered(body):
 		state = CHASE_STATE
 		
 func _on_detection_area_body_exited(body):
-	if body.name == "Player":
+	if body.name == "Player" and state != SLIDE_STATE:
 		state = PATROL_STATE
 
 func _on_hit_area_body_entered(body):

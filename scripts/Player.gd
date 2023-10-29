@@ -10,7 +10,7 @@ const AIR_TURN_SPEED = 0.2
 const ACCEL = 0.18
 const JUMP_ACCEL = 1
 const JUMP_MIN_VELOCITY = 5
-const JUMP_MAX_VELOCITY = 9
+const JUMP_MAX_VELOCITY = 10
 const ANIMATION_RUN_SPEED = 1.5
 const ANIMATION_SPRINT_SPEED = 3
 const CAMERA_SPEED = 1.25
@@ -27,6 +27,7 @@ var fallen = false
 var fadeout = false
 var enteringPipe = false
 var inPipeZone = false
+var gotCheckpoint = false
 var speed
 var turnSpeed
 var currentSize
@@ -240,16 +241,21 @@ func CheckInvincible():
 func SetSpawn():
 	respawnPoint.x = position.x
 	respawnPoint.z = position.z - 2
+	originalCameraPos = Vector3(cameraBasis.global_position.x, cameraBasis.global_position.y, cameraBasis.global_position.z - 2)
+	gotCheckpoint = true
 		
 func CheckFallen():
 	if position.y < respawnPoint.y - 15 and not fallen:
-		music.stop()
-		fallen = true
-		cameraBasis.call_deferred("set_as_top_level", true)
-		canvasAnimationPlayer.call_deferred("play", "fadeout")
+		if gotCheckpoint:
+			music.stop()
+			fallen = true
+			cameraBasis.call_deferred("set_as_top_level", true)
+			canvasAnimationPlayer.call_deferred("play", "fadeout")
+		else:
+			Die()
 	elif fallen:
 		if not canvasAnimationPlayer.is_playing():
-			Die()
+			Respawn()
 
 func Respawn():
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
@@ -259,6 +265,7 @@ func Respawn():
 	canvasAnimationPlayer.call_deferred("play", "fadein")
 	position = respawnPoint
 	cameraBasis.global_position = originalCameraPos
+	cameraBasis.rotation_degrees.y = -90
 	fallen = false
 	
 func TakeHit():
@@ -266,10 +273,14 @@ func TakeHit():
 		if currentSize == SIZE_BIG:
 			ChangeSize(SIZE_SMALL)
 		else:
-			Die()
+			mario.visible = false
+			if gotCheckpoint:
+				canvasAnimationPlayer.call_deferred("play", "fadeout")
+				fallen = true
+			else:
+				Die()
 	
 func Die():
-	mario.visible = false
 	cameraBasis.call_deferred("set_as_top_level", true)
 	$MarioBodyCollision.disabled = true
 	$MarioHeadCollision.disabled = true

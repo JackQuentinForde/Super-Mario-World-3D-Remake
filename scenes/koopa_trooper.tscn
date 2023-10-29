@@ -658,6 +658,7 @@ radial_segments = 16
 rings = 8
 
 [node name="Koopa Trooper" type="CharacterBody3D"]
+floor_stop_on_slope = false
 script = ExtResource("1_6ppda")
 
 [node name="Armature" type="Node3D" parent="."]
