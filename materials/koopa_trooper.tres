@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bsudphbfg2tbj"]
+
+[ext_resource type="Texture2D" uid="uid://ckbwxia44i4si" path="res://assets/textures/Koopa_Texture.png" id="1_dh6nk"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_dh6nk")
+texture_filter = 0

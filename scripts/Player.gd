@@ -249,7 +249,7 @@ func CheckFallen():
 		canvasAnimationPlayer.call_deferred("play", "fadeout")
 	elif fallen:
 		if not canvasAnimationPlayer.is_playing():
-			Respawn()
+			Die()
 
 func Respawn():
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=29 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://byp3vwx2o0jmt" path="res://scenes/coin.tscn" id="20_g6sk4"]
 [ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
 [ext_resource type="PackedScene" uid="uid://dfivykbgd3iw2" path="res://scenes/piranha_plant.tscn" id="21_20fyy"]
+[ext_resource type="PackedScene" uid="uid://cod5s620b7uqc" path="res://scenes/koopa_trooper.tscn" id="22_qabhh"]
 
 [sub_resource type="Theme" id="Theme_x6sde"]
 default_font = ExtResource("7_e1umb")
@@ -405,5 +406,8 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5.51234, 9.80396, 156.4
 
 [node name="Piranha Plant3" parent="." instance=ExtResource("21_20fyy")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.48073, 9.80396, 156.47)
+
+[node name="Koopa Trooper" parent="." instance=ExtResource("22_qabhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36968, 3.32003)
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
