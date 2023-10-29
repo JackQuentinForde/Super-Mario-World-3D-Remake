@@ -659,6 +659,7 @@ rings = 8
 
 [node name="Koopa Trooper" type="CharacterBody3D"]
 floor_stop_on_slope = false
+floor_max_angle = 1.309
 script = ExtResource("1_6ppda")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -799,7 +800,7 @@ shape = SubResource("SphereShape3D_fgcff")
 [node name="HitArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
-transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0.198519, 0.0525458)
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0.198519, 0.0525458)
 shape = SubResource("CapsuleShape3D_3kndw")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="HitArea"]

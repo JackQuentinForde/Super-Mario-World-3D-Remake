@@ -608,6 +608,8 @@ radial_segments = 16
 rings = 8
 
 [node name="Rex" type="CharacterBody3D"]
+floor_stop_on_slope = false
+floor_max_angle = 1.309
 script = ExtResource("2_kybsa")
 
 [node name="Armature" type="Node3D" parent="."]
