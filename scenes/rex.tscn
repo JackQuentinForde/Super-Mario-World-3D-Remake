@@ -827,13 +827,13 @@ visible = false
 shape = SubResource("CapsuleShape3D_edb4t")
 disabled = true
 
-[node name="HitArea" type="Area3D" parent="."]
+[node name="HitBox" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.137056, 0)
 shape = SubResource("CapsuleShape3D_gr474")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HitArea"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0.137056, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_gr474")
@@ -895,7 +895,7 @@ draw_pass_1 = SubResource("SphereMesh_iy650")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
 [connection signal="body_entered" from="Point2" to="." method="_on_point_2_body_entered"]

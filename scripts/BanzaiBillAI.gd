@@ -68,5 +68,5 @@ func _on_hit_area_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
 		GetLost()
-	elif body is StaticBody3D:
+	elif body is StaticBody3D or body.name == "Fireball":
 		state = DYING_STATE

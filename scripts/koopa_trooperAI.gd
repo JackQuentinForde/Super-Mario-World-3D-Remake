@@ -81,10 +81,10 @@ func TakeHit():
 	$GPUParticles3D.emitting = true
 	$Armature.visible = false
 	$CollisionShape3D.call_deferred("set_disabled", true)
-	$HitArea/CollisionShape3D.call_deferred("set_disabled", true)
+	$HitBox/CollisionShape3D.call_deferred("set_disabled", true)
 	$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
 	$CollisionShape3D2.call_deferred("set_disabled", true)
-	$HitArea/CollisionShape3D2.call_deferred("set_disabled", true)
+	$HitBox/CollisionShape3D2.call_deferred("set_disabled", true)
 	$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
 	state = DYING_STATE
 
@@ -100,6 +100,8 @@ func _on_detection_area_body_exited(body):
 func _on_hit_area_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
+	elif body.name == "Fireball":
+		TakeHit()
 
 func _on_timer_timeout():
 	if state == WAIT_STATE:

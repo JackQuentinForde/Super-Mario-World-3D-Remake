@@ -3,6 +3,8 @@ extends CharacterBody3D
 var overworldEnvironment = preload("res://environments/overworld.tres")
 var undergroundEnvironment = preload("res://environments/underground.tres")
 
+var fireBall = preload("res://scenes/fireball.tscn")
+
 const WALK_SPEED = 8
 const RUN_SPEED = 16
 const TURN_SPEED = 1
@@ -28,6 +30,7 @@ var fadeout = false
 var enteringPipe = false
 var inPipeZone = false
 var gotCheckpoint = false
+var hasFirePower = false
 var speed
 var turnSpeed
 var currentSize
@@ -62,6 +65,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
+	FirePower()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -78,6 +82,8 @@ func _physics_process(delta):
 		CheckInvincible()
 		CheckFallen()
 		EnterPipeLogic()
+		if hasFirePower:
+			FireBallLogic()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -139,6 +145,8 @@ func SpinJumpLogic():
 			SpinJump()
 			$SpinSound.play()
 			spinJumpReleased = false
+			if hasFirePower:
+				Shoot()
 	elif Input.is_action_pressed("player_spin_jump") and !spinJumpReleased:
 		velocity.y = min(velocity.y + JUMP_ACCEL, JUMP_MAX_VELOCITY)
 		spinJumpReleased = velocity.y >= JUMP_MAX_VELOCITY
@@ -185,7 +193,7 @@ func ChangeSize(size):
 		animationPlayer = $Mario/AnimationPlayer
 		animationPlayer2 = $Mario/AnimationPlayer2
 	else:
-		$Mario.call_deferred("RemoveFirePower")
+		RemoveFirePower()
 		$SmallMarioBodyCollision.disabled = false
 		$SmallMarioHeadCollision.disabled = false
 		$MarioBodyCollision.disabled = true
@@ -204,6 +212,21 @@ func ChangeSize(size):
 func FirePower():
 	ChangeSize(SIZE_BIG)
 	$Mario.call_deferred("FirePower")
+	hasFirePower = true
+	
+func RemoveFirePower():
+	$Mario.call_deferred("RemoveFirePower")
+	hasFirePower = false
+	
+func FireBallLogic():
+	if Input.is_action_just_pressed("player_sprint"):
+		Shoot()
+		
+func Shoot():
+	if $Timer.is_stopped():
+		var instance = fireBall.instantiate()
+		add_child(instance)
+		$Timer.start()
 		
 func AnimationLogic():
 	if is_on_floor():

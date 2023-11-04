@@ -390,11 +390,11 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SouthPoint"]
 shape = SubResource("BoxShape3D_t1csd")
 
-[node name="Hitbox" type="Area3D" parent="."]
+[node name="HitBox" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -1.35646, 0)
 shape = SubResource("CylinderShape3D_vxrft")
 
@@ -412,6 +412,6 @@ one_shot = true
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="NorthPoint" to="." method="_on_north_point_body_entered"]
 [connection signal="body_entered" from="SouthPoint" to="." method="_on_south_point_body_entered"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

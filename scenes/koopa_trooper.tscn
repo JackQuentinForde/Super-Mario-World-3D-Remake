@@ -797,13 +797,13 @@ shape = SubResource("CapsuleShape3D_3kndw")
 transform = Transform3D(0.484, 0, 0, 0, 0.484, 0, 0, 0, 0.484, 0, 0.532027, -0.00656819)
 shape = SubResource("SphereShape3D_fgcff")
 
-[node name="HitArea" type="Area3D" parent="."]
+[node name="HitBox" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0.198519, 0.0525458)
 shape = SubResource("CapsuleShape3D_3kndw")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="HitArea"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0.532027, -0.00656819)
 shape = SubResource("SphereShape3D_fgcff")
 
@@ -854,7 +854,7 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
 [connection signal="body_entered" from="Point2" to="." method="_on_point_2_body_entered"]

@@ -66,6 +66,8 @@ func _on_detection_area_body_exited(body):
 func _on_hitbox_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
+	elif body.name == "Fireball":
+		Die()
 
 func _on_timer_timeout():
 	if state == WAIT_STATE:

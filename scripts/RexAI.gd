@@ -72,20 +72,20 @@ func TakeHit(dmg):
 		$GPUParticles3D.emitting = true
 		$Armature.scale = Vector3(1.0, 0.6, 1.0)
 		$CollisionShape3D.call_deferred("set_disabled", true)
-		$HitArea/CollisionShape3D.call_deferred("set_disabled", true)
+		$HitBox/CollisionShape3D.call_deferred("set_disabled", true)
 		$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
 		
 		$CollisionShape3D2.call_deferred("set_disabled", false)
-		$HitArea/CollisionShape3D2.call_deferred("set_disabled", false)
+		$HitBox/CollisionShape3D2.call_deferred("set_disabled", false)
 		$SquishArea/CollisionShape3D2.call_deferred("set_disabled", false)
 	else:
 		$GPUParticles3D2.emitting = true
 		$Armature.visible = false
 		$CollisionShape3D.call_deferred("set_disabled", true)
-		$HitArea/CollisionShape3D.call_deferred("set_disabled", true)
+		$HitBox/CollisionShape3D.call_deferred("set_disabled", true)
 		$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
 		$CollisionShape3D2.call_deferred("set_disabled", true)
-		$HitArea/CollisionShape3D2.call_deferred("set_disabled", true)
+		$HitBox/CollisionShape3D2.call_deferred("set_disabled", true)
 		$SquishArea/CollisionShape3D2.call_deferred("set_disabled", true)
 		state = DYING_STATE
 
@@ -101,6 +101,8 @@ func _on_detection_area_body_exited(body):
 func _on_hit_area_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
+	elif body.name == "Fireball":
+		TakeHit(2)
 
 func _on_timer_timeout():
 	if state == WAIT_STATE:
@@ -119,7 +121,7 @@ func _on_point_2_body_entered(body):
 		PointReached($Point1.global_position)
 
 func _on_squish_area_area_entered(area):
-	if area.name == "SpinArea":
+	if area.name == "SpinArea" or area.name == "FireArea":
 		TakeHit(2)
 	elif area.name == "JumpArea":
 		TakeHit(1)

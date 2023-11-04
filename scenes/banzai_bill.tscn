@@ -98,13 +98,13 @@ one_shot = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -1.33716)
 shape = SubResource("BoxShape3D_mmgd0")
 
-[node name="HitArea" type="Area3D" parent="."]
+[node name="HitBox" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(1.02, 0, 0, 0, -4.45856e-08, -1.02, 0, 1.02, -4.45856e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_jh666")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
