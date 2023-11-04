@@ -146,7 +146,6 @@ shape = SubResource("SphereShape3D_k1l6e")
 
 [node name="Popup" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.21046, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_b2krc")
 texture = ExtResource("3_hgrt5")
 

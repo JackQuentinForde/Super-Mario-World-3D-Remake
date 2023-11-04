@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d22dve6j0hf24"]
+
+[ext_resource type="Texture2D" uid="uid://dn2wqk0qr7j8i" path="res://assets/textures/Luigi/LuigiHat_Texture.png" id="1_1ibf7"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_1ibf7")
+texture_filter = 0

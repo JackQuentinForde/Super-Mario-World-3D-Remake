@@ -185,6 +185,7 @@ func ChangeSize(size):
 		animationPlayer = $Mario/AnimationPlayer
 		animationPlayer2 = $Mario/AnimationPlayer2
 	else:
+		$Mario.call_deferred("RemoveFirePower")
 		$SmallMarioBodyCollision.disabled = false
 		$SmallMarioHeadCollision.disabled = false
 		$MarioBodyCollision.disabled = true
@@ -199,6 +200,10 @@ func ChangeSize(size):
 	currentSize = size
 	animationPlayer.play("Jump", 1, 1, true)
 	animationPlayer2.play("Flash")
+	
+func FirePower():
+	ChangeSize(SIZE_BIG)
+	$Mario.call_deferred("FirePower")
 		
 func AnimationLogic():
 	if is_on_floor():
@@ -317,7 +322,7 @@ func TeleportToOverground():
 	position.x = newPosition.x
 	position.y = newPosition.y - 4
 	position.z = newPosition.z
-	velocity = Vector3(0, 9, 16)
+	velocity = Vector3(0, 9, 24.5)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
 

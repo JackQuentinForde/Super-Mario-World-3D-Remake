@@ -1,0 +1,205 @@
+[gd_scene load_steps=17 format=3 uid="uid://0n42c4fn4uuk"]
+
+[ext_resource type="PackedScene" uid="uid://75arhtvfhm1" path="res://assets/models/Fire Flower.glb" id="1_2kfqt"]
+[ext_resource type="Script" path="res://scripts/fire_flower.gd" id="2_816md"]
+[ext_resource type="Material" uid="uid://dfaldm7gxmwu0" path="res://materials/fire_flower.tres" id="2_udk2k"]
+[ext_resource type="Material" uid="uid://cwovl3lhc3146" path="res://materials/flower_outline.tres" id="4_6q60c"]
+[ext_resource type="Texture2D" uid="uid://6lkiioj346w4" path="res://assets/textures/KoopaCoinScore_Texture.png" id="4_p3aur"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_58pyc"]
+
+[sub_resource type="Animation" id="Animation_veaim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tms7p"]
+resource_name = "appear"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.17237, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40hn6"]
+_data = {
+"RESET": SubResource("Animation_veaim"),
+"appear": SubResource("Animation_tms7p")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_solyd"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_p3aur")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_6seyp"]
+resource_name = "Flash"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fire Flower2:surface_material_override/1:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rtgfg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fire Flower2:surface_material_override/1:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmc3b"]
+_data = {
+"Flash": SubResource("Animation_6seyp"),
+"RESET": SubResource("Animation_rtgfg")
+}
+
+[sub_resource type="Animation" id="Animation_q52ku"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fire Flower2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ngjhv"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fire Flower2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snksn"]
+_data = {
+"RESET": SubResource("Animation_q52ku"),
+"spin": SubResource("Animation_ngjhv")
+}
+
+[node name="Fire Flower" instance=ExtResource("1_2kfqt")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0, 0, 0)
+script = ExtResource("2_816md")
+
+[node name="Fire Flower2" parent="." index="0"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.0117365, -8.83962e-05)
+surface_material_override/0 = ExtResource("2_udk2k")
+surface_material_override/1 = ExtResource("4_6q60c")
+
+[node name="Stem" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_udk2k")
+surface_material_override/1 = ExtResource("4_6q60c")
+
+[node name="Feet" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_udk2k")
+surface_material_override/1 = ExtResource("4_6q60c")
+
+[node name="HitBox" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0"]
+transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, 0, -0.0773938, 0)
+shape = SubResource("SphereShape3D_58pyc")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." index="4"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+autoplay = "appear"
+libraries = {
+"": SubResource("AnimationLibrary_40hn6")
+}
+
+[node name="Popup" type="Sprite3D" parent="." index="6"]
+transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 0, 0.63664, 0)
+material_override = SubResource("StandardMaterial3D_solyd")
+texture = ExtResource("4_p3aur")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="7"]
+autoplay = "Flash"
+libraries = {
+"": SubResource("AnimationLibrary_mmc3b")
+}
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="." index="8"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_snksn")
+}
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

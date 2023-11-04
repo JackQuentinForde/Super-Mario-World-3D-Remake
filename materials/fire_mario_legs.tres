@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ckk47ejni78yg"]
+
+[ext_resource type="Texture2D" uid="uid://bqadnw7sxjxyc" path="res://assets/textures/Mario/FireLegs_Texture.png" id="1_xe1j5"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_xe1j5")
+texture_filter = 0

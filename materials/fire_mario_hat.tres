@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bn17d54x0w4up"]
+
+[ext_resource type="Texture2D" uid="uid://bd703iflo3jnf" path="res://assets/textures/Mario/FireHat_Texture_2.png" id="1_s050r"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_s050r")
+texture_filter = 0
