@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var isLuigi = false
+
 var overworldEnvironment = preload("res://environments/overworld.tres")
 var undergroundEnvironment = preload("res://environments/underground.tres")
 

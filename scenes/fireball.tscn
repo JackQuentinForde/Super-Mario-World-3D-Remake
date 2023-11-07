@@ -1,9 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dk0bf0hemqjvh"]
+[gd_scene load_steps=12 format=3 uid="uid://dk0bf0hemqjvh"]
 
 [ext_resource type="Script" path="res://scripts/fireball.gd" id="1_2137j"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5vn41"]
-bounce = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd6qs"]
 
@@ -94,9 +91,8 @@ texture_filter = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5s6jr"]
 
-[node name="Fireball" type="RigidBody3D"]
+[node name="Fireball" type="CharacterBody3D"]
 top_level = true
-physics_material_override = SubResource("PhysicsMaterial_5vn41")
 script = ExtResource("1_2137j")
 
 [node name="Fireball2" type="MeshInstance3D" parent="."]
@@ -118,7 +114,7 @@ transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
 shape = SubResource("SphereShape3D_5s6jr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="area_entered" from="FireArea" to="." method="_on_fire_area_area_entered"]

@@ -1,11 +1,6 @@
-extends RigidBody3D
+extends CharacterBody3D
 
 func _ready():
-	position.y = position.y + 7
-	fire()
-
-func fire():
-	apply_force(Vector3(0, 0, 800))
 	$Timer.start()
 	
 func _on_timer_timeout():

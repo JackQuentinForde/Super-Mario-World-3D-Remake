@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bixo3w7gfw4gw"]
+[gd_scene load_steps=15 format=3 uid="uid://bixo3w7gfw4gw"]
 
 [ext_resource type="PackedScene" uid="uid://v4mbygpwkq0d" path="res://assets/models/Small Mario.glb" id="1_l11qj"]
 [ext_resource type="Material" uid="uid://vkjlhss8ltqr" path="res://materials/mario_body.tres" id="2_0smn7"]
+[ext_resource type="Script" path="res://scripts/small_mario.gd" id="2_lieui"]
 [ext_resource type="Material" uid="uid://dg4r0una6iex8" path="res://materials/mario_outline.tres" id="3_plhlc"]
 [ext_resource type="Material" uid="uid://bj04puhjdhlbe" path="res://materials/mario_hat.tres" id="4_51e1o"]
 [ext_resource type="Material" uid="uid://cdb6lj58wc6ee" path="res://materials/small_mario_head.tres" id="5_2nfl4"]
@@ -49,6 +50,7 @@ _data = {
 }
 
 [node name="Small Mario" instance=ExtResource("1_l11qj")]
+script = ExtResource("2_lieui")
 
 [node name="Armature" parent="." index="0"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.000818551, -0.10794, -0.00382161)

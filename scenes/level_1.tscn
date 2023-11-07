@@ -116,6 +116,7 @@ libraries = {
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 
 [node name="Player" parent="." instance=ExtResource("3_f0051")]
+isLuigi = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_i8t4b")

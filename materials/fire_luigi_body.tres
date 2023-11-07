@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b0d3yl2hwoqas"]
+
+[ext_resource type="Texture2D" uid="uid://urinstngmdg1" path="res://assets/textures/Luigi/FireLuigiBody_Texture.png" id="1_73tah"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_73tah")
+texture_filter = 0
