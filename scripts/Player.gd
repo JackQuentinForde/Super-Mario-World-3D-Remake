@@ -33,6 +33,7 @@ var enteringPipe = false
 var inPipeZone = false
 var gotCheckpoint = false
 var hasFirePower = false
+var target_velocity = Vector3(0, 0, 1)
 var speed
 var turnSpeed
 var currentSize
@@ -84,8 +85,7 @@ func _physics_process(delta):
 		CheckInvincible()
 		CheckFallen()
 		EnterPipeLogic()
-		if hasFirePower:
-			FireBallLogic()
+		FireBallLogic()
 		
 func SetMoveSpeed():
 	if Input.is_action_pressed("player_sprint") and is_on_floor():
@@ -119,7 +119,7 @@ func MoveLogic():
 	
 	if direction:
 		direction = direction.rotated(Vector3.UP, cameraBasis.rotation.y).normalized()
-		var target_velocity = direction * speed
+		target_velocity = direction * speed
 		velocity.x = move_toward(velocity.x, target_velocity.x, turnSpeed)
 		velocity.z = move_toward(velocity.z, target_velocity.z, turnSpeed)
 		if not spinJump:
@@ -221,7 +221,7 @@ func RemoveFirePower():
 	hasFirePower = false
 	
 func FireBallLogic():
-	if Input.is_action_just_pressed("player_sprint"):
+	if hasFirePower and Input.is_action_just_pressed("player_sprint"):
 		Shoot()
 		
 func Shoot():

@@ -91,6 +91,7 @@ transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0, 4.17624, 0)
 shape = SubResource("BoxShape3D_n47m2")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="area_entered" from="SpinArea" to="." method="_on_spin_area_area_entered"]

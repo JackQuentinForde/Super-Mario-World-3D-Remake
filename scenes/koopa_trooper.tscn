@@ -643,7 +643,7 @@ gravity = Vector3(0, -20, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a46ul"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjggk"]
 shading_mode = 0
 diffuse_mode = 3
 specular_mode = 1
@@ -651,7 +651,7 @@ albedo_color = Color(0.901961, 0.901961, 0.901961, 1)
 texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_it0tf"]
-material = SubResource("StandardMaterial3D_a46ul")
+material = SubResource("StandardMaterial3D_rjggk")
 radius = 0.1
 height = 0.2
 radial_segments = 16

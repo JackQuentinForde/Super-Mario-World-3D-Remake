@@ -101,6 +101,7 @@ func _on_hit_area_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
 	elif body.name == "Fireball":
+		body.call_deferred("Destroy")
 		TakeHit()
 
 func _on_timer_timeout():
