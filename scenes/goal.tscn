@@ -217,6 +217,8 @@ _data = {
 script = ExtResource("1_4ju4i")
 
 [node name="GoalBody" type="StaticBody3D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="EndGoalPole" type="MeshInstance3D" parent="GoalBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13899, -1.21487, 0.00314331)

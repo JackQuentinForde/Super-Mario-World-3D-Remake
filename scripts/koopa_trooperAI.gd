@@ -100,9 +100,6 @@ func _on_detection_area_body_exited(body):
 func _on_hit_area_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
-	elif body.name == "Fireball":
-		body.call_deferred("Destroy")
-		TakeHit()
 
 func _on_timer_timeout():
 	if state == WAIT_STATE:
@@ -127,3 +124,8 @@ func _on_squish_area_area_entered(area):
 func _on_timer_2_timeout():
 	if state == SLIDE_STATE:
 		state = PATROL_STATE
+
+func _on_fireball_hit_box_body_entered(body):
+	if body.name == "Fireball":
+		body.call_deferred("Destroy")
+		queue_free()

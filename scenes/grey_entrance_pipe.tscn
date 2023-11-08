@@ -14,6 +14,10 @@ script = ExtResource("4_pg2nk")
 surface_material_override/0 = ExtResource("2_8ex1x")
 surface_material_override/1 = ExtResource("3_23eyy")
 
+[node name="@Pipe001@24189" parent="." index="1"]
+collision_layer = 9
+collision_mask = 9
+
 [node name="Trigger" type="Area3D" parent="." index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" index="0"]

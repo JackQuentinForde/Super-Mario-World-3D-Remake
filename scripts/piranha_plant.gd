@@ -66,8 +66,6 @@ func _on_detection_area_body_exited(body):
 func _on_hitbox_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
-	elif body.name == "Fireball":
-		Die()
 
 func _on_timer_timeout():
 	if state == WAIT_STATE:
@@ -87,3 +85,8 @@ func _on_south_point_body_entered(body):
 	body.name == self.name and 
 	state == MOVE_STATE):
 		PointReached($NorthPoint.global_position)
+
+func _on_fireball_hit_box_body_entered(body):
+	if body.name == "Fireball":
+		body.call_deferred("Destroy")
+		Die()

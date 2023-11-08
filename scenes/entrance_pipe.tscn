@@ -16,3 +16,7 @@ texture_filter = 0
 [node name="Pipe017" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j65ic")
 surface_material_override/1 = ExtResource("3_88mrd")
+
+[node name="Pipe2" parent="." index="1"]
+collision_layer = 9
+collision_mask = 9

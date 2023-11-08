@@ -94,5 +94,10 @@ shape = SubResource("BoxShape3D_n47m2")
 wait_time = 0.5
 one_shot = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="area_entered" from="SpinArea" to="." method="_on_spin_area_area_entered"]
 [connection signal="area_entered" from="JumpArea" to="." method="_on_jump_area_area_entered"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

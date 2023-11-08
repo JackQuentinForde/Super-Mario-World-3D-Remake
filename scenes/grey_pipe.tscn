@@ -9,3 +9,7 @@
 [node name="Pipe001" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_u34rb")
 surface_material_override/1 = ExtResource("3_4tmy1")
+
+[node name="@Pipe001@24189" parent="." index="1"]
+collision_layer = 9
+collision_mask = 9

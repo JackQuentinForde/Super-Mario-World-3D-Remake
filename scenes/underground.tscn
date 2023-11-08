@@ -273,3 +273,23 @@ surface_material_override/1 = ExtResource("3_8et5h")
 [node name="StoneBlock032" parent="." index="64"]
 surface_material_override/0 = ExtResource("4_hl5fn")
 surface_material_override/1 = ExtResource("3_8et5h")
+
+[node name="Underground" parent="." index="65"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="StoneBlocks" parent="." index="66"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="StoneBlocks2" parent="." index="67"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="StoneBlocks3" parent="." index="68"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="StoneBlocks4" parent="." index="69"]
+collision_layer = 9
+collision_mask = 9

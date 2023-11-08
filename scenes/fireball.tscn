@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dk0bf0hemqjvh"]
+[gd_scene load_steps=17 format=3 uid="uid://dk0bf0hemqjvh"]
 
 [ext_resource type="Script" path="res://scripts/fireball.gd" id="1_2137j"]
 
@@ -89,8 +89,6 @@ texture_filter = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ly3it"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5s6jr"]
-
 [sub_resource type="Animation" id="Animation_vigiy"]
 length = 0.001
 tracks/0/type = "value"
@@ -176,6 +174,8 @@ rings = 8
 
 [node name="Fireball" type="CharacterBody3D"]
 top_level = true
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_2137j")
 
 [node name="Fireball2" type="MeshInstance3D" parent="."]
@@ -187,15 +187,8 @@ surface_material_override/1 = SubResource("StandardMaterial3D_w7a8r")
 surface_material_override/2 = SubResource("StandardMaterial3D_3f7ks")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.418, 0, 0, 0, 0.418, 0, 0, 0, 0.418, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_ly3it")
-disabled = true
-
-[node name="FireArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FireArea"]
-transform = Transform3D(0.652, 0, 0, 0, 0.652, 0, 0, 0, 0.652, 0, 0, 0)
-shape = SubResource("SphereShape3D_5s6jr")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -216,5 +209,4 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_te2t6")
 draw_pass_1 = SubResource("SphereMesh_2cl5l")
 
-[connection signal="body_exited" from="FireArea" to="." method="_on_fire_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=55 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
@@ -607,6 +607,8 @@ height = 0.2
 radial_segments = 16
 rings = 8
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1l8kf"]
+
 [node name="Rex" type="CharacterBody3D"]
 floor_stop_on_slope = false
 floor_max_angle = 1.309
@@ -895,6 +897,14 @@ draw_pass_1 = SubResource("SphereMesh_iy650")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FireballHitBox" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FireballHitBox"]
+transform = Transform3D(1.1, 0, 0, 0, -1.1, -1.66095e-07, 0, 1.66095e-07, -1.1, 0, 0.28563, -0.00192771)
+shape = SubResource("CapsuleShape3D_1l8kf")
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]
@@ -902,3 +912,4 @@ one_shot = true
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="FireballHitBox" to="." method="_on_fireball_hit_box_body_entered"]

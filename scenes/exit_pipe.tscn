@@ -10,6 +10,10 @@
 [node name="Exit Pipe" instance=ExtResource("1_g7hr6")]
 script = ExtResource("2_hi12x")
 
+[node name="Pipe" parent="." index="0"]
+collision_layer = 9
+collision_mask = 9
+
 [node name="CollisionShape3D" parent="Pipe" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0232219, -0.0232219)
 

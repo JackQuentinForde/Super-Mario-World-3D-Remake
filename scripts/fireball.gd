@@ -1,16 +1,21 @@
 extends CharacterBody3D
 
-const SPEED = 18
-const BOUNCE_VELOCITY = 6
+const SPEED = 20
+const BOUNCE_VELOCITY = 7
 
 var gravity = 40
 var destroyed = false
+var isReversed = false
 
 func _ready():
+	$CollisionShape3D.disabled = false
 	var parent = get_parent()
 	var parentPos = parent.global_position
 	global_position = Vector3(parentPos.x, parentPos.y + 5, parentPos.z)
-	velocity = parent.target_velocity.normalized() * SPEED
+	var speed = SPEED
+	if isReversed:
+		speed = -SPEED
+	velocity = parent.target_velocity.normalized() * speed
 	$Timer.start()
 	
 func _physics_process(delta):
@@ -37,9 +42,4 @@ func Destroy():
 	$GPUParticles3D.emitting = true
 	$Fireball2.visible = false
 	$CollisionShape3D.disabled = true
-	$FireArea/CollisionShape3D.disabled = true
 	destroyed = true
-
-func _on_fire_area_body_exited(body):
-	if body.name == "Player":
-		$CollisionShape3D.call_deferred("set_disabled", false)

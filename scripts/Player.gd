@@ -21,6 +21,7 @@ const CAMERA_SPEED = 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravMultiplier = 1
 
 var jumping = false
 var jumpReleased = true
@@ -68,7 +69,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
-	FirePower()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -148,7 +148,7 @@ func SpinJumpLogic():
 			$SpinSound.play()
 			spinJumpReleased = false
 			if hasFirePower:
-				Shoot()
+				DoubleShot()
 	elif Input.is_action_pressed("player_spin_jump") and !spinJumpReleased:
 		velocity.y = min(velocity.y + JUMP_ACCEL, JUMP_MAX_VELOCITY)
 		spinJumpReleased = velocity.y >= JUMP_MAX_VELOCITY
@@ -174,10 +174,16 @@ func EnterPipeLogic():
 		
 func SpinJump():
 	velocity.y = JUMP_MIN_VELOCITY
+	gravMultiplier = 2
+	spinJump = true
+	
+func Bounce():
+	velocity.y = JUMP_MAX_VELOCITY
+	gravMultiplier = 2
 	spinJump = true
 		
 func ApplyGravity(delta):
-	velocity.y -= gravity * delta
+	velocity.y -= (gravity * gravMultiplier) * delta
 		
 func ChangeSize(size):
 	if currentSize == size:
@@ -230,10 +236,18 @@ func Shoot():
 		add_child(instance)
 		$Timer.start()
 		
+func DoubleShot():
+	if $Timer.is_stopped():
+		var instance = fireBall.instantiate()
+		add_child(instance)
+		$Timer.start()
+		$Timer2.start()
+		
 func AnimationLogic():
 	if is_on_floor():
 		jumping = false
 		spinJump = false
+		gravMultiplier = 1
 		$SpinArea/CollisionShape3D.call_deferred("set_disabled", true)
 		if velocity.x != 0 or velocity.z != 0:
 			if speed == RUN_SPEED:
@@ -353,8 +367,13 @@ func TeleportToOverground():
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":
-		SpinJump()
+		Bounce()
 
 func _on_jump_area_area_entered(area):
 	if area.name == "SquishArea":
 		velocity.y = JUMP_MIN_VELOCITY
+
+func _on_timer_2_timeout():
+	var instance = fireBall.instantiate()
+	instance.isReversed = true
+	add_child(instance)

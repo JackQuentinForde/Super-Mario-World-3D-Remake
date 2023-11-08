@@ -175,6 +175,8 @@ _data = {
 }
 
 [node name="QuestionBlock" type="StaticBody3D"]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_nutpd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

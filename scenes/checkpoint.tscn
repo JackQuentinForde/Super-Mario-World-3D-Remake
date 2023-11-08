@@ -179,6 +179,8 @@ points = PackedVector3Array(-1.15607, -2.55555e-05, -0.131763, -1.15607, -0.0257
 script = ExtResource("1_aleu2")
 
 [node name="CheckpointBody" type="StaticBody3D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="CheckpointPole" type="MeshInstance3D" parent="CheckpointBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12578, -0.639407, 0.00166321)

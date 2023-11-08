@@ -138,6 +138,8 @@ _data = {
 }
 
 [node name="ExclamationBlock" type="StaticBody3D"]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_6yohd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
