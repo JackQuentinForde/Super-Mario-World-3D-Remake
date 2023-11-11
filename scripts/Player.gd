@@ -168,6 +168,7 @@ func EnterPipeLogic():
 			animationPlayer.play("Walk")
 			velocity = Vector3(0, 0, WALK_SPEED)
 		else:
+			velocity = Vector3.ZERO
 			position.z = lastPipe.global_position.z
 		lastPipe.call_deferred("DisableCollisions")
 		
