@@ -50,10 +50,12 @@ var animationTree
 var headBox
 var canvasAnimationPlayer
 var music
+var undergroundMusic
 
 enum {SIZE_SMALL, SIZE_BIG}
 
 func _ready():
+	AudioServer.set_bus_effect_enabled(1, 0, false)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	currentSize = SIZE_SMALL
 	cameraBasis = $CameraBasis
@@ -65,11 +67,13 @@ func _ready():
 	headBox = $HeadArea/CollisionShape3D
 	canvasAnimationPlayer = $"../CanvasLayer/AnimationPlayer"
 	music = $"../Music"
+	undergroundMusic = $"../UndergroundMusic"
 	cameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
+	TeleportToUnderground()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -309,6 +313,7 @@ func CheckFallen():
 			Respawn()
 
 func Respawn():
+	AudioServer.set_bus_effect_enabled(1, 0, false)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	music.play()
 	ChangeSize(SIZE_SMALL)
@@ -356,6 +361,9 @@ func EnteredPipeZone(pipeBody, inZone):
 	inPipeZone = inZone
 
 func TeleportToUnderground():
+	AudioServer.set_bus_effect_enabled(1, 0, true)
+	music.stop()
+	undergroundMusic.play()
 	var newPosition = get_parent().get_node("Underground Spawn").global_position
 	position.x = newPosition.x
 	position.y = newPosition.y - 4
@@ -364,6 +372,9 @@ func TeleportToUnderground():
 	enteringPipe = false
 	
 func TeleportToOverground():
+	AudioServer.set_bus_effect_enabled(1, 0, false)
+	undergroundMusic.stop()
+	music.play()
 	var newPosition = get_parent().get_node("Overground Spawn").global_position
 	position.x = newPosition.x
 	position.y = newPosition.y - 4

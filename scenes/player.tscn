@@ -58,10 +58,12 @@ fov = 50.0
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_oe7a1")
 volume_db = 5.0
+bus = &"Mario"
 
 [node name="SpinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2ugn1")
 volume_db = -16.0
+bus = &"Mario"
 
 [node name="HeadArea" type="Area3D" parent="."]
 
