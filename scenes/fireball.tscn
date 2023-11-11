@@ -172,7 +172,7 @@ height = 0.2
 radial_segments = 16
 rings = 8
 
-[node name="Fireball" type="CharacterBody3D"]
+[node name="Fireball" type="CharacterBody3D" groups=["Fireballs"]]
 top_level = true
 collision_layer = 8
 collision_mask = 8

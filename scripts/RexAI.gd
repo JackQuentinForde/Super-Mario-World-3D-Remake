@@ -125,6 +125,6 @@ func _on_squish_area_area_entered(area):
 		TakeHit(1)
 
 func _on_fireball_hit_box_body_entered(body):
-	if body.name == "Fireball":
+	if body.is_in_group("Fireballs"):
 		body.call_deferred("Destroy")
 		queue_free()

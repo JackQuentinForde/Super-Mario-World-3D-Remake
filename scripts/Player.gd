@@ -41,17 +41,17 @@ var currentSize
 var respawnPoint
 var lastPipe
 var originalCameraPos
-
-enum {SIZE_SMALL, SIZE_BIG}
-
-# variables that are set in the ready function
+var currentAnimationTreeAnimation
 var cameraBasis
 var mario
 var animationPlayer
 var animationPlayer2
+var animationTree
 var headBox
 var canvasAnimationPlayer
 var music
+
+enum {SIZE_SMALL, SIZE_BIG}
 
 func _ready():
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
@@ -61,6 +61,7 @@ func _ready():
 	mario = $SmallMario
 	animationPlayer = $SmallMario/AnimationPlayer
 	animationPlayer2 = $SmallMario/AnimationPlayer2
+	animationTree = $Mario/AnimationTree
 	headBox = $HeadArea/CollisionShape3D
 	canvasAnimationPlayer = $"../CanvasLayer/AnimationPlayer"
 	music = $"../Music"
@@ -69,6 +70,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
+	FirePower()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -131,6 +133,7 @@ func MoveLogic():
 		
 func JumpLogic():
 	if Input.is_action_just_pressed("player_jump"):
+		animationTree.active = false
 		if is_on_floor():
 			velocity.y = JUMP_MIN_VELOCITY
 			$JumpSound.play()
@@ -143,6 +146,7 @@ func JumpLogic():
 		
 func SpinJumpLogic():
 	if Input.is_action_just_pressed("player_spin_jump"):
+		animationTree.active = false
 		if is_on_floor():
 			SpinJump()
 			$SpinSound.play()
@@ -232,6 +236,11 @@ func FireBallLogic():
 		
 func Shoot():
 	if $Timer.is_stopped():
+		var currentAnimation = animationPlayer.current_animation
+		if currentAnimation != "Jump" and currentAnimation != "SpinJump":
+			animationTree.call_deferred("setAnimation", currentAnimation)
+			currentAnimationTreeAnimation = currentAnimation
+			animationTree.active = true
 		var instance = fireBall.instantiate()
 		add_child(instance)
 		$Timer.start()
@@ -244,6 +253,8 @@ func DoubleShot():
 		$Timer2.start()
 		
 func AnimationLogic():
+	if currentAnimationTreeAnimation != animationPlayer.current_animation:
+		animationTree.active = false
 	if is_on_floor():
 		jumping = false
 		spinJump = false
@@ -377,3 +388,6 @@ func _on_timer_2_timeout():
 	var instance = fireBall.instantiate()
 	instance.isReversed = true
 	add_child(instance)
+
+func _on_timer_timeout():
+	animationTree.active = false

@@ -126,6 +126,6 @@ func _on_timer_2_timeout():
 		state = PATROL_STATE
 
 func _on_fireball_hit_box_body_entered(body):
-	if body.name == "Fireball":
+	if body.is_in_group("Fireballs"):
 		body.call_deferred("Destroy")
 		queue_free()

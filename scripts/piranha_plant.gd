@@ -87,6 +87,6 @@ func _on_south_point_body_entered(body):
 		PointReached($NorthPoint.global_position)
 
 func _on_fireball_hit_box_body_entered(body):
-	if body.name == "Fireball":
+	if body.is_in_group("Fireballs"):
 		body.call_deferred("Destroy")
 		Die()

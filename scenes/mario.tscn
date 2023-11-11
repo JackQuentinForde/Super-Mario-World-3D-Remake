@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d237ljdpc6hwn"]
+[gd_scene load_steps=20 format=3 uid="uid://d237ljdpc6hwn"]
 
 [ext_resource type="PackedScene" uid="uid://ssnyswminqe2" path="res://assets/models/Mario.glb" id="1_llfb4"]
 [ext_resource type="Script" path="res://scripts/mario.gd" id="2_msjrc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://buy1m4inkdv2y" path="res://materials/mario_feet.tres" id="8_1o65c"]
 [ext_resource type="Material" uid="uid://bpjbnllpuyinx" path="res://materials/mario_gloves.tres" id="8_3q8ks"]
 [ext_resource type="Material" uid="uid://dwimdi5smkp45" path="res://materials/mario_legs.tres" id="11_cgdg0"]
+[ext_resource type="Script" path="res://scripts/AnimationTree.gd" id="12_dlbbf"]
 
 [sub_resource type="Animation" id="Animation_tqvx0"]
 resource_name = "Flash"
@@ -49,14 +50,44 @@ _data = {
 "RESET": SubResource("Animation_3mlf3")
 }
 
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_4n8bu"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:RightArmBone", "Armature/Skeleton3D:RightForearmBone", "Armature/Skeleton3D:RightShoulderBone"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsshh"]
+animation = &"Jump"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fjg7r"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_skcr4"]
+graph_offset = Vector2(-258.54, 82.2646)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_4n8bu")
+nodes/Blend2/position = Vector2(400, 140)
+nodes/BlendAnimation/node = SubResource("AnimationNodeAnimation_wsshh")
+nodes/BlendAnimation/position = Vector2(180, 280)
+nodes/MainAnimation/node = SubResource("AnimationNodeAnimation_fjg7r")
+nodes/MainAnimation/position = Vector2(200, 140)
+nodes/output/position = Vector2(600, 200)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"MainAnimation", &"Blend2", 1, &"BlendAnimation"]
+
 [node name="Mario" instance=ExtResource("1_llfb4")]
 script = ExtResource("2_msjrc")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(-0.274046, -0.0130604, -0.0425879, 0.960685)
-bones/2/rotation = Quaternion(-0.248112, 0.100482, 0.171175, 0.948179)
-bones/4/rotation = Quaternion(-0.274046, 0.0130604, 0.0425879, 0.960685)
-bones/5/rotation = Quaternion(-0.248112, -0.100482, -0.171175, 0.948179)
+bones/0/rotation = Quaternion(-0.528778, 0.469461, 0.528779, 0.469461)
+bones/1/rotation = Quaternion(-0.205703, 0.710691, 0.275426, 0.613795)
+bones/2/rotation = Quaternion(-0.248831, 0.0953897, 0.164298, 0.949732)
+bones/3/rotation = Quaternion(0.528778, 0.469461, 0.528779, -0.469461)
+bones/4/rotation = Quaternion(-0.273704, 0.0130448, 0.0425934, 0.960782)
+bones/5/rotation = Quaternion(-0.248798, -0.100542, -0.17109, 0.948008)
+bones/8/rotation = Quaternion(0.0166187, -0.0585087, 0.85848, 0.509228)
+bones/9/rotation = Quaternion(0.0839448, 2.88562e-05, -0.000570067, 0.99647)
+bones/10/rotation = Quaternion(-0.736231, 0.00299621, 0.00171877, 0.676721)
+bones/12/rotation = Quaternion(0.0166187, 0.0585087, -0.85848, 0.509228)
+bones/13/rotation = Quaternion(0.0839448, -2.88561e-05, 0.000570067, 0.99647)
+bones/15/rotation = Quaternion(0.000112542, 0, 0, 1)
 
 [node name="Body" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("3_7teyy")
@@ -118,3 +149,9 @@ surface_material_override/1 = ExtResource("3_pivng")
 libraries = {
 "": SubResource("AnimationLibrary_xpqi2")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeBlendTree_skcr4")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 1.0
+script = ExtResource("12_dlbbf")
