@@ -130,12 +130,15 @@ autoplay = true
 
 [node name="Koopa Coin" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 14)
+VALUE = 1000
 
 [node name="Koopa Coin4" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 320)
+VALUE = 8000
 
 [node name="Koopa Coin2" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 13, 96)
+VALUE = 2000
 
 [node name="Koopa Coin3" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 14, 192)
