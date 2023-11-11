@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/mushroom.gd" id="1_ow4q1"]
 [ext_resource type="Material" uid="uid://b5et0vusr18i0" path="res://materials/mushroom.tres" id="2_3ho00"]
-[ext_resource type="Texture2D" uid="uid://6lkiioj346w4" path="res://assets/textures/KoopaCoinScore_Texture.png" id="3_hgrt5"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_svmq1"]
+[ext_resource type="Material" uid="uid://bmrqrmgdpdeud" path="res://materials/1000.tres" id="4_fa3hd"]
+[ext_resource type="Texture2D" uid="uid://dwcgnfhhbs45d" path="res://assets/textures/1000_Texture.png" id="5_sh7aw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwpjk"]
 
@@ -101,12 +102,6 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k1l6e"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2krc"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("3_hgrt5")
-texture_filter = 0
-
 [node name="Mushroom" type="Node3D"]
 
 [node name="MushroomBody" type="RigidBody3D" parent="."]
@@ -146,8 +141,10 @@ shape = SubResource("SphereShape3D_k1l6e")
 
 [node name="Popup" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.21046, 0)
-material_override = SubResource("StandardMaterial3D_b2krc")
-texture = ExtResource("3_hgrt5")
+visible = false
+material_override = ExtResource("4_fa3hd")
+texture_filter = 0
+texture = ExtResource("5_sh7aw")
 
 [connection signal="timeout" from="MushroomBody/Timer" to="MushroomBody" method="_on_timer_timeout"]
 [connection signal="body_entered" from="MushroomBody/HitBox" to="MushroomBody" method="_on_hit_box_body_entered"]

@@ -1,6 +1,6 @@
 extends Area3D
 
-const VALUE = 1000
+@export var VALUE = 4000
 
 var scoreLabel
 

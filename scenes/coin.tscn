@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/KoopaCoin.gd" id="1_e3ms1"]
 [ext_resource type="Texture2D" uid="uid://dco3iigot8kf8" path="res://assets/textures/Coin_Texture.png" id="2_v17ce"]
-[ext_resource type="Texture2D" uid="uid://6lkiioj346w4" path="res://assets/textures/KoopaCoinScore_Texture.png" id="3_0w351"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_t7nfd"]
+[ext_resource type="Material" uid="uid://d1iakcixy54pd" path="res://materials/4000.tres" id="4_phqsr"]
 [ext_resource type="AudioStream" uid="uid://bysfauvavuiju" path="res://assets/sounds/Koopa Coin.wav" id="5_annsd"]
+[ext_resource type="Texture2D" uid="uid://qoy2lpdw4g2f" path="res://assets/textures/4000_Texture.png" id="5_qiaiw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abou7"]
 
@@ -145,12 +146,6 @@ _data = {
 "spin": SubResource("Animation_mcwf7")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m4ig"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("3_0w351")
-texture_filter = 0
-
 [node name="Coin" type="Area3D"]
 script = ExtResource("1_e3ms1")
 
@@ -172,8 +167,9 @@ libraries = {
 [node name="Popup" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.69, 0)
 visible = false
-material_override = SubResource("StandardMaterial3D_6m4ig")
-texture = ExtResource("3_0w351")
+material_override = ExtResource("4_phqsr")
+texture_filter = 0
+texture = ExtResource("5_qiaiw")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

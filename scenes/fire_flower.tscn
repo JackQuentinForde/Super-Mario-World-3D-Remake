@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://scripts/fire_flower.gd" id="2_816md"]
 [ext_resource type="Material" uid="uid://dfaldm7gxmwu0" path="res://materials/fire_flower.tres" id="2_udk2k"]
 [ext_resource type="Material" uid="uid://cwovl3lhc3146" path="res://materials/flower_outline.tres" id="4_6q60c"]
-[ext_resource type="Texture2D" uid="uid://6lkiioj346w4" path="res://assets/textures/KoopaCoinScore_Texture.png" id="4_p3aur"]
+[ext_resource type="Material" uid="uid://bmrqrmgdpdeud" path="res://materials/1000.tres" id="5_gk30x"]
+[ext_resource type="Texture2D" uid="uid://dwcgnfhhbs45d" path="res://assets/textures/1000_Texture.png" id="6_tfvth"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_58pyc"]
 
@@ -69,12 +70,6 @@ _data = {
 "RESET": SubResource("Animation_veaim"),
 "appear": SubResource("Animation_tms7p")
 }
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_solyd"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("4_p3aur")
-texture_filter = 0
 
 [sub_resource type="Animation" id="Animation_6seyp"]
 resource_name = "Flash"
@@ -186,8 +181,10 @@ libraries = {
 
 [node name="Popup" type="Sprite3D" parent="." index="6"]
 transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 0, 0.63664, 0)
-material_override = SubResource("StandardMaterial3D_solyd")
-texture = ExtResource("4_p3aur")
+visible = false
+material_override = ExtResource("5_gk30x")
+texture_filter = 0
+texture = ExtResource("6_tfvth")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="7"]
 autoplay = "Flash"
