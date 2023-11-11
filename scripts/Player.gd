@@ -70,7 +70,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
-	FirePower()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -149,6 +148,7 @@ func SpinJumpLogic():
 		animationTree.active = false
 		if is_on_floor():
 			SpinJump()
+			$Timer3.start()
 			$SpinSound.play()
 			spinJumpReleased = false
 			if hasFirePower:
@@ -158,11 +158,6 @@ func SpinJumpLogic():
 		spinJumpReleased = velocity.y >= JUMP_MAX_VELOCITY
 	else:
 		spinJumpReleased = true
-	
-	if (animationPlayer.is_playing() and 
-	animationPlayer.current_animation == "SpinJump" and 
-	velocity.y <= 0):
-		$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
 		
 func EnterPipeLogic():
 	if Input.is_action_just_pressed("player_enter_pipe") and is_on_floor() and inPipeZone:
@@ -391,3 +386,6 @@ func _on_timer_2_timeout():
 
 func _on_timer_timeout():
 	animationTree.active = false
+	
+func _on_timer_3_timeout():
+	$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)

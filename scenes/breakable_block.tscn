@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkett2qxf0mif"]
+[gd_scene load_steps=16 format=3 uid="uid://bkett2qxf0mif"]
 
 [ext_resource type="Script" path="res://scripts/breakable_block.gd" id="1_6orpp"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="2_4x4v8"]
@@ -133,6 +133,9 @@ _data = {
 "break": SubResource("Animation_jlm4i")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfgy8"]
+size = Vector3(1, 0.978, 1.096)
+
 [node name="BreakableBlock" type="StaticBody3D"]
 collision_layer = 9
 collision_mask = 9
@@ -164,8 +167,8 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.121426, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146394, 0)
-shape = SubResource("ConvexPolygonShape3D_o66f4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226426, 0)
+shape = SubResource("BoxShape3D_nfgy8")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
