@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsf16g0pkss0"]
+[gd_scene load_steps=11 format=3 uid="uid://dsf16g0pkss0"]
 
 [ext_resource type="Script" path="res://scripts/BanzaiBillAI.gd" id="1_7uv1c"]
 [ext_resource type="Texture2D" uid="uid://5x0hyjhilg68" path="res://assets/textures/BanzaiBill_Texture.png" id="2_b2wry"]
@@ -72,11 +72,10 @@ points = PackedVector3Array(-2.98023e-08, -0.215153, 0.255971, -0.127986, -0.215
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmgd0"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_p4wus"]
-height = 1.2
-
 [node name="Banzai Bill" type="CharacterBody3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_7uv1c")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -102,21 +101,14 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -1.33716)
 shape = SubResource("BoxShape3D_mmgd0")
 
 [node name="HitBox" type="Area3D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(1.02, 0, 0, 0, -4.45856e-08, -1.02, 0, 1.02, -4.45856e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_jh666")
 
-[node name="FireballHitBox" type="Area3D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FireballHitBox"]
-transform = Transform3D(0.555, 0, 0, 0, -2.42598e-08, 0.555, 0, -0.555, -2.42598e-08, 0, -0.00495493, -0.015549)
-shape = SubResource("CylinderShape3D_p4wus")
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
-[connection signal="body_entered" from="FireballHitBox" to="." method="_on_fireball_hit_box_body_entered"]

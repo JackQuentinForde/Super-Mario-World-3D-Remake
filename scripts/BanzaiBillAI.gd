@@ -68,10 +68,7 @@ func _on_hit_area_body_entered(body):
 	if body.name == "Player":
 		body.call_deferred("TakeHit")
 		GetLost()
-	elif body is StaticBody3D:
-		state = DYING_STATE
-
-func _on_fireball_hit_box_body_entered(body):
-	if body.is_in_group("Fireballs"):
+	elif body.is_in_group("Fireballs"):
 		body.call_deferred("Destroy")
+	elif body is StaticBody3D:
 		state = DYING_STATE
