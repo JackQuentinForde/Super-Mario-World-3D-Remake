@@ -117,7 +117,6 @@ libraries = {
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 
 [node name="Player" parent="." instance=ExtResource("3_f0051")]
-isLuigi = true
 
 [node name="UndergroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_8q26d")
@@ -353,6 +352,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49737, 7.9317, -308.32)
 
 [node name="Koopa Coin5" parent="." instance=ExtResource("6_egfb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 5.43607, -292.48)
+VALUE = 1000
 
 [node name="BreakableBlock13" parent="." groups=["BreakableBlocks"] instance=ExtResource("11_f43on")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49677, 7.5027, -293.471)
