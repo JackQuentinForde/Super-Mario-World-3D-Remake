@@ -13,8 +13,12 @@ var point
 var state
 var player
 var health
+var scoreLabel
 
 func _ready():
+	scoreLabel = $"../CanvasLayer/Score"
+	$Popup.visible = false
+	$Popup2.visible = false
 	point = $Point1.global_position
 	health = 2
 	state = PATROL_STATE
@@ -23,6 +27,8 @@ func _physics_process(delta):
 	ApplyGravity(delta)
 	Move(delta)
 	move_and_slide()
+	$Popup.rotation_degrees = Vector3(0, -90, 0)
+	$Popup2.rotation_degrees = Vector3(0, -90, 0)
 	
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
@@ -120,8 +126,16 @@ func _on_point_2_body_entered(body):
 
 func _on_squish_area_area_entered(area):
 	if area.name == "SpinArea":
+		scoreLabel.text = "x " + str(int(scoreLabel.text) + 200)
+		$AnimationPlayer2.play("200")
 		TakeHit(2)
-	elif area.name == "JumpArea":
+	elif area.name == "JumpArea" and $Armature.visible:
+		if health > 1:
+			scoreLabel.text = "x " + str(int(scoreLabel.text) + 200)
+			$AnimationPlayer2.play("200")
+		else:
+			scoreLabel.text = "x " + str(int(scoreLabel.text) + 400)
+			$AnimationPlayer2.play("400")
 		TakeHit(1)
 
 func _on_fireball_hit_box_body_entered(body):

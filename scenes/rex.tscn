@@ -1,10 +1,14 @@
-[gd_scene load_steps=55 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=63 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_wxycg"]
 [ext_resource type="Material" uid="uid://byq1wyoat5omt" path="res://materials/rex_horn.tres" id="4_dxjj0"]
 [ext_resource type="Material" uid="uid://cfgerwv4rt15a" path="res://materials/rex_wings.tres" id="5_0lm4t"]
+[ext_resource type="Material" uid="uid://t8uyk7ky8swv" path="res://materials/200.tres" id="6_ahug3"]
+[ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="7_y2pa6"]
+[ext_resource type="Material" uid="uid://w06uww4ov86t" path="res://materials/400.tres" id="8_rh6th"]
+[ext_resource type="Texture2D" uid="uid://bol6x25oewmwq" path="res://assets/textures/400_Texture.png" id="9_dc7pl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nptjn"]
 
@@ -609,6 +613,118 @@ rings = 8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1l8kf"]
 
+[sub_resource type="Animation" id="Animation_rwdgr"]
+resource_name = "200"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup:top_level")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8xvom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup:top_level")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Popup2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Popup2:top_level")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cb7nx"]
+resource_name = "400"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup2:top_level")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsc34"]
+_data = {
+"200": SubResource("Animation_rwdgr"),
+"400": SubResource("Animation_cb7nx"),
+"RESET": SubResource("Animation_8xvom")
+}
+
 [node name="Rex" type="CharacterBody3D"]
 floor_stop_on_slope = false
 floor_max_angle = 1.309
@@ -904,6 +1020,25 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FireballHitBox"]
 transform = Transform3D(1.1, 0, 0, 0, -1.1, -1.66095e-07, 0, 1.66095e-07, -1.1, 0, 0.28563, -0.00192771)
 shape = SubResource("CapsuleShape3D_1l8kf")
+
+[node name="Popup" type="Sprite3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.91381, 0)
+visible = false
+material_override = ExtResource("6_ahug3")
+texture_filter = 0
+texture = ExtResource("7_y2pa6")
+
+[node name="Popup2" type="Sprite3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.91381, 0)
+visible = false
+material_override = ExtResource("8_rh6th")
+texture_filter = 0
+texture = ExtResource("9_dc7pl")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rsc34")
+}
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]
