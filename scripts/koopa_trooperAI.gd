@@ -14,8 +14,10 @@ var point
 var state
 var player
 var touchedGround
+var scoreLabel
 
 func _ready():
+	scoreLabel = $"../CanvasLayer/Score"
 	touchedGround = false
 	position = $StartPos.global_position
 	point = $Point1.global_position
@@ -25,6 +27,7 @@ func _physics_process(delta):
 	ApplyGravity(delta)
 	Move(delta)
 	move_and_slide()
+	$Popup.rotation_degrees = Vector3(0, -90, 0)
 	
 func ApplyGravity(delta):
 	velocity.y -= gravity * delta
@@ -86,6 +89,8 @@ func TakeHit():
 	$CollisionShape3D2.call_deferred("set_disabled", true)
 	$HitBox/CollisionShape3D2.call_deferred("set_disabled", true)
 	$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
+	scoreLabel.text = "x " + str(int(scoreLabel.text) + 200)
+	$AnimationPlayer2.play("200")
 	state = DYING_STATE
 
 func _on_detection_area_body_entered(body):
