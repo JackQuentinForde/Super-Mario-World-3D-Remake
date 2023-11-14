@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 const SPEED = 2
 
+var rewardCoin = preload("res://scenes/RewardCoin.tscn")
+
 enum {MOVE_STATE, WAIT_STATE, HIDE_STATE, DYING_STATE}
 var point
 var vector
@@ -88,5 +90,8 @@ func _on_south_point_body_entered(body):
 
 func _on_fireball_hit_box_body_entered(body):
 	if body.is_in_group("Fireballs"):
+		var instance = rewardCoin.instantiate()
+		instance.global_position = global_position
+		get_parent().add_child(instance)
 		body.call_deferred("Destroy")
 		Die()
