@@ -13,6 +13,8 @@ func _on_area_3d_area_entered(area):
 		$AnimationPlayer.play("bonk")
 		if flowerBlock:
 			instance = fireFlower.instantiate()
+			add_child(instance)
 		else:
 			instance = mushroom.instantiate()
-		add_child(instance)
+			instance.global_position = global_position
+			get_parent().add_child(instance)

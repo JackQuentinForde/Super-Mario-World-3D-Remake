@@ -5,6 +5,8 @@ const CHASE_SPEED = 3
 const SLIDE_SPEED = 4
 const ROT_SPEED = 6
 
+var rewardCoin = preload("res://scenes/RewardCoin.tscn")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -132,5 +134,8 @@ func _on_timer_2_timeout():
 
 func _on_fireball_hit_box_body_entered(body):
 	if body.is_in_group("Fireballs"):
+		var instance = rewardCoin.instantiate()
+		instance.global_position = global_position
+		get_parent().add_child(instance)
 		body.call_deferred("Destroy")
 		queue_free()

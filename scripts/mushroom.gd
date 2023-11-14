@@ -1,13 +1,14 @@
 extends RigidBody3D
 
-const VALUE = 1000
+@export var VALUE = 1000
+@export var IS_MUSHROOM = false
 
 var scoreLabel
 var popup
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	scoreLabel = $"../../../CanvasLayer/Score"
+	scoreLabel = $"../../CanvasLayer/Score"
 	popup = $"../Popup"
 	popup.visible = false
 	jump()
@@ -26,6 +27,7 @@ func _on_hit_box_body_entered(body):
 		popup.position = Vector3(position.x, position.y + 2, position.z)
 		popup.visible = true
 		scoreLabel.text = "x " + str(int(scoreLabel.text) + VALUE)
-		$MushroomMesh.visible = false
-		body.call_deferred("ChangeSize", body.SIZE_BIG)
+		$Mesh.visible = false
+		if IS_MUSHROOM:
+			body.call_deferred("ChangeSize", body.SIZE_BIG)
 		$Timer.start()

@@ -73,6 +73,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
+	FirePower()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -381,6 +382,10 @@ func TeleportToOverground():
 	velocity = Vector3(0, 9, 24.5)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
+
+func Bonk():
+	velocity.y = 0
+	jumpReleased = true
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":

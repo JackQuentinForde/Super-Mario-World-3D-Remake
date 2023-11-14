@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var rewardCoin = preload("res://scenes/RewardCoin.tscn")
+
 const PATROL_SPEED = 2
 const CHASE_SPEED = 3
 const ROT_SPEED = 6
@@ -135,10 +137,13 @@ func _on_squish_area_area_entered(area):
 			$AnimationPlayer2.play("200")
 		else:
 			scoreLabel.text = "x " + str(int(scoreLabel.text) + 400)
-			$AnimationPlayer2.play("400")
+			$AnimationPlayer3.play("400")
 		TakeHit(1)
 
 func _on_fireball_hit_box_body_entered(body):
 	if body.is_in_group("Fireballs"):
+		var instance = rewardCoin.instantiate()
+		instance.global_position = global_position
+		get_parent().add_child(instance)
 		body.call_deferred("Destroy")
 		queue_free()

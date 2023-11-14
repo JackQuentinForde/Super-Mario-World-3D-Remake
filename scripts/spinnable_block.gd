@@ -19,6 +19,7 @@ func _on_area_3d_2_area_entered(area):
 		$Area3D2/CollisionShape3D3.call_deferred("set_disabled", true)
 		$AnimationPlayer.play("spin")
 		$Timer.start()
+		area.get_parent().call_deferred("Bonk")
 			
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "break":
