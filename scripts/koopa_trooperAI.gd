@@ -19,7 +19,7 @@ var touchedGround
 var scoreLabel
 
 func _ready():
-	scoreLabel = $"../CanvasLayer/Score"
+	scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
 	touchedGround = false
 	position = $StartPos.global_position
 	point = $Point1.global_position
@@ -91,7 +91,7 @@ func TakeHit():
 	$CollisionShape3D2.call_deferred("set_disabled", true)
 	$HitBox/CollisionShape3D2.call_deferred("set_disabled", true)
 	$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
-	scoreLabel.text = "x " + str(int(scoreLabel.text) + 200)
+	scoreLabel.text = "x" + str(int(scoreLabel.text) + 200)
 	$AnimationPlayer2.play("200")
 	state = DYING_STATE
 

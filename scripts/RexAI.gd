@@ -18,7 +18,7 @@ var health
 var scoreLabel
 
 func _ready():
-	scoreLabel = $"../CanvasLayer/Score"
+	scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
 	$Popup.visible = false
 	$Popup2.visible = false
 	point = $Point1.global_position
@@ -128,15 +128,15 @@ func _on_point_2_body_entered(body):
 
 func _on_squish_area_area_entered(area):
 	if area.name == "SpinArea":
-		scoreLabel.text = "x " + str(int(scoreLabel.text) + 200)
+		scoreLabel.text = "x" + str(int(scoreLabel.text) + 200)
 		$AnimationPlayer2.play("200")
 		TakeHit(2)
 	elif area.name == "JumpArea" and $Armature.visible:
 		if health > 1:
-			scoreLabel.text = "x " + str(int(scoreLabel.text) + 200)
+			scoreLabel.text = "x" + str(int(scoreLabel.text) + 200)
 			$AnimationPlayer2.play("200")
 		else:
-			scoreLabel.text = "x " + str(int(scoreLabel.text) + 400)
+			scoreLabel.text = "x" + str(int(scoreLabel.text) + 400)
 			$AnimationPlayer3.play("400")
 		TakeHit(1)
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=31 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
+[ext_resource type="Texture2D" uid="uid://cl4vyhf06moik" path="res://assets/textures/CoinScore_Texture.png" id="2_pd0kh"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
 [ext_resource type="AudioStream" uid="uid://b7de0ey6bde12" path="res://assets/music/Underground Theme.ogg" id="4_8q26d"]
 [ext_resource type="AudioStream" uid="uid://cqve8k3iddok8" path="res://assets/music/Super Mario World Overworld Remastered.ogg" id="5_i8t4b"]
@@ -23,9 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
 [ext_resource type="PackedScene" uid="uid://dfivykbgd3iw2" path="res://scenes/piranha_plant.tscn" id="21_20fyy"]
 [ext_resource type="PackedScene" uid="uid://cod5s620b7uqc" path="res://scenes/koopa_trooper.tscn" id="22_qabhh"]
-
-[sub_resource type="Theme" id="Theme_x6sde"]
-default_font = ExtResource("7_e1umb")
 
 [sub_resource type="Animation" id="Animation_anide"]
 length = 0.001
@@ -81,23 +79,15 @@ _data = {
 "fadeout": SubResource("Animation_41sy1")
 }
 
+[sub_resource type="Theme" id="Theme_x6sde"]
+default_font = ExtResource("7_e1umb")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Score" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 27.0
-grow_horizontal = 0
-theme = SubResource("Theme_x6sde")
-text = "x 0"
-horizontal_alignment = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -113,6 +103,29 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_pc6s2")
 }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 40.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_pd0kh")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_x6sde")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 22
+text = "x0"
+horizontal_alignment = 2
 
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 

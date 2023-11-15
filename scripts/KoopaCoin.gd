@@ -5,7 +5,7 @@ extends Area3D
 var scoreLabel
 
 func _ready():
-	scoreLabel = $"../CanvasLayer/Score"
+	scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
 	$Popup.visible = false
 	SetPopupMaterial()
 
@@ -13,7 +13,7 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		collision_mask = 0
 		$Popup.visible = true
-		scoreLabel.text = "x " + str(int(scoreLabel.text) + VALUE)
+		scoreLabel.text = "x" + str(int(scoreLabel.text) + VALUE)
 		$AudioStreamPlayer.play()
 		$AnimationPlayer.play("disappear")
 

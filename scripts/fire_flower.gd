@@ -6,7 +6,7 @@ var scoreLabel
 var popup
 
 func _ready():
-	scoreLabel = $"../../CanvasLayer/Score"
+	scoreLabel = $"../../CanvasLayer/HBoxContainer/Score"
 	popup = $Popup
 	popup.visible = false
 
