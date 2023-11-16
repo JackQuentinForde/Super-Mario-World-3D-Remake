@@ -177,7 +177,7 @@ libraries = {
 }
 
 [node name="Popup" type="Sprite3D" parent="."]
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.21046, 0)
+transform = Transform3D(-2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 0, 1.21046, 0)
 visible = false
 material_override = ExtResource("4_nea2p")
 texture_filter = 0
