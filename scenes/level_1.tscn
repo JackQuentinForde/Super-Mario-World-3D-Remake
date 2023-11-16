@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=33 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="2_1kvhn"]
 [ext_resource type="Texture2D" uid="uid://cl4vyhf06moik" path="res://assets/textures/CoinScore_Texture.png" id="2_pd0kh"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
+[ext_resource type="Script" path="res://scripts/pause_canvas.gd" id="3_mvtn6"]
 [ext_resource type="AudioStream" uid="uid://b7de0ey6bde12" path="res://assets/music/Underground Theme.ogg" id="4_8q26d"]
 [ext_resource type="AudioStream" uid="uid://cqve8k3iddok8" path="res://assets/music/Super Mario World Overworld Remastered.ogg" id="5_i8t4b"]
 [ext_resource type="PackedScene" uid="uid://b2rpith82qvhl" path="res://scenes/koopa_coin.tscn" id="6_egfb1"]
@@ -80,6 +81,22 @@ _data = {
 "fadeout": SubResource("Animation_41sy1")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_likch"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
 
 [node name="Level 1" type="Node3D"]
@@ -124,6 +141,37 @@ theme_override_constants/shadow_outline_size = 12
 theme_override_font_sizes/font_size = 22
 text = "x0"
 horizontal_alignment = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 2
+visible = false
+offset = Vector2(200, 200)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 200, 200)
+script = ExtResource("3_mvtn6")
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -46.0
+offset_right = 226.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1kvhn")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_likch")
+text = "Text here
+"
+horizontal_alignment = 1
 
 [node name="Yoshi\'s Island 1" parent="." instance=ExtResource("1_rodd4")]
 
@@ -433,5 +481,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36968, 3.32003)
 
 [node name="SpeakerBlock" parent="." instance=ExtResource("25_ufs8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7, -4.65661e-10)
+text = "How to Spin Jump!
+
+Ctrl
+B Button
+Circle Button"
+
+[node name="SpeakerBlock2" parent="." instance=ExtResource("25_ufs8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 7, 55)
+text = "How to Sprint!
+
+RShift
+RTrigger or X Button
+R2 or Square Button"
+
+[node name="SpeakerBlock3" parent="." instance=ExtResource("25_ufs8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 7, 124)
+text = "How to enter a pipe!
+
+Enter
+Y Button
+Triangle Button"
+
+[node name="SpeakerBlock4" parent="." instance=ExtResource("25_ufs8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 7, 129)
+text = "Spin Jump to
+break Blocks!"
+
+[node name="SpeakerBlock5" parent="." instance=ExtResource("25_ufs8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63934, 7.36066, 175)
+text = "How to Shoot!
+
+RShift
+RTrigger or X Button
+R2 or Square Button"
+
+[node name="ExclamationBlock10" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 10)
+visible = false
+flowerBlock = true
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

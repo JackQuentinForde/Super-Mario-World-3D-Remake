@@ -73,7 +73,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
-	FirePower()
 
 func _physics_process(delta):
 	ApplyGravity(delta)

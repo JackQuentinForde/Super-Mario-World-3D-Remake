@@ -9,6 +9,7 @@ var instance
 
 func _on_area_3d_area_entered(area):
 	if area.name == "HeadArea":
+		visible = true
 		$Area3D/CollisionShape3D2.call_deferred("set_disabled", true)
 		$AnimationPlayer.play("bonk")
 		if flowerBlock:

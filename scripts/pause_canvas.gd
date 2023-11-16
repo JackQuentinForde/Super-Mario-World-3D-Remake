@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const REVEAL_SPEED = 2
+const REVEAL_SPEED = 3
 
 func _ready():
 	scale = Vector2(0.5, 0)
@@ -11,7 +11,6 @@ func _process(delta):
 	else:
 		scale = Vector2(0.5, 0.5)
 	
-		
 	var windowSize = get_viewport().get_visible_rect().size
 	offset = Vector2(windowSize.x / 4, windowSize.y / 4)
 	

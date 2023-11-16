@@ -1,20 +1,16 @@
 extends StaticBody3D
 
-@export var text = "KEYBOARD CONTROLS\n
-Up: Up Arrow\n
-Down: Down Arrow\n
-Right: Right Arrow\n
-Left: Left Arrow\n
-Jump: Spacebar\n
-Spin Jump: Ctrl\n
-Sprint: RShift\n"
+@export_multiline var text = "Put your message here!"
+
+var canvasLayer
 
 func _ready():
-	$CanvasLayer.visible = false
-	$CanvasLayer/Label.text = text
+	canvasLayer = get_parent().get_node("CanvasLayer2")
+	canvasLayer.call_deferred("set_visible", false)
 
 func _on_area_3d_area_entered(area):
 	if area.name == "HeadArea":
-		$CanvasLayer.visible = true
+		canvasLayer.get_node("Label").call_deferred("set_text", text)
+		canvasLayer.call_deferred("set_visible", true)
 		area.get_parent().call_deferred("Bonk")
 		get_tree().paused = true
