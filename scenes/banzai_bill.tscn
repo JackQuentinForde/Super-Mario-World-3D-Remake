@@ -74,7 +74,6 @@ points = PackedVector3Array(-2.98023e-08, -0.215153, 0.255971, -0.127986, -0.215
 
 [node name="Banzai Bill" type="CharacterBody3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_7uv1c")
 
