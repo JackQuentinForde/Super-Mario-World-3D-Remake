@@ -6,5 +6,5 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		$CollisionShape3D.set_deferred("disabled", true)
 		var instance = mushroom.instantiate()
-		instance.global_position = global_position
+		instance.call_deferred("set_global_position", global_position)
 		get_parent().add_child(instance)

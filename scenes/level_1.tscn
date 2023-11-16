@@ -88,10 +88,10 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
@@ -145,7 +145,6 @@ horizontal_alignment = 2
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 process_mode = 2
 layer = 2
-visible = false
 offset = Vector2(200, 200)
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 200, 200)
@@ -506,7 +505,7 @@ Triangle Button"
 [node name="SpeakerBlock4" parent="." instance=ExtResource("25_ufs8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 7, 129)
 text = "Spin Jump to
-break Blocks!"
+break blocks!"
 
 [node name="SpeakerBlock5" parent="." instance=ExtResource("25_ufs8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63934, 7.36066, 175)
