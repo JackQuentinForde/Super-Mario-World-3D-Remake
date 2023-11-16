@@ -90,8 +90,11 @@ func _on_south_point_body_entered(body):
 
 func _on_fireball_hit_box_body_entered(body):
 	if body.is_in_group("Fireballs"):
-		var instance = rewardCoin.instantiate()
-		instance.global_position = global_position
-		get_parent().add_child(instance)
+		SpawnCoin()
 		body.call_deferred("Destroy")
 		Die()
+		
+func SpawnCoin():
+	var instance = rewardCoin.instantiate()
+	instance.call_deferred("set_global_position", global_position)
+	get_parent().add_child(instance)

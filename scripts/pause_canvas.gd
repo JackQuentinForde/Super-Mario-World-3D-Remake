@@ -3,7 +3,7 @@ extends CanvasLayer
 const REVEAL_SPEED = 3
 
 func _ready():
-	scale = Vector2(0.5, 0)
+	scale = Vector2(0.5, 0.001)
 
 func _process(delta):
 	if scale.y < 0.5:
@@ -17,4 +17,4 @@ func _process(delta):
 	if Input.is_action_just_pressed("player_jump"):
 		visible = false
 		get_tree().paused = false
-		scale = Vector2(0.5, 0)
+		scale = Vector2(0.5, 0.001)
