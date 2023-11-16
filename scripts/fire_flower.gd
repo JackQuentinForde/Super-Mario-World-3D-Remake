@@ -17,7 +17,7 @@ func _on_hit_box_body_entered(body):
 		scoreLabel.text = "x " + str(int(scoreLabel.text) + VALUE)
 		$"Fire Flower2".visible = false
 		$Stem.visible = false
-		$Feet.visible =false
+		$Feet.visible = false
 		body.call_deferred("FirePower")
 		$Timer.start()
 

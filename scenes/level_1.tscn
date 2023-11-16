@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
+[ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="2_1kvhn"]
 [ext_resource type="Texture2D" uid="uid://cl4vyhf06moik" path="res://assets/textures/CoinScore_Texture.png" id="2_pd0kh"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
 [ext_resource type="AudioStream" uid="uid://b7de0ey6bde12" path="res://assets/music/Underground Theme.ogg" id="4_8q26d"]
 [ext_resource type="AudioStream" uid="uid://cqve8k3iddok8" path="res://assets/music/Super Mario World Overworld Remastered.ogg" id="5_i8t4b"]
 [ext_resource type="PackedScene" uid="uid://b2rpith82qvhl" path="res://scenes/koopa_coin.tscn" id="6_egfb1"]
-[ext_resource type="FontFile" uid="uid://brhia2wetofvs" path="res://assets/fonts/Super Mario World Text Box.ttf" id="7_e1umb"]
 [ext_resource type="Script" path="res://scripts/Trigger.gd" id="10_4vecc"]
 [ext_resource type="PackedScene" uid="uid://bkett2qxf0mif" path="res://scenes/breakable_block.tscn" id="11_f43on"]
 [ext_resource type="PackedScene" uid="uid://b2lsuear8paw6" path="res://scenes/checkpoint.tscn" id="12_giawj"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dsf16g0pkss0" path="res://scenes/banzai_bill.tscn" id="20_wauj7"]
 [ext_resource type="PackedScene" uid="uid://dfivykbgd3iw2" path="res://scenes/piranha_plant.tscn" id="21_20fyy"]
 [ext_resource type="PackedScene" uid="uid://cod5s620b7uqc" path="res://scenes/koopa_trooper.tscn" id="22_qabhh"]
+[ext_resource type="PackedScene" uid="uid://d4kba4fxxfokp" path="res://scenes/speaker_block.tscn" id="25_ufs8m"]
 
 [sub_resource type="Animation" id="Animation_anide"]
 length = 0.001
@@ -79,9 +80,6 @@ _data = {
 "fadeout": SubResource("Animation_41sy1")
 }
 
-[sub_resource type="Theme" id="Theme_x6sde"]
-default_font = ExtResource("7_e1umb")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
 
 [node name="Level 1" type="Node3D"]
@@ -120,7 +118,7 @@ expand_mode = 2
 
 [node name="Score" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_x6sde")
+theme = ExtResource("2_1kvhn")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 12
 theme_override_font_sizes/font_size = 22
@@ -432,5 +430,8 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.48073, 9.80396, 156.
 
 [node name="Koopa Trooper" parent="." instance=ExtResource("22_qabhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36968, 3.32003)
+
+[node name="SpeakerBlock" parent="." instance=ExtResource("25_ufs8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7, -4.65661e-10)
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

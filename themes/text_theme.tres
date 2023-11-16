@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://eonf6ioq4ntj"]
+
+[ext_resource type="FontFile" uid="uid://brhia2wetofvs" path="res://assets/fonts/Super Mario World Text Box.ttf" id="1_e80p0"]
+
+[resource]
+default_font = ExtResource("1_e80p0")
