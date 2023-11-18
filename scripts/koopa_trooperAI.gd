@@ -87,11 +87,17 @@ func TakeHit():
 	$GPUParticles3D.emitting = true
 	$Armature.visible = false
 	$CollisionShape3D.call_deferred("set_disabled", true)
+	$CollisionShape3D3.call_deferred("set_disabled", true)
 	$HitBox/CollisionShape3D.call_deferred("set_disabled", true)
+	$HitBox/CollisionShape3D3.call_deferred("set_disabled", true)
 	$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
+	$SquishArea/CollisionShape3D2.call_deferred("set_disabled", true)
 	$CollisionShape3D2.call_deferred("set_disabled", true)
+	$CollisionShape3D4.call_deferred("set_disabled", true)
 	$HitBox/CollisionShape3D2.call_deferred("set_disabled", true)
 	$SquishArea/CollisionShape3D.call_deferred("set_disabled", true)
+	$HitBox/CollisionShape3D4.call_deferred("set_disabled", true)
+	$SquishArea/CollisionShape3D2.call_deferred("set_disabled", true)
 	scoreLabel.text = "x" + str(int(scoreLabel.text) + 200)
 	$AnimationPlayer2.play("200")
 	state = DYING_STATE

@@ -100,11 +100,11 @@ expand_margin_bottom = 100.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
 
 [sub_resource type="Environment" id="Environment_8os1d"]
-fog_light_energy = 0.1
-fog_height_density = -0.0198
-volumetric_fog_detail_spread = 0.5
-volumetric_fog_ambient_inject = 3.64
-volumetric_fog_temporal_reprojection_amount = 0.638
+fog_enabled = true
+fog_light_color = Color(0, 0.752941, 0.752941, 1)
+fog_density = 0.002
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0, 0.752941, 0.752941, 1)
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
