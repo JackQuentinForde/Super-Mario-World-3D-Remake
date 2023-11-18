@@ -6,7 +6,6 @@
 [ext_resource type="Material" uid="uid://c6y412jyye8h4" path="res://materials/stone_block.tres" id="4_hl5fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8oyqw"]
-shading_mode = 0
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("2_qb02e")
@@ -15,6 +14,7 @@ texture_filter = 0
 [node name="Underground" instance=ExtResource("1_ip4f6")]
 
 [node name="Underground2" parent="." index="0"]
+cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_8oyqw")
 surface_material_override/1 = ExtResource("3_8et5h")
 

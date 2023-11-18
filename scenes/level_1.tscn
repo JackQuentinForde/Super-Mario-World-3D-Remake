@@ -101,7 +101,10 @@ expand_margin_bottom = 100.0
 
 [sub_resource type="Environment" id="Environment_8os1d"]
 fog_light_energy = 0.1
-volumetric_fog_density = 0.0147
+fog_height_density = -0.0198
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_ambient_inject = 3.64
+volumetric_fog_temporal_reprojection_amount = 0.638
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)

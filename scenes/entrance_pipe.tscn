@@ -14,6 +14,7 @@ texture_filter = 0
 [node name="Entrance Pipe" instance=ExtResource("1_ows0c")]
 
 [node name="Pipe017" parent="." index="0"]
+cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_j65ic")
 surface_material_override/1 = ExtResource("3_88mrd")
 
