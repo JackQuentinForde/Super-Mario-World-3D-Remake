@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cod5s620b7uqc"]
+[gd_scene load_steps=50 format=3 uid="uid://cod5s620b7uqc"]
 
 [ext_resource type="Script" path="res://scripts/koopa_trooperAI.gd" id="1_6ppda"]
 [ext_resource type="Material" uid="uid://bsudphbfg2tbj" path="res://materials/koopa_trooper.tres" id="2_v5t2a"]
@@ -414,6 +414,54 @@ tracks/13/path = NodePath("Armature/Skeleton3D:Collar_L")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -0.533899, 0.463629, 0.5339, 0.463629)
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CollisionShape3D:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.151069, 0.0525458)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CollisionShape3D:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CollisionShape3D2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.532027, -0.00656819)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CollisionShape3D2:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gig63"]
 resource_name = "Slide"
@@ -619,9 +667,61 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -0.533899, 0.463629, 0.5339, 0.463629, 0.2, 1, -0.574279, 0.425685, 0.490206, 0.498693, 0.233333, 1, -0.571048, 0.42895, 0.493965, 0.495888, 0.4, 1, -0.537393, 0.460575, 0.530383, 0.466662, 0.433333, 1, -0.530277, 0.466753, 0.537497, 0.460483, 0.6, 1, -0.492723, 0.496819, 0.57212, 0.427871, 0.633333, 1, -0.488843, 0.4997, 0.575439, 0.424502, 0.833333, 1, -0.533899, 0.463629, 0.5339, 0.463629)
 
+[sub_resource type="Animation" id="Animation_jf6ce"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.151069, 0.0525458)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.532027, -0.00656819)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x8d5r"]
 _data = {
 "Idle": SubResource("Animation_qipfm"),
+"RESET": SubResource("Animation_jf6ce"),
 "Slide": SubResource("Animation_gig63"),
 "Walk": SubResource("Animation_at1cw")
 }
@@ -861,6 +961,16 @@ shape = SubResource("CapsuleShape3D_3kndw")
 transform = Transform3D(0.484, 0, 0, 0, 0.484, 0, 0, 0, 0.484, 0, 0.532027, -0.00656819)
 shape = SubResource("SphereShape3D_fgcff")
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.504, 0, 0, 0, -2.20305e-08, 0.504, 0, -0.504, -2.20305e-08, 0, 0.366919, 0.139698)
+visible = false
+shape = SubResource("CapsuleShape3D_3kndw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.484, 0, 0, 0, -2.11563e-08, 0.484, 0, -0.484, -2.11563e-08, 0, 0.307805, -0.24126)
+visible = false
+shape = SubResource("SphereShape3D_fgcff")
+
 [node name="HitBox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
@@ -871,10 +981,25 @@ shape = SubResource("CapsuleShape3D_3kndw")
 transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0.532027, -0.00656819)
 shape = SubResource("SphereShape3D_fgcff")
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(0.56, 0, 0, 0, -2.44784e-08, 0.56, 0, -0.56, -2.44784e-08, 0, 0.366919, 0.0922479)
+visible = false
+shape = SubResource("CapsuleShape3D_3kndw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(0.53, 0, 0, 0, -2.3167e-08, 0.53, 0, -0.53, -2.3167e-08, 0, 0.307805, -0.24126)
+visible = false
+shape = SubResource("SphereShape3D_fgcff")
+
 [node name="SquishArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SquishArea"]
 transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 0.633765, 0)
+shape = SubResource("BoxShape3D_fecec")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SquishArea"]
+transform = Transform3D(0.525, 0, 0, 0, -2.29485e-08, 0.525, 0, -0.525, -2.29485e-08, 0, 0.314373, -0.342998)
+visible = false
 shape = SubResource("BoxShape3D_fecec")
 
 [node name="Point1" type="Area3D" parent="."]
@@ -924,6 +1049,11 @@ collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FireballHitBox"]
 transform = Transform3D(0.666, 0, 0, 0, 0.666, 0, 0, 0, 0.666, 0, 0.265408, 0.00302529)
+shape = SubResource("CapsuleShape3D_7ikb6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FireballHitBox"]
+transform = Transform3D(0.666, 0, 0, 0, -2.91118e-08, 0.666, 0, -0.666, -2.91118e-08, 0, 0.317398, 0.0253589)
+visible = false
 shape = SubResource("CapsuleShape3D_7ikb6")
 
 [node name="Popup" type="Sprite3D" parent="."]

@@ -108,5 +108,5 @@ player_enter_pipe={
 
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
-environment/defaults/default_clear_color=Color(0, 0.67451, 0.67451, 1)
+environment/defaults/default_clear_color=Color(0, 0.752941, 0.752941, 1)
 anti_aliasing/stretch/aspect="keep"

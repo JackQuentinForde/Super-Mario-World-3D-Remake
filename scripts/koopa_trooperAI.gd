@@ -24,6 +24,7 @@ func _ready():
 	position = $StartPos.global_position
 	point = $Point1.global_position
 	state = SLIDE_STATE
+	SwitchCollisions(false)
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -130,6 +131,8 @@ func _on_squish_area_area_entered(area):
 
 func _on_timer_2_timeout():
 	if state == SLIDE_STATE:
+		SwitchCollisions(true)
+		global_position.y += 0.25
 		state = PATROL_STATE
 
 func _on_fireball_hit_box_body_entered(body):
@@ -142,3 +145,27 @@ func SpawnCoin():
 	var instance = rewardCoin.instantiate()
 	instance.call_deferred("set_global_position", global_position)
 	get_parent().add_child(instance)
+	
+func SwitchCollisions(upright):
+	if upright:
+		$CollisionShape3D.disabled = false
+		$CollisionShape3D2.disabled = false
+		$HitBox/CollisionShape3D.disabled = false
+		$HitBox/CollisionShape3D2.disabled = false
+		$SquishArea/CollisionShape3D.disabled = false
+		$CollisionShape3D3.disabled = true
+		$CollisionShape3D4.disabled = true
+		$HitBox/CollisionShape3D3.disabled = true
+		$HitBox/CollisionShape3D4.disabled = true
+		$SquishArea/CollisionShape3D2.disabled = true
+	else:
+		$CollisionShape3D.disabled = true
+		$CollisionShape3D2.disabled = true
+		$HitBox/CollisionShape3D.disabled = true
+		$HitBox/CollisionShape3D2.disabled = true
+		$SquishArea/CollisionShape3D.disabled = true
+		$CollisionShape3D3.disabled = false
+		$CollisionShape3D4.disabled = false
+		$HitBox/CollisionShape3D3.disabled = false
+		$HitBox/CollisionShape3D4.disabled = false
+		$SquishArea/CollisionShape3D2.disabled = false
