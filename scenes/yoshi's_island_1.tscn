@@ -149,6 +149,7 @@ surface_material_override/0 = ExtResource("2_ayako")
 surface_material_override/0 = ExtResource("2_ayako")
 
 [node name="Ground" parent="." index="33"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("2_1ms13")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
@@ -525,82 +526,102 @@ surface_material_override/0 = ExtResource("8_cnutg")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud016" parent="." index="128"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud017" parent="." index="129"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud018" parent="." index="130"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud019" parent="." index="131"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud020" parent="." index="132"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud" parent="." index="133"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud001" parent="." index="134"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud002" parent="." index="135"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud003" parent="." index="136"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud004" parent="." index="137"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud005" parent="." index="138"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud006" parent="." index="139"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud007" parent="." index="140"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud008" parent="." index="141"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud009" parent="." index="142"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud010" parent="." index="143"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud011" parent="." index="144"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud012" parent="." index="145"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud013" parent="." index="146"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 
 [node name="YoshiCloud015" parent="." index="147"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("10_filf5")
 surface_material_override/1 = ExtResource("3_jy3o4")
 

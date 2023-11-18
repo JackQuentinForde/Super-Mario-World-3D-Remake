@@ -919,8 +919,8 @@ one_shot = true
 autostart = true
 
 [node name="FireballHitBox" type="Area3D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 128
+collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FireballHitBox"]
 transform = Transform3D(0.666, 0, 0, 0, 0.666, 0, 0, 0, 0.666, 0, 0.265408, 0.00302529)

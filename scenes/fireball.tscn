@@ -174,7 +174,7 @@ rings = 8
 
 [node name="Fireball" type="CharacterBody3D" groups=["Fireballs"]]
 top_level = true
-collision_layer = 8
+collision_layer = 128
 collision_mask = 40
 script = ExtResource("1_2137j")
 

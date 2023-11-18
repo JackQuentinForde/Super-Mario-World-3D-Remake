@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=34 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="2_1kvhn"]
@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://scripts/Trigger.gd" id="10_4vecc"]
 [ext_resource type="PackedScene" uid="uid://bkett2qxf0mif" path="res://scenes/breakable_block.tscn" id="11_f43on"]
 [ext_resource type="PackedScene" uid="uid://b2lsuear8paw6" path="res://scenes/checkpoint.tscn" id="12_giawj"]
+[ext_resource type="PackedScene" uid="uid://mrbfkbpc2y1l" path="res://scenes/exclamation_block_no_shadow.tscn" id="12_q4r6c"]
 [ext_resource type="PackedScene" uid="uid://cwufsg627f0ip" path="res://scenes/spinnable_block.tscn" id="14_gnsyn"]
-[ext_resource type="Environment" uid="uid://bm3bo712m26r5" path="res://environments/overworld.tres" id="14_s007e"]
 [ext_resource type="PackedScene" uid="uid://fnlflju2okcl" path="res://scenes/exclamation_block.tscn" id="15_ymamm"]
 [ext_resource type="PackedScene" uid="uid://cwps5iovnmsaa" path="res://scenes/question_block.tscn" id="16_6nnq4"]
 [ext_resource type="PackedScene" uid="uid://bw1ysubeyoh3b" path="res://scenes/goal.tscn" id="17_1fpch"]
@@ -98,6 +98,10 @@ expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
+
+[sub_resource type="Environment" id="Environment_8os1d"]
+fog_light_energy = 0.1
+volumetric_fog_density = 0.0147
 
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
@@ -194,7 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 320)
 VALUE = 8000
 
 [node name="Koopa Coin2" parent="." instance=ExtResource("6_egfb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 13, 96)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 13, 97.84)
 VALUE = 2000
 
 [node name="Koopa Coin3" parent="." instance=ExtResource("6_egfb1")]
@@ -248,8 +252,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49677, 7.50274, 127.529)
 [node name="Checkpoint" parent="." instance=ExtResource("12_giawj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 166)
 
-[node name="SpinnableBlock" parent="." groups=["BreakableBlocks"] instance=ExtResource("14_gnsyn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13765, 14.3328, 222.13)
+[node name="ExclamationBlockNoShadow" parent="." instance=ExtResource("12_q4r6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3239, 222.15)
 
 [node name="SpinnableBlock2" parent="." groups=["BreakableBlocks"] instance=ExtResource("14_gnsyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13765, 7.33278, 266.13)
@@ -370,7 +374,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 219)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("14_s007e")
+environment = SubResource("Environment_8os1d")
 
 [node name="Banzai Bill" parent="." instance=ExtResource("20_wauj7")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 51)
@@ -525,6 +529,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 34.
 shadow_enabled = true
 shadow_bias = 1.5
 shadow_blur = 0.1
-directional_shadow_mode = 0
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

@@ -17,5 +17,5 @@ func _on_area_3d_area_entered(area):
 			add_child(instance)
 		else:
 			instance = mushroom.instantiate()
-			instance.global_position = global_position
+			instance.call_deferred("set_global_position", global_position)
 			get_parent().add_child(instance)
