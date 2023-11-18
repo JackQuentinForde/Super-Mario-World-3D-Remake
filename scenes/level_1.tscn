@@ -186,7 +186,7 @@ volume_db = -22.0
 autoplay = true
 
 [node name="Koopa Coin" parent="." instance=ExtResource("6_egfb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 17)
 VALUE = 1000
 
 [node name="Koopa Coin4" parent="." instance=ExtResource("6_egfb1")]
@@ -519,5 +519,12 @@ R2 or Square Button"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 10)
 visible = false
 flowerBlock = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 34.8554, 0)
+shadow_enabled = true
+shadow_bias = 1.5
+shadow_blur = 0.1
+directional_shadow_mode = 0
 
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]

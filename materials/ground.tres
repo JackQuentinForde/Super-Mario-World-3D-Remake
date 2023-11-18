@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d1thkhyryahqh" path="res://assets/textures/Yoshi's Island 1/Ground_Texture.png" id="1_onyfy"]
 
 [resource]
-shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_onyfy")
 texture_filter = 0
