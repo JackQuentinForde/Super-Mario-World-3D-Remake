@@ -13,3 +13,4 @@ sky_material = SubResource("PanoramaSkyMaterial_hxtvb")
 background_mode = 2
 sky = SubResource("Sky_10q7q")
 sky_custom_fov = 60.0
+fog_density = 0.001

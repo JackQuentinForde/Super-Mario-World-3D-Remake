@@ -73,6 +73,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
+	TeleportToUnderground()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -369,6 +370,7 @@ func TeleportToUnderground():
 	position.z = newPosition.z
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", undergroundEnvironment)
 	enteringPipe = false
+	get_parent().call_deferred("HideMountains", true)
 	
 func TeleportToOverground():
 	AudioServer.set_bus_effect_enabled(1, 0, false)
@@ -381,10 +383,13 @@ func TeleportToOverground():
 	velocity = Vector3(0, 9, 24.5)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
+	get_parent().call_deferred("HideMountains", false)
 
 func Bonk():
 	velocity.y = 0
 	jumpReleased = true
+	
+
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":

@@ -1,5 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=36 format=3 uid="uid://bds01f02b41qb"]
 
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_a0uqv"]
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="2_1kvhn"]
 [ext_resource type="Texture2D" uid="uid://cl4vyhf06moik" path="res://assets/textures/CoinScore_Texture.png" id="2_pd0kh"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://5gpiv8jjkv5a" path="res://scenes/underground.tscn" id="17_7exy6"]
 [ext_resource type="PackedScene" uid="uid://r3ucim6h30jy" path="res://scenes/rex.tscn" id="18_1rsu5"]
 [ext_resource type="PackedScene" uid="uid://dunwc32bmyip" path="res://scenes/entrance_pipe.tscn" id="18_2o3s8"]
+[ext_resource type="Environment" uid="uid://bm3bo712m26r5" path="res://environments/overworld.tres" id="18_ane1g"]
 [ext_resource type="PackedScene" uid="uid://3kw3nn1f1m2" path="res://scenes/exit_pipe.tscn" id="19_aq0jd"]
 [ext_resource type="PackedScene" uid="uid://bi55vexrxwi5u" path="res://scenes/grey_entrance_pipe.tscn" id="20_aeul1"]
 [ext_resource type="PackedScene" uid="uid://byp3vwx2o0jmt" path="res://scenes/coin.tscn" id="20_g6sk4"]
@@ -100,16 +102,9 @@ expand_margin_bottom = 100.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_soyx5"]
 
-[sub_resource type="Environment" id="Environment_8os1d"]
-fog_enabled = true
-fog_light_color = Color(0, 0.752941, 0.752941, 1)
-fog_density = 0.001
-fog_height_density = 0.05
-volumetric_fog_density = 0.01
-volumetric_fog_albedo = Color(0, 0.752941, 0.752941, 1)
-
 [node name="Level 1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00364304, -0.105896, 0.000610352)
+script = ExtResource("1_a0uqv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -379,7 +374,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 219)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8os1d")
+environment = ExtResource("18_ane1g")
 
 [node name="Banzai Bill" parent="." instance=ExtResource("20_wauj7")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 51)
@@ -535,7 +530,7 @@ shadow_enabled = true
 shadow_bias = 1.5
 shadow_blur = 0.1
 
-[node name="Mountains" type="Node3D" parent="."]
+[node name="Mountains" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="Mountain" parent="Mountains" instance=ExtResource("27_bh0pi")]
@@ -565,7 +560,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains3" type="Node3D" parent="."]
+[node name="Mountains3" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -150)
 
 [node name="Mountain6" parent="Mountains3" instance=ExtResource("27_bh0pi")]
@@ -583,7 +578,7 @@ transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 49, -60,
 [node name="Mountain4" parent="Mountains3" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains2" type="Node3D" parent="."]
+[node name="Mountains2" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 159)
 
 [node name="Mountain" parent="Mountains2" instance=ExtResource("27_bh0pi")]
@@ -613,7 +608,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains2" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains4" type="Node3D" parent="."]
+[node name="Mountains4" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 6)
 
 [node name="Mountain" parent="Mountains4" instance=ExtResource("27_bh0pi")]
@@ -643,7 +638,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains4" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains5" type="Node3D" parent="."]
+[node name="Mountains5" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99998, 0, 156)
 
 [node name="Mountain" parent="Mountains5" instance=ExtResource("27_bh0pi")]
@@ -673,7 +668,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains5" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains7" type="Node3D" parent="."]
+[node name="Mountains7" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99998, 0, 316)
 
 [node name="Mountain" parent="Mountains7" instance=ExtResource("27_bh0pi")]
@@ -703,7 +698,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains7" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains8" type="Node3D" parent="."]
+[node name="Mountains8" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 159)
 
 [node name="Mountain" parent="Mountains8" instance=ExtResource("27_bh0pi")]
@@ -733,7 +728,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains8" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains12" type="Node3D" parent="."]
+[node name="Mountains12" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99998, 0, 480)
 
 [node name="Mountain" parent="Mountains12" instance=ExtResource("27_bh0pi")]
@@ -763,7 +758,7 @@ transform = Transform3D(3.09948e-07, 0, -1, 0, 1, 0, 1, 0, 3.09948e-07, 13.0473,
 [node name="Mountain4" parent="Mountains12" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(-2.22525e-07, 0, 1, 0, 1, 0, -1, 0, -2.22525e-07, 8.04725, -43, 53.6001)
 
-[node name="Mountains13" type="Node3D" parent="."]
+[node name="Mountains13" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 323)
 
 [node name="Mountain" parent="Mountains13" instance=ExtResource("27_bh0pi")]
@@ -781,7 +776,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains13" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains9" type="Node3D" parent="."]
+[node name="Mountains9" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 6)
 
 [node name="Mountain" parent="Mountains9" instance=ExtResource("27_bh0pi")]
@@ -811,7 +806,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains9" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains10" type="Node3D" parent="."]
+[node name="Mountains10" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99998, 0, 156)
 
 [node name="Mountain" parent="Mountains10" instance=ExtResource("27_bh0pi")]
@@ -841,7 +836,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains10" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains11" type="Node3D" parent="."]
+[node name="Mountains11" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99998, 0, 316)
 
 [node name="Mountain" parent="Mountains11" instance=ExtResource("27_bh0pi")]
@@ -871,7 +866,7 @@ transform = Transform3D(-1, 0, -2.66237e-07, 0, 1, 0, 2.66237e-07, 0, -1, 62, -6
 [node name="Mountain4" parent="Mountains11" instance=ExtResource("27_bh0pi")]
 transform = Transform3D(1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, 78, -43, 36)
 
-[node name="Mountains6" type="Node3D" parent="."]
+[node name="Mountains6" type="Node3D" parent="." groups=["Mountains"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.00001, 0, -153)
 
 [node name="Mountain6" parent="Mountains6" instance=ExtResource("27_bh0pi")]
