@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cod5s620b7uqc"]
+[gd_scene load_steps=51 format=3 uid="uid://cod5s620b7uqc"]
 
 [ext_resource type="Script" path="res://scripts/koopa_trooperAI.gd" id="1_6ppda"]
 [ext_resource type="Material" uid="uid://bsudphbfg2tbj" path="res://materials/koopa_trooper.tres" id="2_v5t2a"]
@@ -730,8 +730,10 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fgcff"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fecec"]
-size = Vector3(0.001, 2.25875, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_klafh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5e6rb"]
+size = Vector3(1, 1.86797, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5x5u"]
 
@@ -834,71 +836,71 @@ bones/0/name = "Collar_R"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.0449433, 0.992118, -0.116952, 0.98481, -0.0243443, 0.171934, 0.167732, -0.122902, -0.978144, -1.98979e-09, 0.228387, 0.043753)
 bones/0/enabled = true
-bones/0/position = Vector3(-1.98979e-09, 0.228387, 0.043753)
-bones/0/rotation = Quaternion(0.715442, 0.690806, 0.017744, -0.103026)
+bones/0/position = Vector3(1.16415e-09, 0.22276, 0.0370465)
+bones/0/rotation = Quaternion(0.533899, 0.463629, 0.5339, -0.463629)
 bones/0/scale = Vector3(1, 0.999998, 1)
 bones/1/name = "Arm_R"
 bones/1/parent = 0
 bones/1/rest = Transform3D(-0.729033, -0.461405, 0.505586, -0.031336, 0.760368, 0.648736, -0.683762, 0.457107, -0.568791, -1.42897e-08, 0.172713, 3.78131e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.42897e-08, 0.172713, 3.78131e-09)
-bones/1/rotation = Quaternion(-0.140882, 0.874384, 0.316178, 0.340053)
+bones/1/rotation = Quaternion(-0.314249, 0.139406, 0.0698386, 0.936449)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Collar_L"
 bones/2/parent = -1
 bones/2/rest = Transform3D(0.0449435, -0.992118, 0.116952, -0.984811, -0.0243444, 0.171934, -0.167732, -0.122902, -0.978145, 1.98979e-09, 0.228387, 0.043753)
 bones/2/enabled = true
-bones/2/position = Vector3(1.98979e-09, 0.228387, 0.043753)
-bones/2/rotation = Quaternion(0.715442, -0.690806, -0.0177439, -0.103026)
+bones/2/position = Vector3(-1.16415e-09, 0.22276, 0.0370465)
+bones/2/rotation = Quaternion(0.533899, -0.463629, -0.5339, -0.463629)
 bones/2/scale = Vector3(1, 0.999998, 1)
 bones/3/name = "Arm_L"
 bones/3/parent = 2
 bones/3/rest = Transform3D(-0.729033, 0.461405, -0.505586, 0.0313361, 0.760368, 0.648737, 0.683762, 0.457107, -0.568792, 1.42897e-08, 0.172713, 5.38075e-09)
 bones/3/enabled = true
 bones/3/position = Vector3(1.42897e-08, 0.172713, 5.38075e-09)
-bones/3/rotation = Quaternion(-0.140882, -0.874384, -0.316178, 0.340053)
+bones/3/rotation = Quaternion(-0.314249, -0.139406, -0.0698386, 0.936449)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Head"
 bones/4/parent = -1
 bones/4/rest = Transform3D(1, 1.57607e-16, 7.97051e-17, -1.62047e-16, 0.639288, 0.768967, 7.02398e-17, -0.768968, 0.639288, -1.48915e-18, 0.228387, 0.043753)
 bones/4/enabled = true
-bones/4/position = Vector3(-1.48915e-18, 0.228387, 0.043753)
-bones/4/rotation = Quaternion(-0.424684, 2.61374e-18, -8.82686e-17, 0.905342)
+bones/4/position = Vector3(0, 0.22276, 0.0370465)
+bones/4/rotation = Quaternion(-0.0295982, 0, 0, 0.999562)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Body"
 bones/5/parent = -1
 bones/5/rest = Transform3D(1, -1.91056e-16, -2.1209e-16, -2.18671e-16, -0.0351295, -0.999383, 1.83487e-16, 0.999383, -0.0351295, 4.46747e-18, 0.233118, 0.0169268)
 bones/5/enabled = true
-bones/5/position = Vector3(4.46747e-18, 0.233118, 0.0169268)
-bones/5/rotation = Quaternion(0.71942, -1.42381e-16, -9.93978e-18, 0.694576)
+bones/5/position = Vector3(0, 0.25, 0.0370465)
+bones/5/rotation = Quaternion(0.997572, 0, 0, 0.0696417)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Hip_R"
 bones/6/parent = 5
 bones/6/rest = Transform3D(-0.64287, 0.764567, -0.0464277, -0.754649, -0.642585, -0.132628, -0.131237, -0.050226, 0.990078, -1.04074e-09, 0.338885, 9.02123e-10)
 bones/6/enabled = true
 bones/6/position = Vector3(-1.04074e-09, 0.338885, 9.02123e-10)
-bones/6/rotation = Quaternion(0.0490828, 0.0505165, -0.904922, 0.419709)
+bones/6/rotation = Quaternion(0.0375339, 0.0586618, -0.84029, 0.537645)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Leg_R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(-0.419058, -0.737303, -0.529882, 0.90796, -0.340294, -0.24456, -6.25849e-07, -0.583596, 0.812044, -2.26597e-09, 0.124806, 4.08434e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(-2.26597e-09, 0.124806, 4.08434e-09)
-bones/7/rotation = Quaternion(-0.165221, -0.258225, 0.801779, 0.513004)
+bones/7/rotation = Quaternion(-0.00331092, -0.00517389, 0.84232, 0.538943)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "Hip_L"
 bones/8/parent = 5
 bones/8/rest = Transform3D(-0.64287, -0.764567, 0.0464277, 0.754649, -0.642585, -0.132628, 0.131237, -0.050226, 0.990078, 1.04074e-09, 0.338885, 9.02123e-10)
 bones/8/enabled = true
 bones/8/position = Vector3(1.04074e-09, 0.338885, 9.02123e-10)
-bones/8/rotation = Quaternion(0.0490828, -0.0505165, 0.904922, 0.419709)
+bones/8/rotation = Quaternion(0.0375339, -0.0586618, 0.84029, 0.537645)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Leg_L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(-0.419058, 0.737303, 0.529882, -0.907959, -0.340294, -0.24456, 5.96046e-07, -0.583596, 0.812044, 6.16875e-09, 0.124806, 4.08433e-09)
 bones/9/enabled = true
 bones/9/position = Vector3(6.16875e-09, 0.124806, 4.08433e-09)
-bones/9/rotation = Quaternion(-0.165221, 0.258225, -0.801779, 0.513004)
+bones/9/rotation = Quaternion(-0.00331092, 0.00517389, -0.84232, 0.538943)
 bones/9/scale = Vector3(1, 1, 1)
 
 [node name="ArmL" type="MeshInstance3D" parent="Armature/Skeleton3D"]
@@ -956,52 +958,52 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.504, 0, 0, 0, 0.504, 0, 0, 0, 0.504, 0, 0.151069, 0.0525458)
-visible = false
 shape = SubResource("CapsuleShape3D_3kndw")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.484, 0, 0, 0, 0.484, 0, 0, 0, 0.484, 0, 0.532027, -0.00656819)
-visible = false
 shape = SubResource("SphereShape3D_fgcff")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.504, 0, 0, 0, -2.20305e-08, 0.504, 0, -0.504, -2.20305e-08, 0, 0.366919, 0.139698)
+visible = false
 shape = SubResource("CapsuleShape3D_3kndw")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.484, 0, 0, 0, -2.11563e-08, 0.484, 0, -0.484, -2.11563e-08, 0, 0.307805, -0.24126)
+visible = false
 shape = SubResource("SphereShape3D_fgcff")
 
 [node name="HitBox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0.198519, 0.0525458)
-visible = false
 shape = SubResource("CapsuleShape3D_3kndw")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0.532027, -0.00656819)
-visible = false
 shape = SubResource("SphereShape3D_fgcff")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(0.56, 0, 0, 0, -2.44784e-08, 0.56, 0, -0.56, -2.44784e-08, 0, 0.366919, 0.0922479)
+transform = Transform3D(0.56, 0, 0, 0, -2.44784e-08, 0.56, 0, -0.56, -2.44784e-08, 0, 0.366919, 0.152534)
+visible = false
 shape = SubResource("CapsuleShape3D_3kndw")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="HitBox"]
 transform = Transform3D(0.53, 0, 0, 0, -2.3167e-08, 0.53, 0, -0.53, -2.3167e-08, 0, 0.307805, -0.24126)
+visible = false
 shape = SubResource("SphereShape3D_fgcff")
 
 [node name="SquishArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SquishArea"]
 transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 0.633765, 0)
-visible = false
-shape = SubResource("BoxShape3D_fecec")
+shape = SubResource("BoxShape3D_klafh")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SquishArea"]
-transform = Transform3D(0.525, 0, 0, 0, -2.29485e-08, 0.525, 0, -0.525, -2.29485e-08, 0, 0.549506, 0.0230446)
-shape = SubResource("BoxShape3D_fecec")
+transform = Transform3D(0.525, 0, 0, 0, -2.29485e-08, 0.525, 0, -0.525, -2.29485e-08, 0, 0.532096, 0.0309013)
+visible = false
+shape = SubResource("BoxShape3D_5e6rb")
 
 [node name="Point1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.97746)
@@ -1050,11 +1052,11 @@ collision_mask = 128
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FireballHitBox"]
 transform = Transform3D(0.666, 0, 0, 0, 0.666, 0, 0, 0, 0.666, 0, 0.265408, 0.00302529)
-visible = false
 shape = SubResource("CapsuleShape3D_7ikb6")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="FireballHitBox"]
 transform = Transform3D(0.666, 0, 0, 0, -2.91118e-08, 0.666, 0, -0.666, -2.91118e-08, 0, 0.317398, 0.0253589)
+visible = false
 shape = SubResource("CapsuleShape3D_7ikb6")
 
 [node name="Popup" type="Sprite3D" parent="."]
