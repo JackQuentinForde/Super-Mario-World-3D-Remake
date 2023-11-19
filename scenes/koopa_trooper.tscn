@@ -1027,6 +1027,7 @@ shape = SubResource("BoxShape3D_um1un")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736654, 0)
+visible = false
 emitting = false
 amount = 4
 lifetime = 0.5
