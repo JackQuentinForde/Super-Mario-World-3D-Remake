@@ -3,6 +3,7 @@
 [resource]
 fog_enabled = true
 fog_light_color = Color(0, 0.752941, 0.752941, 1)
-fog_density = 0.002
+fog_density = 0.001
+fog_height_density = 0.05
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0, 0.752941, 0.752941, 1)
