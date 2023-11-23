@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d237ljdpc6hwn"]
+[gd_scene load_steps=21 format=3 uid="uid://d237ljdpc6hwn"]
 
 [ext_resource type="PackedScene" uid="uid://ssnyswminqe2" path="res://assets/models/Mario.glb" id="1_llfb4"]
 [ext_resource type="Script" path="res://scripts/mario.gd" id="2_msjrc"]
@@ -61,16 +61,20 @@ play_mode = 1
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fjg7r"]
 animation = &"Walk"
 
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_3cqb1"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_skcr4"]
-graph_offset = Vector2(-258.54, 82.2646)
+graph_offset = Vector2(-304.376, 96.5306)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_4n8bu")
 nodes/Blend2/position = Vector2(400, 140)
 nodes/BlendAnimation/node = SubResource("AnimationNodeAnimation_wsshh")
-nodes/BlendAnimation/position = Vector2(180, 280)
+nodes/BlendAnimation/position = Vector2(-20, 280)
 nodes/MainAnimation/node = SubResource("AnimationNodeAnimation_fjg7r")
-nodes/MainAnimation/position = Vector2(200, 140)
+nodes/MainAnimation/position = Vector2(100, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_3cqb1")
+nodes/TimeScale/position = Vector2(180, 280)
 nodes/output/position = Vector2(600, 200)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"MainAnimation", &"Blend2", 1, &"BlendAnimation"]
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"MainAnimation", &"Blend2", 1, &"TimeScale", &"TimeScale", 0, &"BlendAnimation"]
 
 [node name="Mario" instance=ExtResource("1_llfb4")]
 script = ExtResource("2_msjrc")
@@ -151,4 +155,5 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_skcr4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
+parameters/TimeScale/scale = 2.0
 script = ExtResource("12_dlbbf")

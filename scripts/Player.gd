@@ -7,14 +7,14 @@ var undergroundEnvironment = preload("res://environments/underground.tres")
 
 var fireBall = preload("res://scenes/fireball.tscn")
 
-const WALK_SPEED = 10
-const RUN_SPEED = 20
-const TURN_SPEED = 1
+const WALK_SPEED = 9
+const RUN_SPEED = 18
+const TURN_SPEED = 0.6
 const AIR_TURN_SPEED = 0.2
 const ACCEL = 0.2
 const JUMP_ACCEL = 2
 const JUMP_MIN_VELOCITY = 5
-const JUMP_MAX_VELOCITY = 15
+const JUMP_MAX_VELOCITY = 16
 const CAMERA_SPEED = 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -361,6 +361,7 @@ func TeleportToUnderground():
 	position.x = newPosition.x
 	position.y = newPosition.y - 4
 	position.z = newPosition.z
+	$CameraBasis.call_deferred("Teleport")
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", undergroundEnvironment)
 	enteringPipe = false
 	get_parent().call_deferred("HideMountains", true)
@@ -373,6 +374,7 @@ func TeleportToOverground():
 	position.x = newPosition.x
 	position.y = newPosition.y - 4
 	position.z = newPosition.z
+	$CameraBasis.call_deferred("Teleport")
 	velocity = Vector3(0, 20, 25.5)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false

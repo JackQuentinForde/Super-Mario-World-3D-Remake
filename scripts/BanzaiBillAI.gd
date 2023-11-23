@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 10
+const SPEED = 12
 const ROT_SPEED = 1
 
 var state

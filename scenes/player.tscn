@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d11w5v0uqfoj2"]
+[gd_scene load_steps=10 format=3 uid="uid://d11w5v0uqfoj2"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_8gskp"]
 [ext_resource type="PackedScene" uid="uid://d237ljdpc6hwn" path="res://scenes/mario.tscn" id="2_o8p38"]
 [ext_resource type="PackedScene" uid="uid://bixo3w7gfw4gw" path="res://scenes/small_mario.tscn" id="3_4ithi"]
+[ext_resource type="Script" path="res://scripts/CameraBasis.gd" id="4_b272e"]
 [ext_resource type="AudioStream" uid="uid://x56yhie1h7uy" path="res://assets/sounds/Jump.wav" id="4_oe7a1"]
 [ext_resource type="AudioStream" uid="uid://cgts1vn2phkr3" path="res://assets/sounds/Spin Jump.wav" id="5_2ugn1"]
 
@@ -51,9 +52,11 @@ shape = SubResource("SphereShape3D_xk7yh")
 
 [node name="CameraBasis" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+top_level = true
+script = ExtResource("4_b272e")
 
 [node name="Camera3D" type="Camera3D" parent="CameraBasis"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7, 15)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7, 19.3891)
 fov = 50.0
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]

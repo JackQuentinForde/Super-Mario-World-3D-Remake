@@ -102,7 +102,7 @@ player_enter_pipe={
 
 [physics]
 
-3d/default_gravity=36.0
+3d/default_gravity=40.0
 
 [rendering]
 
