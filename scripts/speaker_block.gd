@@ -12,5 +12,4 @@ func _on_area_3d_area_entered(area):
 	if area.name == "HeadArea":
 		canvasLayer.get_node("Label").call_deferred("set_text", text)
 		canvasLayer.call_deferred("set_visible", true)
-		area.get_parent().call_deferred("Bonk")
 		get_tree().paused = true

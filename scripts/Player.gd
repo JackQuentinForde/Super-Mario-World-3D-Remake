@@ -7,16 +7,14 @@ var undergroundEnvironment = preload("res://environments/underground.tres")
 
 var fireBall = preload("res://scenes/fireball.tscn")
 
-const WALK_SPEED = 8
-const RUN_SPEED = 16
+const WALK_SPEED = 10
+const RUN_SPEED = 20
 const TURN_SPEED = 1
 const AIR_TURN_SPEED = 0.2
-const ACCEL = 0.18
-const JUMP_ACCEL = 1
+const ACCEL = 0.2
+const JUMP_ACCEL = 2
 const JUMP_MIN_VELOCITY = 5
-const JUMP_MAX_VELOCITY = 10
-const ANIMATION_RUN_SPEED = 1.5
-const ANIMATION_SPRINT_SPEED = 3
+const JUMP_MAX_VELOCITY = 15
 const CAMERA_SPEED = 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -79,7 +77,7 @@ func _physics_process(delta):
 	move_and_slide()
 	AnimationLogic()
 	CheckWin()
-	CameraLogic(delta)
+	#CameraLogic(delta)
 	if not fadeout and not enteringPipe:
 		JumpLogic()
 		SpinJumpLogic()
@@ -168,22 +166,27 @@ func EnterPipeLogic():
 		position.x = lastPipe.global_position.x
 		mario.rotation = Vector3(0,0,0)
 		if lastPipe.name == "Exit Pipe":
-			animationPlayer.play("Walk")
+			animationPlayer.play("Walk", -1, 1.25, false)
 			velocity = Vector3(0, 0, WALK_SPEED)
 		else:
 			velocity = Vector3.ZERO
 			position.z = lastPipe.global_position.z
+			gravMultiplier = 0.5
 		lastPipe.call_deferred("DisableCollisions")
 		
 func SpinJump():
 	velocity.y = JUMP_MIN_VELOCITY
-	gravMultiplier = 2
+	gravMultiplier = 1.5
+	spinJump = true
+	
+func SpinBounce():
+	velocity.y = JUMP_MAX_VELOCITY
+	gravMultiplier = 1.5
 	spinJump = true
 	
 func Bounce():
 	velocity.y = JUMP_MAX_VELOCITY
-	gravMultiplier = 2
-	spinJump = true
+	gravMultiplier = 1.25
 		
 func ApplyGravity(delta):
 	velocity.y -= (gravity * gravMultiplier) * delta
@@ -217,7 +220,7 @@ func ChangeSize(size):
 		animationPlayer2 = $SmallMario/AnimationPlayer2
 	
 	currentSize = size
-	animationPlayer.play("Jump", 1, 1, true)
+	animationPlayer.play("Jump", -1, 1.75, true)
 	animationPlayer2.play("Flash")
 	
 func FirePower():
@@ -258,32 +261,23 @@ func AnimationLogic():
 		jumping = false
 		spinJump = false
 		gravMultiplier = 1
-		$SpinArea/CollisionShape3D.call_deferred("set_disabled", true)
 		if velocity.x != 0 or velocity.z != 0:
 			if speed == RUN_SPEED:
-				animationPlayer.play("Sprint")
-				animationPlayer.speed_scale = ANIMATION_SPRINT_SPEED
+				animationPlayer.play("Sprint", -1, 3, false)
 			else:
-				animationPlayer.play("Walk")
-				if Input.is_action_pressed("player_sprint"):
-					animationPlayer.speed_scale = ANIMATION_RUN_SPEED
-				else:
-					animationPlayer.speed_scale = 1
+				animationPlayer.play("Walk", -1, 1.25, false)
 		else:
-			animationPlayer.speed_scale = 1
 			animationPlayer.play("Idle")
+		$SpinArea/CollisionShape3D.call_deferred("set_disabled", true)
 	else:
 		if enteringPipe:
-			animationPlayer.speed_scale = 1
 			animationPlayer.play("Idle")
 		elif spinJump:
-			animationPlayer.speed_scale = ANIMATION_RUN_SPEED
-			animationPlayer.play("SpinJump")
+			animationPlayer.play("SpinJump", -1, 1.5, false)
 			jumping = true
 			spinJump = false
 		elif not jumping:
-			animationPlayer.speed_scale = 1
-			animationPlayer.play("Jump")
+			animationPlayer.play("Jump", -1, 1.75, false)
 			jumping = true
 			
 func CheckInvincible():
@@ -379,7 +373,7 @@ func TeleportToOverground():
 	position.x = newPosition.x
 	position.y = newPosition.y - 4
 	position.z = newPosition.z
-	velocity = Vector3(0, 9, 24.5)
+	velocity = Vector3(0, 20, 25.5)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
 	get_parent().call_deferred("HideMountains", false)
@@ -387,16 +381,14 @@ func TeleportToOverground():
 func Bonk():
 	velocity.y = 0
 	jumpReleased = true
-	
-
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":
-		Bounce()
+		SpinBounce()
 
 func _on_jump_area_area_entered(area):
 	if area.name == "SquishArea":
-		velocity.y = JUMP_MIN_VELOCITY
+		Bounce()
 
 func _on_timer_2_timeout():
 	var instance = fireBall.instantiate()
@@ -408,3 +400,8 @@ func _on_timer_timeout():
 	
 func _on_timer_3_timeout():
 	$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
+
+
+func _on_head_area_body_entered(body):
+	if body != self:
+		Bonk()

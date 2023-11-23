@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 20
+const SPEED = 21
 const BOUNCE_VELOCITY = 7
 
 var gravity = 40

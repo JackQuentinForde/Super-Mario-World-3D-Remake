@@ -16,7 +16,7 @@ func _ready():
 func jump():
 	var rand_x = rng.randf_range(-200.0, 200.0)
 	var rand_z = rng.randf_range(-200.0, 200.0)
-	apply_force(Vector3(rand_x, 400, rand_z))
+	apply_force(Vector3(rand_x, 650, rand_z))
 
 func _on_timer_timeout():
 	get_parent().queue_free()

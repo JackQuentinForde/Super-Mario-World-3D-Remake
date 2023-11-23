@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const PATROL_SPEED = 2
-const CHASE_SPEED = 3
+const PATROL_SPEED = 3
+const CHASE_SPEED = 4
 const SLIDE_SPEED = 4
 const ROT_SPEED = 6
 

@@ -57,11 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7, 15)
 fov = 50.0
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("4_oe7a1")
 volume_db = 5.0
 bus = &"Mario"
 
 [node name="SpinSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("5_2ugn1")
 volume_db = -16.0
 bus = &"Mario"
@@ -79,7 +81,7 @@ shape = SubResource("BoxShape3D_n47m2")
 disabled = true
 
 [node name="SpinArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0541584, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0703007, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpinArea"]
 transform = Transform3D(0.46, 0, 0, 0, 0.46, 0, 0, 0, 0.46, 0, 4.15679, 0)
@@ -112,6 +114,7 @@ one_shot = true
 [node name="TeleportTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="HeadArea" to="." method="_on_head_area_body_entered"]
 [connection signal="area_entered" from="SpinArea" to="." method="_on_spin_area_area_entered"]
 [connection signal="area_entered" from="JumpArea" to="." method="_on_jump_area_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

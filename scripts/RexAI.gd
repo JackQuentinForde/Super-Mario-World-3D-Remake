@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 var rewardCoin = preload("res://scenes/RewardCoin.tscn")
 
-const PATROL_SPEED = 2
-const CHASE_SPEED = 3
+const PATROL_SPEED = 3
+const CHASE_SPEED = 4
 const ROT_SPEED = 6
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
