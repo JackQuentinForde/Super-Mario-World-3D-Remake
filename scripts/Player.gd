@@ -12,9 +12,9 @@ const RUN_SPEED = 18
 const TURN_SPEED = 0.6
 const AIR_TURN_SPEED = 0.2
 const ACCEL = 0.2
-const JUMP_ACCEL = 2
+const JUMP_ACCEL = 2.5
 const JUMP_MIN_VELOCITY = 5
-const JUMP_MAX_VELOCITY = 16
+const JUMP_MAX_VELOCITY = 18
 const CAMERA_SPEED = 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -129,7 +129,10 @@ func MoveLogic():
 			mario.rotation.y = lookDirection.angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, turnSpeed)
-		velocity.z = move_toward(velocity.z, 0, turnSpeed)	
+		velocity.z = move_toward(velocity.z, 0, turnSpeed)
+		
+	if is_on_ceiling():
+		Bonk()
 		
 func JumpLogic():
 	if Input.is_action_just_pressed("player_jump"):
@@ -176,7 +179,7 @@ func EnterPipeLogic():
 		
 func SpinJump():
 	velocity.y = JUMP_MIN_VELOCITY
-	gravMultiplier = 1.5
+	gravMultiplier = 1
 	spinJump = true
 	
 func SpinBounce():
@@ -186,7 +189,7 @@ func SpinBounce():
 	
 func Bounce():
 	velocity.y = JUMP_MAX_VELOCITY
-	gravMultiplier = 1.25
+	gravMultiplier = 1.5
 		
 func ApplyGravity(delta):
 	velocity.y -= (gravity * gravMultiplier) * delta
@@ -383,6 +386,7 @@ func TeleportToOverground():
 func Bonk():
 	velocity.y = 0
 	jumpReleased = true
+	spinJumpReleased = true
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":
