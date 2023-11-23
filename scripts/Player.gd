@@ -15,7 +15,6 @@ const ACCEL = 0.2
 const JUMP_ACCEL = 2
 const JUMP_MIN_VELOCITY = 5
 const JUMP_MAX_VELOCITY = 16
-const CAMERA_SPEED = 1.25
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -40,7 +39,6 @@ var respawnPoint
 var lastPipe
 var originalCameraPos
 var currentAnimationTreeAnimation
-var cameraBasis
 var mario
 var animationPlayer
 var animationPlayer2
@@ -56,8 +54,7 @@ func _ready():
 	AudioServer.set_bus_effect_enabled(1, 0, false)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	currentSize = SIZE_SMALL
-	cameraBasis = $CameraBasis
-	originalCameraPos = cameraBasis.global_position
+	originalCameraPos = $CameraBasis.global_position
 	mario = $SmallMario
 	animationPlayer = $SmallMario/AnimationPlayer
 	animationPlayer2 = $SmallMario/AnimationPlayer2
@@ -66,7 +63,7 @@ func _ready():
 	canvasAnimationPlayer = $"../CanvasLayer/AnimationPlayer"
 	music = $"../Music"
 	undergroundMusic = $"../UndergroundMusic"
-	cameraBasis.rotation_degrees.y = -90
+	$CameraBasis.rotation_degrees.y = -90
 	speed = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
@@ -77,7 +74,6 @@ func _physics_process(delta):
 	move_and_slide()
 	AnimationLogic()
 	CheckWin()
-	#CameraLogic(delta)
 	if not fadeout and not enteringPipe:
 		JumpLogic()
 		SpinJumpLogic()
@@ -105,22 +101,13 @@ func SetTurnSpeed():
 	else:
 		turnSpeed = TURN_SPEED
 		headBox.call_deferred("set_disabled", true)	
-
-func CameraLogic(delta):
-	if Input.is_action_pressed("camera_left"):
-		$CameraBasis.rotate_y(CAMERA_SPEED * delta)
-	elif Input.is_action_pressed("camera_right"):
-		$CameraBasis.rotate_y(-CAMERA_SPEED * delta)
-
-	if Input.is_action_pressed("camera_center"):
-		$CameraBasis.rotation_degrees.y = -90	
 			
 func MoveLogic():
 	var input_dir = Input.get_vector("player_left", "player_right", "player_up", "player_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
-		direction = direction.rotated(Vector3.UP, cameraBasis.rotation.y).normalized()
+		direction = direction.rotated(Vector3.UP, $CameraBasis.rotation.y).normalized()
 		target_velocity = direction * speed
 		velocity.x = move_toward(velocity.x, target_velocity.x, turnSpeed)
 		velocity.z = move_toward(velocity.z, target_velocity.z, turnSpeed)
@@ -129,7 +116,10 @@ func MoveLogic():
 			mario.rotation.y = lookDirection.angle()
 	else:
 		velocity.x = move_toward(velocity.x, 0, turnSpeed)
-		velocity.z = move_toward(velocity.z, 0, turnSpeed)	
+		velocity.z = move_toward(velocity.z, 0, turnSpeed)
+		
+	if is_on_ceiling():
+		Bonk()	
 		
 func JumpLogic():
 	if Input.is_action_just_pressed("player_jump"):
@@ -171,7 +161,7 @@ func EnterPipeLogic():
 		else:
 			velocity = Vector3.ZERO
 			position.z = lastPipe.global_position.z
-			gravMultiplier = 0.5
+			gravMultiplier = 0.25
 		lastPipe.call_deferred("DisableCollisions")
 		
 func SpinJump():
@@ -289,7 +279,7 @@ func CheckInvincible():
 func SetSpawn():
 	respawnPoint.x = position.x
 	respawnPoint.z = position.z - 2
-	originalCameraPos = Vector3(cameraBasis.global_position.x, cameraBasis.global_position.y, cameraBasis.global_position.z - 2)
+	originalCameraPos = Vector3($CameraBasis.global_position.x, $CameraBasis.global_position.y, $CameraBasis.global_position.z - 2)
 	gotCheckpoint = true
 		
 func CheckFallen():
@@ -297,7 +287,6 @@ func CheckFallen():
 		if gotCheckpoint:
 			music.stop()
 			fallen = true
-			cameraBasis.call_deferred("set_as_top_level", true)
 			canvasAnimationPlayer.call_deferred("play", "fadeout")
 		else:
 			Die()
@@ -310,11 +299,10 @@ func Respawn():
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	music.play()
 	ChangeSize(SIZE_SMALL)
-	cameraBasis.call_deferred("set_as_top_level", false)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
 	position = respawnPoint
-	cameraBasis.global_position = originalCameraPos
-	cameraBasis.rotation_degrees.y = -90
+	$CameraBasis.global_position = originalCameraPos
+	$CameraBasis.rotation_degrees.y = -90
 	fallen = false
 	
 func TakeHit():
@@ -330,7 +318,6 @@ func TakeHit():
 				Die()
 	
 func Die():
-	cameraBasis.call_deferred("set_as_top_level", true)
 	$MarioBodyCollision.disabled = true
 	$MarioHeadCollision.disabled = true
 	$SmallMarioBodyCollision.disabled = true
@@ -354,6 +341,7 @@ func EnteredPipeZone(pipeBody, inZone):
 	inPipeZone = inZone
 
 func TeleportToUnderground():
+	gravMultiplier = 0.5
 	AudioServer.set_bus_effect_enabled(1, 0, true)
 	music.stop()
 	undergroundMusic.play()
@@ -375,7 +363,7 @@ func TeleportToOverground():
 	position.y = newPosition.y - 4
 	position.z = newPosition.z
 	$CameraBasis.call_deferred("Teleport")
-	velocity = Vector3(0, 20, 25.5)
+	velocity = Vector3(0, 22, 25.5)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
 	get_parent().call_deferred("HideMountains", false)
@@ -383,6 +371,7 @@ func TeleportToOverground():
 func Bonk():
 	velocity.y = 0
 	jumpReleased = true
+	spinJumpReleased = true
 
 func _on_spin_area_area_entered(area):
 	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":
