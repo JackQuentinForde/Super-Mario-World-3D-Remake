@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 const PATROL_SPEED = 3
-const CHASE_SPEED = 4
-const SLIDE_SPEED = 4
+const CHASE_SPEED = 5
+const SLIDE_SPEED = 6
 const ROT_SPEED = 6
 
 var rewardCoin = preload("res://scenes/RewardCoin.tscn")
@@ -54,7 +54,7 @@ func Slide():
 		velocity.z = -SLIDE_SPEED
 	elif velocity.z != 0:
 		touchedGround = true
-		velocity.z = move_toward(velocity.z, 0, 0.04)
+		velocity.z = move_toward(velocity.z, 0, 0.08)
 		
 func Patrol(delta):
 	$AnimationPlayer.play("Walk")
