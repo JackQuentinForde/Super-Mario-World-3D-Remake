@@ -176,7 +176,7 @@ func SpinBounce():
 	
 func Bounce():
 	velocity.y = JUMP_MAX_VELOCITY
-	gravMultiplier = 1.5
+	gravMultiplier = 1.25
 		
 func ApplyGravity(delta):
 	velocity.y -= (gravity * gravMultiplier) * delta
