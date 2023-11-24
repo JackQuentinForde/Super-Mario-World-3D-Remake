@@ -134,6 +134,7 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="MushroomBody"]
+wait_time = 0.6
 one_shot = true
 
 [node name="HitBox" type="Area3D" parent="MushroomBody"]

@@ -163,6 +163,7 @@ visible = false
 shape = SubResource("CapsuleShape3D_w5nce")
 
 [node name="Timer" type="Timer" parent="CoinBody"]
+wait_time = 0.6
 one_shot = true
 
 [node name="HitBox" type="Area3D" parent="CoinBody"]

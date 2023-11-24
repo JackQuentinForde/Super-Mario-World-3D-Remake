@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2rpith82qvhl"]
+[gd_scene load_steps=17 format=3 uid="uid://b2rpith82qvhl"]
 
 [ext_resource type="Texture2D" uid="uid://duwrc70pxppp7" path="res://assets/textures/KoopaCoin_Texture.png" id="2_wu0to"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_r7gdh"]
 [ext_resource type="AudioStream" uid="uid://bysfauvavuiju" path="res://assets/sounds/Koopa Coin.wav" id="4_576vj"]
 [ext_resource type="Script" path="res://scripts/KoopaCoin.gd" id="4_cfbjq"]
 [ext_resource type="Texture2D" uid="uid://2aqb5mhw5cri" path="res://assets/textures/8000_Texture.png" id="5_bvbph"]
-[ext_resource type="Texture2D" uid="uid://bp50lgs7rto03" path="res://materials/8000.tres" id="6_mv27x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxalm"]
 
@@ -91,7 +90,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8iumq"]
 resource_name = "disappear"
-length = 0.6
+length = 0.3
 step = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -179,9 +178,9 @@ transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 2, 
 visible = false
 material_override = SubResource("StandardMaterial3D_8vsx1")
 texture_filter = 0
-texture = ExtResource("6_mv27x")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
