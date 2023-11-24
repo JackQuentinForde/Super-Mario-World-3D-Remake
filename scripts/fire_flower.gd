@@ -14,7 +14,7 @@ func _on_hit_box_body_entered(body):
 	if body.name == "Player":
 		$HitBox/CollisionShape3D.call_deferred("set_disabled", true)
 		popup.visible = true
-		scoreLabel.text = "x " + str(int(scoreLabel.text) + VALUE)
+		scoreLabel.text = "x" + str(int(scoreLabel.text) + VALUE)
 		$"Fire Flower2".visible = false
 		$Stem.visible = false
 		$Feet.visible = false

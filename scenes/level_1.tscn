@@ -69,6 +69,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_yngkc"]
 resource_name = "fadein"
@@ -109,6 +121,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_41sy1"]
 resource_name = "fadeout"
@@ -144,6 +168,18 @@ tracks/2/path = NodePath("HBoxContainer:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -200,8 +236,8 @@ libraries = {
 visible = false
 offset_right = 64.0
 offset_bottom = 64.0
-scale = Vector2(3, 3)
-pivot_offset = Vector2(0, 36)
+scale = Vector2(3.5, 3.5)
+pivot_offset = Vector2(0, 38)
 size_flags_horizontal = 0
 texture = ExtResource("2_wta06")
 
@@ -223,10 +259,40 @@ expand_mode = 2
 layout_mode = 2
 theme = ExtResource("2_1kvhn")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 12
+theme_override_constants/shadow_outline_size = 8
 theme_override_font_sizes/font_size = 22
 text = "x0"
 horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_right = 44.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="TIME" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1kvhn")
+theme_override_colors/font_color = Color(0.972549, 0.847059, 0.439216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 22
+text = "TIME"
+horizontal_alignment = 1
+
+[node name="TIME value" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1kvhn")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 22
+text = "000"
+horizontal_alignment = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 process_mode = 2
