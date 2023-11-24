@@ -1,6 +1,6 @@
 extends Node3D
 
-const TIME_RUNNING_OUT = 85
+const TIME_RUNNING_OUT = 100
 const  SPEED_UP_FACTOR = 1.1
 
 var timer_value = 0
