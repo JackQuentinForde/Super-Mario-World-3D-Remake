@@ -9,8 +9,8 @@ var fireBall = preload("res://scenes/fireball.tscn")
 
 const WALK_SPEED = 9
 const RUN_SPEED = 18
-const TURN_SPEED = 0.6
-const AIR_TURN_SPEED = 0.2
+const TURN_SPEED = 0.8
+const AIR_TURN_SPEED = 0.4
 const ACCEL = 0.2
 const JUMP_ACCEL = 2
 const JUMP_MIN_VELOCITY = 5
@@ -161,7 +161,7 @@ func EnterPipeLogic():
 		else:
 			velocity = Vector3.ZERO
 			position.z = lastPipe.global_position.z
-			gravMultiplier = 0.25
+			gravMultiplier = 0.5
 		lastPipe.call_deferred("DisableCollisions")
 		
 func SpinJump():
@@ -176,7 +176,7 @@ func SpinBounce():
 	
 func Bounce():
 	velocity.y = JUMP_MAX_VELOCITY
-	gravMultiplier = 1.25
+	gravMultiplier = 1.5
 		
 func ApplyGravity(delta):
 	velocity.y -= (gravity * gravMultiplier) * delta
@@ -363,7 +363,7 @@ func TeleportToOverground():
 	position.y = newPosition.y - 4
 	position.z = newPosition.z
 	$CameraBasis.call_deferred("Teleport")
-	velocity = Vector3(0, 22, 25.5)
+	velocity = Vector3(0, 22, 33)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	enteringPipe = false
 	get_parent().call_deferred("HideMountains", false)
