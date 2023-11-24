@@ -12,9 +12,9 @@ const RUN_SPEED = 18
 const TURN_SPEED = 0.8
 const AIR_TURN_SPEED = 0.4
 const ACCEL = 0.2
-const JUMP_ACCEL = 2
+const JUMP_ACCEL = 2.5
 const JUMP_MIN_VELOCITY = 5
-const JUMP_MAX_VELOCITY = 16
+const JUMP_MAX_VELOCITY = 20
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
