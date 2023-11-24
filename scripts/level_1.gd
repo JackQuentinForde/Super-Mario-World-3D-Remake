@@ -35,6 +35,7 @@ func speedUp():
 	$UndergroundMusic.seek(0)
 
 func HideMountains(isHiding):
+	$"Yoshi's Island 1".visible = !isHiding
 	var mountains = get_tree().get_nodes_in_group("Mountains")
 	for mountain in mountains:
 		mountain.visible = !isHiding
