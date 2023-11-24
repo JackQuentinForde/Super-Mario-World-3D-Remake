@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://bds01f02b41qb"]
+[gd_scene load_steps=37 format=3 uid="uid://bds01f02b41qb"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_a0uqv"]
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_rodd4"]
 [ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="2_1kvhn"]
 [ext_resource type="Texture2D" uid="uid://cl4vyhf06moik" path="res://assets/textures/CoinScore_Texture.png" id="2_pd0kh"]
+[ext_resource type="Texture2D" uid="uid://dfdyhehbl560f" path="res://assets/textures/Mario HUD.png" id="2_wta06"]
 [ext_resource type="PackedScene" uid="uid://d11w5v0uqfoj2" path="res://scenes/player.tscn" id="3_f0051"]
 [ext_resource type="Script" path="res://scripts/pause_canvas.gd" id="3_mvtn6"]
 [ext_resource type="AudioStream" uid="uid://b7de0ey6bde12" path="res://assets/music/Underground Theme.ogg" id="4_8q26d"]
@@ -122,6 +123,14 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_pc6s2")
 }
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(0, 36)
+size_flags_horizontal = 0
+texture = ExtResource("2_wta06")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 1
