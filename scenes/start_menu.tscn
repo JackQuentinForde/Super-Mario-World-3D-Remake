@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b82iln4c1x36j"]
+[gd_scene load_steps=28 format=3 uid="uid://b82iln4c1x36j"]
 
 [ext_resource type="PackedScene" uid="uid://fsyt7n6ty72y" path="res://scenes/yoshi's_island_1.tscn" id="1_liao1"]
 [ext_resource type="PackedScene" uid="uid://2eo1ki1mo0a1" path="res://scenes/mountain.tscn" id="2_darn5"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://25xu3gjibhv1" path="res://assets/textures/title.png" id="18_lndvt"]
 [ext_resource type="Script" path="res://scripts/startMenuControls.gd" id="19_0uk2i"]
 [ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="19_h4wpd"]
+[ext_resource type="StyleBox" uid="uid://dstdm8nb6b54f" path="res://themes/start_menu.tres" id="21_gpw0r"]
 
 [sub_resource type="Animation" id="Animation_av7q7"]
 resource_name = "restart"
@@ -895,13 +896,19 @@ grow_vertical = 0
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 theme = ExtResource("19_h4wpd")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = ExtResource("21_gpw0r")
 text = "START"
+flat = true
 
 [node name="Quit" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 theme = ExtResource("19_h4wpd")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = ExtResource("21_gpw0r")
 text = "QUIT"
+flat = true
 
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Start" to="CanvasLayer/Control" method="_on_start_pressed"]

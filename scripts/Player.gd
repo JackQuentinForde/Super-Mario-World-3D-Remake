@@ -67,7 +67,6 @@ func _ready():
 	speed = 0
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
-	TeleportToUnderground()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
