@@ -65,9 +65,9 @@ func _ready():
 	undergroundMusic = $"../UndergroundMusic"
 	$CameraBasis.rotation_degrees.y = -90
 	speed = 0
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	respawnPoint = position
 	canvasAnimationPlayer.call_deferred("play", "fadein")
+	TeleportToUnderground()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
@@ -334,7 +334,7 @@ func Win():
 	
 func CheckWin():
 	if fadeout and not canvasAnimationPlayer.is_playing():
-		get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+		get_tree().change_scene_to_file("res://scenes/start_menu.tscn")
 
 func EnteredPipeZone(pipeBody, inZone):
 	lastPipe = pipeBody

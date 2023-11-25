@@ -1049,6 +1049,9 @@ libraries = {
 "": SubResource("AnimationLibrary_rsc34")
 }
 
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]
 [connection signal="body_entered" from="Point1" to="." method="_on_point_1_body_entered"]

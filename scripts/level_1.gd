@@ -10,6 +10,7 @@ var runningOut = false
 @onready var timeValueLabel = $"CanvasLayer/VBoxContainer/TIME value"
 
 func _ready():
+	$CanvasLayer/ColorRect.color = Color(0, 0, 0, 255)
 	timeValueLabel.set_text(str(timer_value))
 
 	if get_node("Player").isLuigi:

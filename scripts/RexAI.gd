@@ -9,6 +9,8 @@ const ROT_SPEED = 6
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@export var waitToStart = true
+
 enum {PATROL_STATE, CHASE_STATE, WAIT_STATE, DYING_STATE}
 var vector
 var point
@@ -16,18 +18,26 @@ var state
 var player
 var health
 var scoreLabel
+var rng = RandomNumberGenerator.new()
 
 func _ready():
-	scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
+	var scene = get_tree().get_current_scene().get_name()
+	if scene == "Level 1":
+		scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
 	$Popup.visible = false
 	$Popup2.visible = false
 	point = $Point1.global_position
 	health = 2
 	state = PATROL_STATE
+	if waitToStart:
+		var waitTime = rng.randf_range(0, 4.0)
+		$Timer2.wait_time = waitTime
+		$Timer2.start()
 
 func _physics_process(delta):
 	ApplyGravity(delta)
-	Move(delta)
+	if ($Timer2.is_stopped()):
+		Move(delta)
 	move_and_slide()
 	$Popup.rotation_degrees = Vector3(0, -90, 0)
 	$Popup2.rotation_degrees = Vector3(0, -90, 0)

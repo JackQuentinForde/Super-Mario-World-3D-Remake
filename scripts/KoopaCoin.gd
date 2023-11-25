@@ -5,7 +5,9 @@ extends Area3D
 var scoreLabel
 
 func _ready():
-	scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
+	var scene = get_tree().get_current_scene().get_name()
+	if scene == "Level 1":
+		scoreLabel = $"../CanvasLayer/HBoxContainer/Score"
 	$Popup.visible = false
 	SetPopupMaterial()
 

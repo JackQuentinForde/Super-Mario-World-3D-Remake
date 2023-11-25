@@ -5,8 +5,10 @@ extends StaticBody3D
 var canvasLayer
 
 func _ready():
-	canvasLayer = get_parent().get_node("CanvasLayer2")
-	canvasLayer.call_deferred("set_visible", false)
+	var scene = get_tree().get_current_scene().get_name()
+	if scene == "Level 1":
+		canvasLayer = get_parent().get_node("CanvasLayer2")
+		canvasLayer.call_deferred("set_visible", false)
 
 func _on_area_3d_area_entered(area):
 	if area.name == "HeadArea":
