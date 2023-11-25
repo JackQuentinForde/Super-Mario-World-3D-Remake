@@ -611,6 +611,72 @@ collision_mask = 9
 [node name="@Ground@16922" parent="." index="145"]
 collision_layer = 9
 
+[node name="@Pillar001@16923" parent="." index="146"]
+collision_layer = 9
+
+[node name="@Pillar002@16924" parent="." index="147"]
+collision_layer = 9
+
+[node name="@Pillar003@16925" parent="." index="148"]
+collision_layer = 9
+
+[node name="@Pillar004@16926" parent="." index="149"]
+collision_layer = 9
+
+[node name="@Pillar005@16927" parent="." index="150"]
+collision_layer = 9
+
+[node name="@Pillar006@16928" parent="." index="151"]
+collision_layer = 9
+
+[node name="@Pillar007@16929" parent="." index="152"]
+collision_layer = 9
+
+[node name="@Pillar@16930" parent="." index="153"]
+collision_layer = 9
+
+[node name="@Pipe002@16931" parent="." index="154"]
+collision_layer = 9
+
+[node name="@Pipe007@16932" parent="." index="155"]
+collision_layer = 9
+
+[node name="@Pipe008@16933" parent="." index="156"]
+collision_layer = 9
+
+[node name="@Pipe009@16934" parent="." index="157"]
+collision_layer = 9
+
+[node name="@Pipe010@16935" parent="." index="158"]
+collision_layer = 9
+
+[node name="@Pipe011@16936" parent="." index="159"]
+collision_layer = 9
+
+[node name="@Pipe012@16937" parent="." index="160"]
+collision_layer = 9
+
+[node name="@Pipe013@16938" parent="." index="161"]
+collision_layer = 9
+
+[node name="@Pipe014@16939" parent="." index="162"]
+collision_layer = 9
+
+[node name="@Pipe015@16940" parent="." index="163"]
+collision_layer = 9
+
+[node name="@Pipe016@16941" parent="." index="164"]
+collision_layer = 9
+
+[node name="@Pipe@16942" parent="." index="165"]
+collision_layer = 9
+
+[node name="@Sign@16943" parent="." index="166"]
+collision_layer = 9
+
+[node name="@SignPole@16944" parent="." index="167"]
+collision_layer = 9
+
 [node name="StoneBlocks001" parent="." index="168"]
 collision_layer = 9
 collision_mask = 9
@@ -626,3 +692,15 @@ collision_mask = 9
 [node name="ThinPipes" parent="." index="171"]
 collision_layer = 9
 collision_mask = 9
+
+[node name="@Pipe005@16945" parent="." index="172"]
+collision_layer = 9
+
+[node name="@Pipe004@16946" parent="." index="173"]
+collision_layer = 9
+
+[node name="@Pipe003@16947" parent="." index="174"]
+collision_layer = 9
+
+[node name="@Pipe006@16948" parent="." index="175"]
+collision_layer = 9
