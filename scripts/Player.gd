@@ -7,7 +7,7 @@ var undergroundEnvironment = preload("res://environments/underground.tres")
 
 var fireBall = preload("res://scenes/fireball.tscn")
 
-const WALK_SPEED = 9
+const WALK_SPEED = 7.5
 const RUN_SPEED = 18
 const TURN_SPEED = 0.8
 const AIR_TURN_SPEED = 0.4

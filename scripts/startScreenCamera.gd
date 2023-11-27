@@ -1,6 +1,6 @@
 extends Camera3D
 
-const CAM_SPEED = 6
+const CAM_SPEED = 5
 
 var originalZPos
 

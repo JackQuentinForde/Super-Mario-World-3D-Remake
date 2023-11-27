@@ -3,7 +3,7 @@ extends CharacterBody3D
 var rewardCoin = preload("res://scenes/RewardCoin.tscn")
 
 const PATROL_SPEED = 3
-const CHASE_SPEED = 4
+const CHASE_SPEED = 5
 const ROT_SPEED = 6
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -148,6 +148,8 @@ func _on_squish_area_area_entered(area):
 		else:
 			scoreLabel.text = "x" + str(int(scoreLabel.text) + 400)
 			$AnimationPlayer3.play("400")
+
+
 		TakeHit(1)
 
 func _on_fireball_hit_box_body_entered(body):
