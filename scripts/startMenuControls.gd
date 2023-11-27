@@ -1,10 +1,12 @@
 extends Control
 
 var animationPlayer
+var musicPlayer
 
 func _ready():
 	$VBoxContainer/Start.grab_focus()
 	animationPlayer = $"../../Camera3D/AnimationPlayer"
+	musicPlayer = $"../../AudioStreamPlayer"
 
 func _input(_event):
 	if (not $VBoxContainer/Start.has_focus() 
@@ -12,7 +14,9 @@ func _input(_event):
 		$VBoxContainer/Start.grab_focus()
 
 func _on_start_pressed():
+	musicPlayer.stop()
 	animationPlayer.play("start")
 
 func _on_quit_pressed():
+	musicPlayer.stop()
 	animationPlayer.play("quit")
