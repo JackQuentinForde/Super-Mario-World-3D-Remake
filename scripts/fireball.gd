@@ -25,6 +25,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			Bounce()
 		if is_on_wall():
+			$AudioStreamPlayer2.play()
 			Destroy()
 		move_and_slide()
 	elif $GPUParticles3D.emitting == false:

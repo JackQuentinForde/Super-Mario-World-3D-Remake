@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dk0bf0hemqjvh"]
+[gd_scene load_steps=19 format=3 uid="uid://dk0bf0hemqjvh"]
 
 [ext_resource type="Script" path="res://scripts/fireball.gd" id="1_2137j"]
 [ext_resource type="AudioStream" uid="uid://wxh7lwfebssr" path="res://assets/sounds/fireball.wav" id="2_ir3dg"]
+[ext_resource type="AudioStream" uid="uid://bp3oyclba6y3p" path="res://assets/sounds/bump.wav" id="3_nvhgf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd6qs"]
 
@@ -212,6 +213,10 @@ draw_pass_1 = SubResource("SphereMesh_2cl5l")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ir3dg")
+volume_db = -12.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nvhgf")
 volume_db = -12.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
