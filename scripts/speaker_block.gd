@@ -12,6 +12,10 @@ func _ready():
 
 func _on_area_3d_area_entered(area):
 	if area.name == "HeadArea":
-		canvasLayer.get_node("Label").call_deferred("set_text", text)
-		canvasLayer.call_deferred("set_visible", true)
-		get_tree().paused = true
+		$AnimationPlayer.play("bonk")
+
+func _on_animation_player_animation_finished(_anim_name):
+	$AudioStreamPlayer.play()
+	canvasLayer.get_node("Label").call_deferred("set_text", text)
+	canvasLayer.call_deferred("set_visible", true)
+	get_tree().paused = true

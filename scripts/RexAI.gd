@@ -138,17 +138,20 @@ func _on_point_2_body_entered(body):
 
 func _on_squish_area_area_entered(area):
 	if area.name == "SpinArea":
+		$AudioStreamPlayer2.play()
 		scoreLabel.text = "x" + str(int(scoreLabel.text) + 200)
 		$AnimationPlayer2.play("200")
 		TakeHit(2)
 	elif area.name == "JumpArea" and $Armature.visible:
 		if health > 1:
+			$AudioStreamPlayer.play()
 			scoreLabel.text = "x" + str(int(scoreLabel.text) + 200)
 			$AnimationPlayer2.play("200")
 		else:
+			$AudioStreamPlayer.pitch_scale = 1.1
+			$AudioStreamPlayer.play()
 			scoreLabel.text = "x" + str(int(scoreLabel.text) + 400)
 			$AnimationPlayer3.play("400")
-
 
 		TakeHit(1)
 

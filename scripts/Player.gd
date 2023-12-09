@@ -117,7 +117,7 @@ func MoveLogic():
 		velocity.x = move_toward(velocity.x, 0, turnSpeed)
 		velocity.z = move_toward(velocity.z, 0, turnSpeed)
 		
-	if is_on_ceiling():
+	if is_on_ceiling() and not is_on_floor():
 		Bonk()	
 		
 func JumpLogic():
@@ -368,6 +368,7 @@ func TeleportToOverground():
 	get_parent().call_deferred("HideMountains", false)
 
 func Bonk():
+	$BonkSound.play()
 	velocity.y = 0
 	jumpReleased = true
 	spinJumpReleased = true
@@ -391,7 +392,6 @@ func _on_timer_timeout():
 func _on_timer_3_timeout():
 	$SpinArea/CollisionShape3D.call_deferred("set_disabled", false)
 
-
 func _on_head_area_body_entered(body):
-	if body != self:
+	if body != self and not is_on_floor():
 		Bonk()

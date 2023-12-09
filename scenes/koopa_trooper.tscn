@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cod5s620b7uqc"]
+[gd_scene load_steps=53 format=3 uid="uid://cod5s620b7uqc"]
 
 [ext_resource type="Script" path="res://scripts/koopa_trooperAI.gd" id="1_6ppda"]
 [ext_resource type="Material" uid="uid://bsudphbfg2tbj" path="res://materials/koopa_trooper.tres" id="2_v5t2a"]
@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="4_phu5j"]
 [ext_resource type="Material" uid="uid://t8uyk7ky8swv" path="res://materials/200.tres" id="5_iop2s"]
 [ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="6_17tag"]
+[ext_resource type="AudioStream" uid="uid://e5dec1rchflu" path="res://assets/sounds/kick.wav" id="7_h3afu"]
+[ext_resource type="AudioStream" uid="uid://fv250fq5k3ta" path="res://assets/sounds/super-stomp.wav" id="8_r62o6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6fmv"]
 
@@ -1073,6 +1075,14 @@ texture = ExtResource("6_17tag")
 libraries = {
 "": SubResource("AnimationLibrary_togc2")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_h3afu")
+volume_db = -12.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_r62o6")
+volume_db = -12.0
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]

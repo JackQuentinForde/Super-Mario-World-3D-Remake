@@ -30,4 +30,6 @@ func _on_hit_box_body_entered(body):
 		$Mesh.visible = false
 		if IS_MUSHROOM:
 			body.call_deferred("ChangeSize", body.SIZE_BIG)
+		else:
+			$AudioStreamPlayer.play()
 		$Timer.start()

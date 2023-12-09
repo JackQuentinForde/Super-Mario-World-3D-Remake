@@ -135,6 +135,10 @@ func _on_point_2_body_entered(body):
 
 func _on_squish_area_area_entered(area):
 	if area.name == "SpinArea" or area.name == "JumpArea":
+		if area.name == "SpinArea":
+			$AudioStreamPlayer2.play()
+		elif state != DYING_STATE:
+			$AudioStreamPlayer.play()
 		TakeHit()
 
 func _on_timer_2_timeout():

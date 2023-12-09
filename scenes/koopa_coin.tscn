@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duwrc70pxppp7" path="res://assets/textures/KoopaCoin_Texture.png" id="2_wu0to"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_r7gdh"]
-[ext_resource type="AudioStream" uid="uid://bysfauvavuiju" path="res://assets/sounds/Koopa Coin.wav" id="4_576vj"]
+[ext_resource type="AudioStream" uid="uid://bwv52s1gshaqq" path="res://assets/sounds/coin-special.wav" id="4_b8avv"]
 [ext_resource type="Script" path="res://scripts/KoopaCoin.gd" id="4_cfbjq"]
 [ext_resource type="Texture2D" uid="uid://2aqb5mhw5cri" path="res://assets/textures/8000_Texture.png" id="5_bvbph"]
 
@@ -170,8 +170,9 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_08p1j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_576vj")
-volume_db = -5.0
+stream = ExtResource("4_b8avv")
+volume_db = -12.0
+bus = &"Mario"
 
 [node name="Popup" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 2, 0)

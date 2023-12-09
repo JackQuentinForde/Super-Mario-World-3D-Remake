@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/KoopaCoin.gd" id="1_e3ms1"]
 [ext_resource type="Texture2D" uid="uid://dco3iigot8kf8" path="res://assets/textures/Coin_Texture.png" id="2_v17ce"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_t7nfd"]
+[ext_resource type="AudioStream" uid="uid://ddbk4vux20xlu" path="res://assets/sounds/coin.wav" id="4_je37o"]
 [ext_resource type="Material" uid="uid://t8uyk7ky8swv" path="res://materials/200.tres" id="4_nrnuo"]
-[ext_resource type="AudioStream" uid="uid://bysfauvavuiju" path="res://assets/sounds/Koopa Coin.wav" id="5_annsd"]
 [ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="5_dmdjd"]
 
 [sub_resource type="Animation" id="Animation_4nesa"]
@@ -182,8 +182,9 @@ wait_time = 0.4
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_annsd")
-volume_db = -5.0
+stream = ExtResource("4_je37o")
+volume_db = -12.0
+bus = &"Mario"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)

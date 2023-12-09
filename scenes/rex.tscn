@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://r3ucim6h30jy"]
+[gd_scene load_steps=65 format=3 uid="uid://r3ucim6h30jy"]
 
 [ext_resource type="Material" uid="uid://dnnrtm7a7xt81" path="res://materials/rex_material.tres" id="2_ast2y"]
 [ext_resource type="Script" path="res://scripts/RexAI.gd" id="2_kybsa"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="7_y2pa6"]
 [ext_resource type="Material" uid="uid://w06uww4ov86t" path="res://materials/400.tres" id="8_rh6th"]
 [ext_resource type="Texture2D" uid="uid://bol6x25oewmwq" path="res://assets/textures/400_Texture.png" id="9_dc7pl"]
+[ext_resource type="AudioStream" uid="uid://e5dec1rchflu" path="res://assets/sounds/kick.wav" id="10_cqsrj"]
+[ext_resource type="AudioStream" uid="uid://fv250fq5k3ta" path="res://assets/sounds/super-stomp.wav" id="11_dl0f7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nptjn"]
 
@@ -1051,6 +1053,14 @@ libraries = {
 
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cqsrj")
+volume_db = -12.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dl0f7")
+volume_db = -12.0
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_area_body_entered"]
 [connection signal="area_entered" from="SquishArea" to="." method="_on_squish_area_area_entered"]
