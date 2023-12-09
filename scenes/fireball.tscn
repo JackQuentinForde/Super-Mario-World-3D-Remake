@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk0bf0hemqjvh"]
+[gd_scene load_steps=18 format=3 uid="uid://dk0bf0hemqjvh"]
 
 [ext_resource type="Script" path="res://scripts/fireball.gd" id="1_2137j"]
+[ext_resource type="AudioStream" uid="uid://wxh7lwfebssr" path="res://assets/sounds/fireball.wav" id="2_ir3dg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd6qs"]
 
@@ -208,5 +209,9 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_te2t6")
 draw_pass_1 = SubResource("SphereMesh_2cl5l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ir3dg")
+volume_db = -12.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

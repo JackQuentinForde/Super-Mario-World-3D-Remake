@@ -6,8 +6,8 @@
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="4_phu5j"]
 [ext_resource type="Material" uid="uid://t8uyk7ky8swv" path="res://materials/200.tres" id="5_iop2s"]
 [ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="6_17tag"]
-[ext_resource type="AudioStream" uid="uid://e5dec1rchflu" path="res://assets/sounds/kick.wav" id="7_h3afu"]
-[ext_resource type="AudioStream" uid="uid://fv250fq5k3ta" path="res://assets/sounds/super-stomp.wav" id="8_r62o6"]
+[ext_resource type="AudioStream" uid="uid://canuwdf463pjq" path="res://assets/sounds/kick.wav" id="7_h3afu"]
+[ext_resource type="AudioStream" uid="uid://b7oeu7oyb7tyt" path="res://assets/sounds/super-stomp.wav" id="8_r62o6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6fmv"]
 

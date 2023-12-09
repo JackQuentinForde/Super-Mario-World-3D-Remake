@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi55vexrxwi5u"]
+[gd_scene load_steps=7 format=3 uid="uid://bi55vexrxwi5u"]
 
 [ext_resource type="PackedScene" uid="uid://r204n5lvb4kj" path="res://assets/models/Grey Pipe.glb" id="1_n2iww"]
 [ext_resource type="Material" uid="uid://mk0f5b0vpi5a" path="res://materials/blue_pipe.tres" id="2_8ex1x"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_23eyy"]
 [ext_resource type="Script" path="res://scripts/UndergroundEntrancePipe.gd" id="4_pg2nk"]
+[ext_resource type="AudioStream" uid="uid://c78ccwhe5qx6y" path="res://assets/sounds/pipe.wav" id="5_xgn1a"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f6qdh"]
 
@@ -26,6 +27,10 @@ shape = SubResource("CylinderShape3D_f6qdh")
 
 [node name="Timer" type="Timer" parent="." index="3"]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("5_xgn1a")
+volume_db = -12.0
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]

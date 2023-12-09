@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccqpjyii2762n"]
+[gd_scene load_steps=16 format=3 uid="uid://ccqpjyii2762n"]
 
 [ext_resource type="Script" path="res://scripts/mushroom.gd" id="1_ow4q1"]
 [ext_resource type="Material" uid="uid://b5et0vusr18i0" path="res://materials/mushroom.tres" id="2_3ho00"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_svmq1"]
 [ext_resource type="Material" uid="uid://bmrqrmgdpdeud" path="res://materials/1000.tres" id="4_fa3hd"]
+[ext_resource type="AudioStream" uid="uid://cvsrw5xxtjkiw" path="res://assets/sounds/sprout-item.wav" id="4_s5l72"]
 [ext_resource type="Texture2D" uid="uid://dwcgnfhhbs45d" path="res://assets/textures/1000_Texture.png" id="5_sh7aw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwpjk"]
@@ -142,6 +143,10 @@ one_shot = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MushroomBody/HitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.266719, 0)
 shape = SubResource("SphereShape3D_k1l6e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MushroomBody"]
+stream = ExtResource("4_s5l72")
+volume_db = -12.0
 
 [node name="Popup" type="Sprite3D" parent="."]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 1.21046, 0)

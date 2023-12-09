@@ -6,6 +6,7 @@ var scoreLabel
 var popup
 
 func _ready():
+	$AudioStreamPlayer.play()
 	scoreLabel = $"../../CanvasLayer/HBoxContainer/Score"
 	popup = $Popup
 	popup.visible = false

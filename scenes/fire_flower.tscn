@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0n42c4fn4uuk"]
+[gd_scene load_steps=18 format=3 uid="uid://0n42c4fn4uuk"]
 
 [ext_resource type="PackedScene" uid="uid://75arhtvfhm1" path="res://assets/models/Fire Flower.glb" id="1_2kfqt"]
 [ext_resource type="Script" path="res://scripts/fire_flower.gd" id="2_816md"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://cwovl3lhc3146" path="res://materials/flower_outline.tres" id="4_6q60c"]
 [ext_resource type="Material" uid="uid://bmrqrmgdpdeud" path="res://materials/1000.tres" id="5_gk30x"]
 [ext_resource type="Texture2D" uid="uid://dwcgnfhhbs45d" path="res://assets/textures/1000_Texture.png" id="6_tfvth"]
+[ext_resource type="AudioStream" uid="uid://cvsrw5xxtjkiw" path="res://assets/sounds/sprout-item.wav" id="7_idr47"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_58pyc"]
 
@@ -198,6 +199,10 @@ autoplay = "spin"
 libraries = {
 "": SubResource("AnimationLibrary_snksn")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("7_idr47")
+volume_db = -12.0
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

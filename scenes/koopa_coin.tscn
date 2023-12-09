@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duwrc70pxppp7" path="res://assets/textures/KoopaCoin_Texture.png" id="2_wu0to"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_r7gdh"]
-[ext_resource type="AudioStream" uid="uid://bwv52s1gshaqq" path="res://assets/sounds/coin-special.wav" id="4_b8avv"]
+[ext_resource type="AudioStream" uid="uid://ec5g2xe4bkae" path="res://assets/sounds/coin-special.wav" id="4_b8avv"]
 [ext_resource type="Script" path="res://scripts/KoopaCoin.gd" id="4_cfbjq"]
 [ext_resource type="Texture2D" uid="uid://2aqb5mhw5cri" path="res://assets/textures/8000_Texture.png" id="5_bvbph"]
 

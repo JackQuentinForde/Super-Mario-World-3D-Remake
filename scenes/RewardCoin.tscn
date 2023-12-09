@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnnpkc0xbq2t7"]
+[gd_scene load_steps=18 format=3 uid="uid://cnnpkc0xbq2t7"]
 
 [ext_resource type="Script" path="res://scripts/mushroom.gd" id="1_8vyat"]
 [ext_resource type="Texture2D" uid="uid://dco3iigot8kf8" path="res://assets/textures/Coin_Texture.png" id="2_40egr"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_pycb7"]
 [ext_resource type="Material" uid="uid://t8uyk7ky8swv" path="res://materials/200.tres" id="4_nea2p"]
-[ext_resource type="AudioStream" uid="uid://ddbk4vux20xlu" path="res://assets/sounds/coin.wav" id="4_pdnfs"]
+[ext_resource type="AudioStream" uid="uid://bvhnotureu2gx" path="res://assets/sounds/coin.wav" id="4_pdnfs"]
 [ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="5_02ofg"]
+[ext_resource type="AudioStream" uid="uid://canuwdf463pjq" path="res://assets/sounds/kick.wav" id="5_avlqw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abou7"]
 
@@ -181,6 +182,11 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CoinBody"]
 stream = ExtResource("4_pdnfs")
+volume_db = -12.0
+bus = &"Mario"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CoinBody"]
+stream = ExtResource("5_avlqw")
 volume_db = -12.0
 bus = &"Mario"
 

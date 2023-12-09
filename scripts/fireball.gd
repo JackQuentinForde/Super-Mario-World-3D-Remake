@@ -8,6 +8,7 @@ var destroyed = false
 var isReversed = false
 
 func _ready():
+	$AudioStreamPlayer.play()
 	$CollisionShape3D.disabled = false
 	var parent = get_parent()
 	var parentPos = parent.global_position

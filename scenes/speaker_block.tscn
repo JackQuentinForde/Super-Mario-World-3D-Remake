@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bprpuumgma1vg" path="res://assets/textures/Blocks/SpeakerBlock_Texture.png" id="1_5wfiq"]
 [ext_resource type="Script" path="res://scripts/speaker_block.gd" id="1_cv5ur"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_e5plx"]
-[ext_resource type="AudioStream" uid="uid://bd5gec8inlpbx" path="res://assets/sounds/message.wav" id="4_drej1"]
+[ext_resource type="AudioStream" uid="uid://c1k7eeuv4uxvc" path="res://assets/sounds/message.wav" id="4_drej1"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o66f4"]
 points = PackedVector3Array(0.511547, 0.511547, 0.511547, 0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547, 0.511547, -0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547)
@@ -68,6 +68,21 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfgy8"]
 size = Vector3(1, 0.978, 1.096)
 
+[sub_resource type="Animation" id="Animation_ocqkh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BreakableBlock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_lqvhe"]
 resource_name = "bonk"
 length = 0.2
@@ -82,21 +97,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0.163664, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ocqkh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BreakableBlock:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ao66"]

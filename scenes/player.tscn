@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://d11w5v0uqfoj2"]
+[gd_scene load_steps=14 format=3 uid="uid://d11w5v0uqfoj2"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_8gskp"]
 [ext_resource type="PackedScene" uid="uid://d237ljdpc6hwn" path="res://scenes/mario.tscn" id="2_o8p38"]
 [ext_resource type="PackedScene" uid="uid://bixo3w7gfw4gw" path="res://scenes/small_mario.tscn" id="3_4ithi"]
 [ext_resource type="Script" path="res://scripts/CameraBasis.gd" id="4_b272e"]
-[ext_resource type="AudioStream" uid="uid://x56yhie1h7uy" path="res://assets/sounds/Jump.wav" id="4_oe7a1"]
-[ext_resource type="AudioStream" uid="uid://beki6q8qck5w4" path="res://assets/sounds/spin.wav" id="6_cdh6s"]
-[ext_resource type="AudioStream" uid="uid://dhrkbx3f1h34q" path="res://assets/sounds/bump.wav" id="7_qnw4u"]
+[ext_resource type="AudioStream" uid="uid://dd77ld684sdp8" path="res://assets/sounds/jump.wav" id="4_oe7a1"]
+[ext_resource type="AudioStream" uid="uid://dy3krn72245ns" path="res://assets/sounds/spin.wav" id="6_cdh6s"]
+[ext_resource type="AudioStream" uid="uid://bp3oyclba6y3p" path="res://assets/sounds/bump.wav" id="7_qnw4u"]
+[ext_resource type="AudioStream" uid="uid://bya6palgu81kv" path="res://assets/sounds/powerup.wav" id="8_w0b34"]
+[ext_resource type="AudioStream" uid="uid://c78ccwhe5qx6y" path="res://assets/sounds/pipe.wav" id="9_jy7h3"]
+[ext_resource type="AudioStream" uid="uid://cw3ddxjkwccdf" path="res://assets/sounds/smw_lost_a_life.wav" id="9_m4bvh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dke0w"]
 height = 1.96005
@@ -74,6 +77,18 @@ bus = &"Mario"
 
 [node name="BonkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_qnw4u")
+volume_db = -12.0
+
+[node name="GrowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_w0b34")
+volume_db = -12.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m4bvh")
+volume_db = -3.0
+
+[node name="ShrinkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jy7h3")
 volume_db = -12.0
 
 [node name="HeadArea" type="Area3D" parent="."]

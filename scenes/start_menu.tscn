@@ -21,9 +21,9 @@
 [ext_resource type="Script" path="res://scripts/startMenuControls.gd" id="19_0uk2i"]
 [ext_resource type="Theme" uid="uid://eonf6ioq4ntj" path="res://themes/text_theme.tres" id="19_h4wpd"]
 [ext_resource type="StyleBox" uid="uid://dstdm8nb6b54f" path="res://themes/start_menu.tres" id="21_gpw0r"]
-[ext_resource type="AudioStream" uid="uid://10o7ilumy1y2" path="res://assets/sounds/Cursor Sound.ogg" id="22_q0k55"]
+[ext_resource type="AudioStream" uid="uid://dbxalt6v5dkmy" path="res://assets/sounds/map-spot.wav" id="22_g74jo"]
 [ext_resource type="AudioStream" uid="uid://cenmrn1kklsbr" path="res://assets/music/Super Mario World Title.ogg" id="22_sfbor"]
-[ext_resource type="AudioStream" uid="uid://ddbk4vux20xlu" path="res://assets/sounds/coin.wav" id="23_vkwvd"]
+[ext_resource type="AudioStream" uid="uid://bvhnotureu2gx" path="res://assets/sounds/coin.wav" id="23_vkwvd"]
 
 [sub_resource type="Animation" id="Animation_aponr"]
 length = 0.001
@@ -914,8 +914,8 @@ text = "QUIT"
 flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control"]
-stream = ExtResource("22_q0k55")
-volume_db = -80.0
+stream = ExtResource("22_g74jo")
+volume_db = -12.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control"]
 stream = ExtResource("23_vkwvd")
@@ -927,7 +927,5 @@ volume_db = -22.0
 autoplay = true
 
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
-[connection signal="focus_entered" from="CanvasLayer/Control/VBoxContainer/Start" to="CanvasLayer/Control" method="_on_start_focus_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Start" to="CanvasLayer/Control" method="_on_start_pressed"]
-[connection signal="focus_entered" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control" method="_on_quit_focus_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control" method="_on_quit_pressed"]

@@ -55,6 +55,7 @@ func _on_detection_area_body_entered(body):
 	if body.name == "Player" and state != LOST_STATE:
 		player = body.get_node("Mario")
 		self.visible = true
+		$BulletSound.play()
 		state = CHASE_STATE
 
 func _on_detection_area_body_exited(body):

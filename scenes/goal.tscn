@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bw1ysubeyoh3b"]
+[gd_scene load_steps=23 format=3 uid="uid://bw1ysubeyoh3b"]
 
 [ext_resource type="Script" path="res://scripts/goal.gd" id="1_4ju4i"]
 [ext_resource type="Material" uid="uid://dsqmjlo2scayw" path="res://materials/checkpoint.tres" id="2_skud8"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_4s4vb"]
+[ext_resource type="AudioStream" uid="uid://dahdap5hqchis" path="res://assets/sounds/checkpoint.wav" id="4_1n12v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nybxv"]
 
@@ -261,5 +262,9 @@ autoplay = "bounce"
 libraries = {
 "": SubResource("AnimationLibrary_v7ams")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1n12v")
+volume_db = -12.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

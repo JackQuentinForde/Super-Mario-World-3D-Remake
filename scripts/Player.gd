@@ -185,6 +185,7 @@ func ChangeSize(size):
 		pass
 	
 	if size == SIZE_BIG:
+		$GrowSound.play()
 		$MarioBodyCollision.disabled = false
 		$MarioHeadCollision.disabled = false
 		$SmallMarioBodyCollision.disabled = true
@@ -307,6 +308,7 @@ func Respawn():
 func TakeHit():
 	if not invincible:
 		if currentSize == SIZE_BIG:
+			$ShrinkSound.play()
 			ChangeSize(SIZE_SMALL)
 		else:
 			mario.visible = false
@@ -317,6 +319,7 @@ func TakeHit():
 				Die()
 	
 func Die():
+	$DeathSound.play()
 	$MarioBodyCollision.disabled = true
 	$MarioHeadCollision.disabled = true
 	$SmallMarioBodyCollision.disabled = true

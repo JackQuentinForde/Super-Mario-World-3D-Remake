@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://226irpmdm6b4" path="res://assets/textures/200_Texture.png" id="7_y2pa6"]
 [ext_resource type="Material" uid="uid://w06uww4ov86t" path="res://materials/400.tres" id="8_rh6th"]
 [ext_resource type="Texture2D" uid="uid://bol6x25oewmwq" path="res://assets/textures/400_Texture.png" id="9_dc7pl"]
-[ext_resource type="AudioStream" uid="uid://e5dec1rchflu" path="res://assets/sounds/kick.wav" id="10_cqsrj"]
-[ext_resource type="AudioStream" uid="uid://fv250fq5k3ta" path="res://assets/sounds/super-stomp.wav" id="11_dl0f7"]
+[ext_resource type="AudioStream" uid="uid://canuwdf463pjq" path="res://assets/sounds/kick.wav" id="10_cqsrj"]
+[ext_resource type="AudioStream" uid="uid://b7oeu7oyb7tyt" path="res://assets/sounds/super-stomp.wav" id="11_dl0f7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nptjn"]
 

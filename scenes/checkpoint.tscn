@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2lsuear8paw6"]
+[gd_scene load_steps=20 format=3 uid="uid://b2lsuear8paw6"]
 
 [ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_aleu2"]
 [ext_resource type="Material" uid="uid://dsqmjlo2scayw" path="res://materials/checkpoint.tres" id="2_1v4b2"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="3_egrd4"]
+[ext_resource type="AudioStream" uid="uid://dahdap5hqchis" path="res://assets/sounds/checkpoint.wav" id="4_nvus8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25vle"]
 
@@ -217,5 +218,9 @@ surface_material_override/1 = ExtResource("3_egrd4")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156498, 0.27881, -0.00334167)
 shape = SubResource("ConvexPolygonShape3D_pxt46")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nvus8")
+volume_db = -12.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

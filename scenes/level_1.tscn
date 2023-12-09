@@ -136,7 +136,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_41sy1"]
 resource_name = "fadeout"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

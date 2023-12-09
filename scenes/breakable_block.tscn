@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/breakable_block.gd" id="1_6orpp"]
 [ext_resource type="Material" uid="uid://mg1b0qfy402l" path="res://materials/outline.tres" id="2_4x4v8"]
 [ext_resource type="Material" uid="uid://ca11jegrpdlqx" path="res://materials/breakable_block.tres" id="3_mtd73"]
-[ext_resource type="AudioStream" uid="uid://dr333i1w1gyts" path="res://assets/sounds/shatter.wav" id="4_77y85"]
+[ext_resource type="AudioStream" uid="uid://cd4xc6vd1ovxq" path="res://assets/sounds/shatter.wav" id="4_77y85"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o66f4"]
 points = PackedVector3Array(0.511547, 0.511547, 0.511547, 0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, 0.511547, 0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547, 0.511547, -0.511547, 0.511547, -0.511547, -0.511547, -0.511547, -0.511547)

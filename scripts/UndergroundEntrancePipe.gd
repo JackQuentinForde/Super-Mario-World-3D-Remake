@@ -4,10 +4,12 @@ var player
 
 func DisableCollisions():
 	$"@Pipe001@24189/CollisionShape3D".call_deferred("set_disabled", true)
+	$AudioStreamPlayer.play()
 	$Timer.start()
 
 func _on_timer_timeout():
 	player.call_deferred("TeleportToUnderground")
+	$AudioStreamPlayer.play()
 	$"@Pipe001@24189/CollisionShape3D".call_deferred("set_disabled", false)
 
 func _on_trigger_body_entered(body):
