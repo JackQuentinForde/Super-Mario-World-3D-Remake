@@ -377,7 +377,7 @@ func Bonk():
 	spinJumpReleased = true
 
 func _on_spin_area_area_entered(area):
-	if area.get_parent().is_in_group("BreakableBlocks") or area.name == "SquishArea":
+	if (area.get_parent().is_in_group("BreakableBlocks") and currentSize == SIZE_BIG) or area.name == "SquishArea":
 		SpinBounce()
 
 func _on_jump_area_area_entered(area):
