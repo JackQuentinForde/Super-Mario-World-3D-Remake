@@ -51,6 +51,7 @@ var undergroundMusic
 enum {SIZE_SMALL, SIZE_BIG}
 
 func _ready():
+	$BonkSound.volume_db = -12
 	AudioServer.set_bus_effect_enabled(1, 0, false)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
 	currentSize = SIZE_SMALL
@@ -284,20 +285,21 @@ func SetSpawn():
 		
 func CheckFallen():
 	if position.y < respawnPoint.y - 15 and not fallen:
-		if gotCheckpoint:
-			music.stop()
-			fallen = true
-			canvasAnimationPlayer.call_deferred("play", "fadeout")
-		else:
-			Die()
+		fallen = true
+		Die()
 	elif fallen:
 		if not canvasAnimationPlayer.is_playing():
 			Respawn()
 
 func Respawn():
+	$MarioBodyCollision.disabled = false
+	$MarioHeadCollision.disabled = false
+	$SmallMarioBodyCollision.disabled = false
+	$SmallMarioHeadCollision.disabled = false
+	$BonkSound.volume_db = -12
+	music.play()
 	AudioServer.set_bus_effect_enabled(1, 0, false)
 	get_parent().get_node("WorldEnvironment").call_deferred("set_environment", overworldEnvironment)
-	music.play()
 	ChangeSize(SIZE_SMALL)
 	canvasAnimationPlayer.call_deferred("play", "fadein")
 	position = respawnPoint
@@ -315,6 +317,7 @@ func TakeHit():
 			if gotCheckpoint:
 				canvasAnimationPlayer.call_deferred("play", "fadeout")
 				fallen = true
+				Die()
 			else:
 				Die()
 	
@@ -324,10 +327,11 @@ func Die():
 	$MarioHeadCollision.disabled = true
 	$SmallMarioBodyCollision.disabled = true
 	$SmallMarioHeadCollision.disabled = true
+	$BonkSound.volume_db = -80
 	headBox.disabled = true
 	music.stop()
 	canvasAnimationPlayer.call_deferred("play", "fadeout")
-	fadeout = true
+	fadeout = !gotCheckpoint
 	
 func Win():
 	music.stop()
