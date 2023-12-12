@@ -12,14 +12,15 @@ func _ready():
 	minY = global_position.y
 
 func _physics_process(delta):
-	RotateLogic(delta)
-	var playerPos = player.global_transform.origin
-	var targetPos = Vector3(playerPos.x, playerPos.y, playerPos.z)
-	targetPos.y += Y_OFFSET
-	if targetPos.y <= minY:
-		targetPos.y = minY
-	
-	global_transform.origin = global_transform.origin.lerp(targetPos, FOLLOW_SPEED * delta)
+	if not player.dead:
+		RotateLogic(delta)
+		var playerPos = player.global_transform.origin
+		var targetPos = Vector3(playerPos.x, playerPos.y, playerPos.z)
+		targetPos.y += Y_OFFSET
+		if targetPos.y <= minY:
+			targetPos.y = minY
+		
+		global_transform.origin = global_transform.origin.lerp(targetPos, FOLLOW_SPEED * delta)
 	
 func RotateLogic(delta):
 	if Input.is_action_pressed("camera_left"):

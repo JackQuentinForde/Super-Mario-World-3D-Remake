@@ -20,6 +20,7 @@ const JUMP_MAX_VELOCITY = 16
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var gravMultiplier = 1
 
+var dead = false
 var jumping = false
 var jumpReleased = true
 var spinJumpReleased = true
@@ -292,6 +293,7 @@ func CheckFallen():
 			Respawn()
 
 func Respawn():
+	dead = false
 	$MarioBodyCollision.disabled = false
 	$MarioHeadCollision.disabled = false
 	$SmallMarioBodyCollision.disabled = false
@@ -313,15 +315,15 @@ func TakeHit():
 			$ShrinkSound.play()
 			ChangeSize(SIZE_SMALL)
 		else:
-			mario.visible = false
 			if gotCheckpoint:
-				canvasAnimationPlayer.call_deferred("play", "fadeout")
 				fallen = true
 				Die()
 			else:
 				Die()
 	
 func Die():
+	dead = true
+	mario.visible = false
 	$DeathSound.play()
 	$MarioBodyCollision.disabled = true
 	$MarioHeadCollision.disabled = true
