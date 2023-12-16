@@ -424,6 +424,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13765, 8.33278, 271.13)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59584, 7.38126, 171.509)
 flowerBlock = true
 
+[node name="ExclamationBlock11" parent="." instance=ExtResource("15_ymamm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59584, 7.38126, 39.509)
+
 [node name="ExclamationBlock2" parent="." instance=ExtResource("15_ymamm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59584, 3.41503, 227.509)
 
@@ -528,7 +531,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095e-09, 4.66123, 288)
 environment = ExtResource("18_ane1g")
 
 [node name="Banzai Bill" parent="." instance=ExtResource("20_wauj7")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 51)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8.44865, 51)
 
 [node name="Banzai Bill2" parent="." instance=ExtResource("20_wauj7")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 8, 227)
